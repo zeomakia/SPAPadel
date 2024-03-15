@@ -1,0 +1,11 @@
+<!-- Componente de modal para mostrar mensajes de error o información -->
+      <div *ngIf="tipo==='info'" class="modal-body">
+        <div class="alert alert-info" role="alert">
+          <i class="fas fa-info-circle"></i> {{ mensaje }}
+        </div>
+      </div>
+      <div *ngIf="tipo==='error'" class="modal-body">
+        <div class="alert alert-danger" role="alert">
+          <i class="fas fa-exclamation-triangle"></i> {{ mensaje }}
+        </div>
+      </div>

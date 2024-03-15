@@ -1,0 +1,81 @@
+<div class="container">
+    <h2 class="text-center mb-4">Formulario de creación de usuario</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card rounded shadow">
+          <div class="card-body">
+            <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Ingrese su nombre">
+                    <div *ngIf="registroForm.get('nombre')?.invalid && (registroForm.get('nombre')?.dirty || registroForm.get('nombre')?.touched)"
+                      class="text-danger">
+                      Nombre es requerido
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="user">Usuario</label>
+                    <input type="text" class="form-control" id="user" formControlName="user" placeholder="Ingrese su usuario">
+                    <div *ngIf="registroForm.get('user')?.invalid && (registroForm.get('user')?.dirty || registroForm.get('user')?.touched)"
+                      class="text-danger">
+                      Usuario es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="Ingrese su correo electrónico">
+                    <div *ngIf="registroForm.get('email')?.invalid && (registroForm.get('email')?.dirty || registroForm.get('email')?.touched)"
+                      class="text-danger">
+                      Email es requerido y debe ser válido
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="emailConfirm">Confirmar Email</label>
+                    <input type="email" class="form-control" id="emailConfirm" formControlName="emailConfirm" placeholder="Confirme su correo electrónico">
+                    <div *ngIf="registroForm.get('emailConfirm')?.invalid && (registroForm.get('emailConfirm')?.dirty || registroForm.get('emailConfirm')?.touched)"
+                      class="text-danger">
+                      Los correos electrónicos deben coincidir
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" formControlName="apellidos" placeholder="Ingrese sus apellidos">
+                    <div *ngIf="registroForm.get('apellidos')?.invalid && (registroForm.get('apellidos')?.dirty || registroForm.get('apellidos')?.touched)"
+                      class="text-danger">
+                      Apellidos son requeridos
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" formControlName="telefono" placeholder="Ingrese su teléfono">
+                    <div *ngIf="registroForm.get('telefono')?.invalid && (registroForm.get('telefono')?.dirty || registroForm.get('telefono')?.touched)"
+                      class="text-danger">
+                      Teléfono es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">Registrarse</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

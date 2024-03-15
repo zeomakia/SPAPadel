@@ -1,0 +1,30 @@
+
+  
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    padding: 20px;
+    background-color: #a1c6ea;
+     margin-top: 40px;
+    border-radius: 20px;
+    // position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #a1c6ea;
+    text-align: center;
+  }
+  
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+  }

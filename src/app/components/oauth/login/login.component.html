@@ -1,0 +1,28 @@
+<div class="login-component d-flex justify-content-center align-items-center flex-column">
+    <!-- Aquí es donde puedes poner tu logo -->
+    <div class="mb-3 text-center" style="border: 3px;border-color: black;">
+            <img src="assets/logo.jpg" alt="Logo" style="width: 150px; height: 150px;">
+    </div>
+    <div class="card shadow p-4 rounded">
+        <form [formGroup]="loginForm" class="form-detalle">
+        <h2 class="text-center mb-4">Iniciar sesión</h2>
+        <div class="mb-3">
+            <input type="text" formControlName="usernameForm"  class="form-control" id="usernameForm" placeholder="Usuario" />
+        </div>
+        <div *ngIf="loginForm.get('usernameForm')?.invalid  && loginForm.get('usernameForm')?.touched" class="error-message" style="color: red;">
+            <h4>Usuario requerido.</h4>
+          </div>
+        <div class="mb-3">
+            <input type="password" formControlName="passwordForm"  id="passwordForm" class="form-control" placeholder="Contraseña" />
+        </div>
+        <div *ngIf="loginForm.get('passwordForm')?.invalid  && loginForm.get('passwordForm')?.touched" class="error-message" style="color: red;">
+            <h4>Contraseña requerida.</h4>
+          </div>
+        <div class="d-grid gap-2">
+            <button id="btn" [disabled]="loginForm.invalid" (click)="login()" class="btn btn-primary">Iniciar sesión</button>
+            <button (click)="register()" class="btn btn-outline-primary">Registrarse</button>
+        </div>
+    </form>
+    </div>
+    <!-- <app-registrarse></app-registrarse> -->
+</div>

@@ -1,0 +1,33 @@
+<h3>Jugadores</h3>
+<div class="table-responsive">
+  <table class="table table-hover rounded">
+    <thead class="bg-light">
+      <tr>
+        <th class="text-primary">Nombre</th>
+        <th class="text-primary">Apellido</th>
+        <th class="text-primary">Edad</th>
+        <th style="width: 60px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jugador of jugadores; let i = index">
+        <td>{{ jugador.nombre }}</td>
+        <td>{{ jugador.apellido }}</td>
+        <td>{{ jugador.edad }}</td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{i}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+              <span>&#183;&#183;&#183;</span>
+            </button>
+            <ul class="dropdown-menu" >
+              <li><a class="dropdown-item" (click)="goDetail(jugador.id,'D')">Detalle</a></li>
+              <li><a class="dropdown-item" (click)="goDetail(jugador.id,'M')">Modificar</a></li>
+              <li><a class="dropdown-item" (click)="goBorrar(jugador.id)">Borrar</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <app-jugadores-detail *ngIf="detalle"></app-jugadores-detail> -->

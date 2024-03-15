@@ -1,0 +1,27 @@
+.card {
+    width: 300px;
+    border-radius: 2px; /* Ajusta este valor para cambiar el radio de los bordes redondeados */
+    // border: 2px solid black; /* Añade un borde negro */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.5); /* Aumenta la sombra */
+  }
+  
+.login-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 75vh;
+  // width: 75vw;
+  // margin: 50px ;
+    /* Asegúrate de reemplazar 'background.jpg' con la ruta a tu imagen de fondo */
+  //   background: url('/assets/background.jpg') no-repeat center center fixed; 
+  //   background-size: 110% 90%;
+  //   animation: background 25s infinite;
+  //   border-radius: 20px; /* Ajusta este valor para cambiar el radio de los bordes redondeados */
+  //   border: 2px solid black; /* Añade un borde negro */
+  // box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.5); /* Aumenta la sombra */
+}
+
+@keyframes background {
+    0% {background-position: 0 0;}
+    100% {background-position: 100% 0;}
+}
