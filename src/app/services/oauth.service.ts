@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginRequest } from '../models/loginRequest';
 import { tap } from 'rxjs/operators';
+import { singUPRequest } from '../models/singUPRequest';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,9 +26,33 @@ export class OauthService {
       this.loggedIn.next(true);
     })
   );
-    
-    this.loggedIn.next(true);
   }
+
+  singUpComponent(formulario: singUPRequest): Observable<any> {
+    const request= formulario;
+        return this.http.post('http://localhost:8080/api/auth/jugador/signup', request)
+    .pipe(
+     tap(response => {
+  this.loggedIn.next(true);
+  })
+    );
+  }
+
+  getUser(username: String): Observable<any>{
+
+    const token= localStorage.getItem("access_token");
+    const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
+    const request= username;
+    return this.http.get('http://localhost:8080/api/jugador/'+username, {headers})
+  .pipe(
+  tap(response => {
+  this.loggedIn.next(true);
+  })
+  );
+  }
+  
+   
+  
 
   logout() {
     this.loggedIn.next(false);
