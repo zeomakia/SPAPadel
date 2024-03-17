@@ -38,19 +38,30 @@ export class OauthService {
     );
   }
 
-  getUser(username: String): Observable<any>{
+    getUser(username: String): Observable<any>{
 
-    const token= localStorage.getItem("access_token");
-    const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
-    const request= username;
-    return this.http.get('http://localhost:8080/api/jugador/'+username, {headers})
-  .pipe(
-  tap(response => {
-  this.loggedIn.next(true);
-  })
-  );
+      const token= sessionStorage.getItem("access_token");
+      const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      const request= username;
+      return this.http.get('http://localhost:8080/api/jugador/'+username, {headers})
+      .pipe(
+      tap(response => {
+        this.loggedIn.next(true);
+      })
+    );
   }
   
+  updateUser(user: userProfile): Observable<any>{
+    const token= sessionStorage.getItem("access_token");
+    const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
+    const username= sessionStorage.getItem('user')
+    return this.http.post('http://localhost:8080/api/jugador/update/'+username,user, {headers})
+    .pipe(
+    tap(response => {
+      this.loggedIn.next(true);
+    })
+  );
+}
    
   
 

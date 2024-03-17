@@ -16,8 +16,8 @@ export class JugadoresComponent {
   constructor(private jugadorService: JugadorService) { }
 
   ngOnInit() {
-    this.getJugadores()
-    .subscribe(jugadores=> this.jugadores = jugadores);;
+   // this.getJugadores()
+    //.subscribe(jugadores=> this.jugadores = jugadores);;
   }
 
   getJugadores(): Observable<Jugadores[]> {
