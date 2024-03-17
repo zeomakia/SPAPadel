@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal.service';
 import { validateHorizontalPosition } from '@angular/cdk/overlay';
 import { DataSource } from '@angular/cdk/collections';
-import { singUPRequest } from 'src/app/models/singUPRequest';
+import { userProfile } from 'src/app/models/userProfile';
 import { catchError, of } from 'rxjs';
 @Component({
   selector: 'app-sing-up',
@@ -14,30 +14,44 @@ import { catchError, of } from 'rxjs';
 })
 export class SingUpComponent {
   registroForm!: FormGroup;
+  edades: number[] = Array.from({length:100},(_, i )=>i+1);
 
   constructor(private formBuilder: FormBuilder,private oauthService: OauthService,private router: Router,
               private modalService: ModalService) { 
                 this.registroForm = this.formBuilder.group({
                   nombre: ['', Validators.required],
                   user: ['', Validators.required],
+                  contraseña:['',Validators.required],
+                  contraseñaConfirm:['',Validators.required],
                   apellidos: ['', Validators.required],
                   email: ['', [Validators.required, Validators.email]],
                   emailConfirm: ['', [Validators.required, Validators.email]],
                   telefono: ['', Validators.required]
-                });
+                } ,{validator: [this.checkPasswords, this.checkEmail] });
     }
 
+    checkEmail(group: FormGroup){
+      let pass1= group.get('email')?.value;
+      let pass2 = group.get('emailConfirm')?.value;
+      return pass1===pass2 ? null: { notSameEmail: true}
+    }
+    checkPasswords(group: FormGroup){
+      let pass1= group.get('contraseña')?.value;
+      let pass2 = group.get('contraseñaConfirm')?.value;
+      return pass1===pass2 ? null: { notSame: true}
+    }
  
 
   onSubmit(): void {
     if(this.registroForm.valid){
-     const request : singUPRequest={
+     const request : userProfile={
       name:this.registroForm.get("nombre")?.value,
       apellidos:this.registroForm.get("apellidos")?.value,
       username:this.registroForm.get("user")?.value,
       email:this.registroForm.get("email")?.value,
-      password:"pepita2222",//this.registroForm.get("contraseña")?.value,
-      telefono:this.registroForm.get("telefono")?.value
+      password:this.registroForm.get("contraseña")?.value,
+      telefono:this.registroForm.get("telefono")?.value,
+      edad:this.registroForm.get("edad")?.value
       }
       this.oauthService.singUpComponent(request).pipe(
         catchError(error => {
@@ -45,13 +59,20 @@ export class SingUpComponent {
           this.modalService.openModalError;
           return of(null);
         })
-      ).subscribe(response => {
-          // Guarda el token en el almacenamiento local
-          console.log(response);
+      ).subscribe((response: Boolean) => {
+          if(response)
+          {
+            console.log("Usuari: " + this.registroForm.get("user")?.value + " creat correctament!");
+            this.modalService.openModalInfo("Benvingut/da! " + this.registroForm.get("user")?.value);
+            this.router.navigate(['/login']);
+          }else{
+            console.log("Error.");
+            this.modalService.openModalError;
+          }
         
       });
     
-      this.router.navigate(['/login']);
+      
     }
     
    
@@ -59,5 +80,9 @@ export class SingUpComponent {
     // o realizar otras acciones necesarias
     console.log(this.registroForm.value);
   }
-  
+  login() {
+    // redireccion desde boton cancelar al login
+    console.log('Login User');
+    this.router.navigate(['/login']);
+  }
 }

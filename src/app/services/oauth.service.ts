@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginRequest } from '../models/loginRequest';
 import { tap } from 'rxjs/operators';
-import { singUPRequest } from '../models/singUPRequest';
+import { userProfile } from '../models/userProfile';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +28,7 @@ export class OauthService {
   );
   }
 
-  singUpComponent(formulario: singUPRequest): Observable<any> {
+  singUpComponent(formulario: userProfile): Observable<any> {
     const request= formulario;
         return this.http.post('http://localhost:8080/api/auth/jugador/signup', request)
     .pipe(

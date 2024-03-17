@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+   user?:string;
 
+  ngOnInit(){
+    if(sessionStorage.getItem('user') !== null){
+      this.user=sessionStorage.getItem('user')!;
+    };
+  }
 }

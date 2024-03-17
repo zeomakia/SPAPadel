@@ -42,9 +42,11 @@ export class LoginComponent {
       ).subscribe(response => {
         if (response.token) {
           // Guarda el token en el almacenamiento local
-          localStorage.setItem('access_token', response.token); 
+          sessionStorage.setItem('access_token', response.token);
+          sessionStorage.setItem('user', response.username);
           this.router.navigate(['/jugadores']);
-        } else {
+        }
+        else{
           console.log('Usuario o contraseña incorrectos');
           this.modalService.openModalError('Usuario o contraseña incorrectos');
         }

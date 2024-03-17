@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ModalService } from 'src/app/services/modal.service';
 import { OauthService } from 'src/app/services/oauth.service';
 
 @Component({
@@ -10,7 +12,7 @@ import { OauthService } from 'src/app/services/oauth.service';
 })
 export class PerfilUserComponent {
   perfilUser!: any;
-  constructor(private router:Router,private ouathService:OauthService){
+  constructor(private router:Router,private ouathService:OauthService, private modalService: ModalService){
     this.perfilUser = new FormGroup({
       nombre: new FormControl('', Validators.required),
       apellidos: new FormControl('', Validators.required),
@@ -23,14 +25,42 @@ export class PerfilUserComponent {
       confirmPassword: new FormControl('')
     });
   }
+  ngOnInit() {
+        this.obtenerDatosUsuario().subscribe(
+            respuesta => {
+                this.rellenarFormulario(respuesta);
+                console.log("Usuario:"+ this.perfilUser);
+                console.log("respuesta:"+ respuesta.data);
+            },
+            error => {
+                console.error('Error al obtener el usuario:', error);
+                this.modalService.openModalError("Ha ocurrido un error recuperando el usuario.")
+                // Aquí puedes manejar el error según tus necesidades
+            }
+        );
+   
+}
 
-  ngOnInit(){
-    this.ouathService.getUser("asd").subscribe(singUPRequest=>
-      {
-        this.perfilUser=singUPRequest;
-    });
+  obtenerDatosUsuario(): Observable<any>{
+    const user = sessionStorage.getItem('user')!;
+    if (user!==null) {
+      return this.ouathService.getUser(user);
+    }else{
+      this.modalService.openModalError("Ha ocurrido un error recuperando el usuario de la sesión.");
+      return this.perfilUser;
   }
+  }
+  rellenarFormulario(respuesta: any){
+    this.perfilUser.setValue({
+      nombre: respuesta.name,
+      apellidos: respuesta.apellidos,
+      user: respuesta.username,
+      email: respuesta.email,
+      edad: respuesta.edad,
+      telefono: respuesta.telefono,
 
+    })
+  }
   showChangePassword = false;
 
   onSubmit() {
