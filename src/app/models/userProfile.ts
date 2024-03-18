@@ -7,4 +7,5 @@ export interface userProfile{
         email:string,
         password:string,
         edad:number,
+        passwordActual:string
 }

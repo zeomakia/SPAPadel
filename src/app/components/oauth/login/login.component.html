@@ -12,9 +12,13 @@
         <div *ngIf="loginForm.get('usernameForm')?.invalid  && loginForm.get('usernameForm')?.touched" class="error-message" style="color: red;">
             <h4>Usuario requerido.</h4>
           </div>
-        <div class="mb-3">
-            <input type="password" formControlName="passwordForm"  id="passwordForm" class="form-control" placeholder="Contraseña" />
+          <div class="mb-3 position-relative">
+            <input [type]="hide ? 'password' : 'text'" formControlName="passwordForm"  id="passwordForm" class="form-control" placeholder="Contraseña" />
+            <span class="toggle-password position-absolute" (click)="toggle()" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                <i class="bi" [ngClass]="hide ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+            </span>
         </div>
+        
         <div *ngIf="loginForm.get('passwordForm')?.invalid  && loginForm.get('passwordForm')?.touched" class="error-message" style="color: red;">
             <h4>Contraseña requerida.</h4>
           </div>

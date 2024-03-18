@@ -15,6 +15,8 @@ import { catchError, of } from 'rxjs';
 export class SingUpComponent {
   registroForm!: FormGroup;
   edades: number[] = Array.from({length:100},(_, i )=>i+1);
+  hide:boolean=true;
+  hide2:boolean=true;
 
   constructor(private formBuilder: FormBuilder,private oauthService: OauthService,private router: Router,
               private modalService: ModalService) { 
@@ -26,7 +28,8 @@ export class SingUpComponent {
                   apellidos: ['', Validators.required],
                   email: ['', [Validators.required, Validators.email]],
                   emailConfirm: ['', [Validators.required, Validators.email]],
-                  telefono: ['', Validators.required]
+                  telefono: ['', Validators.required],
+                  edad: ['', Validators.required],
                 } ,{validator: [this.checkPasswords, this.checkEmail] });
     }
 
@@ -51,7 +54,8 @@ export class SingUpComponent {
       email:this.registroForm.get("email")?.value,
       password:this.registroForm.get("contraseña")?.value,
       telefono:this.registroForm.get("telefono")?.value,
-      edad:this.registroForm.get("edad")?.value
+      edad:this.registroForm.get("edad")?.value,
+      passwordActual:""
       }
       this.oauthService.singUpComponent(request).pipe(
         catchError(error => {
@@ -84,5 +88,11 @@ export class SingUpComponent {
     // redireccion desde boton cancelar al login
     console.log('Login User');
     this.router.navigate(['/login']);
+  }
+  toggle(){
+    this.hide=!this.hide;
+  }
+  toggle2(){
+    this.hide2=!this.hide2;
   }
 }

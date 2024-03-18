@@ -15,6 +15,9 @@ export class PerfilUserComponent {
   perfilUser!: FormGroup;
   showChangePassword = false;
   mostrarDatos=false;
+  hide:boolean=true;
+  hide2:boolean=true;
+  hide3:boolean=true;
   constructor(private formBuilder: FormBuilder,private router:Router,private ouathService:OauthService, private modalService: ModalService)
   {
     this.perfilUser =  this.formBuilder.group({
@@ -85,6 +88,7 @@ export class PerfilUserComponent {
        username:this.perfilUser.get("user")?.value,
        email:this.perfilUser.get("email")?.value,
        password:this.perfilUser.get("password")?.value,
+       passwordActual:this.perfilUser.get("actualPassword")?.value,
        telefono:this.perfilUser.get("telefono")?.value,
        edad:this.perfilUser.get("edad")?.value
        }
@@ -106,5 +110,15 @@ export class PerfilUserComponent {
     this.router.navigate(['/jugadores']);
     this.perfilUser.reset();
     // Aquí puedes manejar la lógica de cancelación del formulario
+  }
+
+  toggle(){
+    this.hide=!this.hide;
+  }
+  toggle2(){
+    this.hide2=!this.hide2;
+  }
+  toggle3(){
+    this.hide3=!this.hide3;
   }
 }

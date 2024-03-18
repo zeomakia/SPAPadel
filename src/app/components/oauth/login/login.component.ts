@@ -14,7 +14,7 @@ import { of } from 'rxjs';
 })
 export class LoginComponent {
   loginForm!: FormGroup;
-  
+  hide:boolean=true;
   
   
   constructor(private oauthService: OauthService,private router: Router,
@@ -59,5 +59,7 @@ export class LoginComponent {
     console.log('Registering user');
     this.router.navigate(['/singup']);
   }
-
+  toggle() {
+    this.hide = !this.hide;
+  }
 }

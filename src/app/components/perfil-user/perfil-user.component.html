@@ -60,16 +60,26 @@
             <div class="row">
              <div class="col-md-6">
                 <div class="form-group">
+                  <div class="mb-3 position-relative">
                     <label for="actualPassword">Contraseña Actual</label>
-                    <input type="password" id="actualPassword" class="form-control" formControlName="actualPassword" required>
+                    <input [type]="hide ? 'password' : 'text'" id="actualPassword" class="form-control" formControlName="actualPassword" required>
+                    <span class="toggle-password position-absolute" (click)="toggle()" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                        <i class="bi" [ngClass]="hide ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                    </span>
+                  </div>
                 </div>  
              </div>
             </div>  
             <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" id="password" class="form-control" formControlName="password" required>
+                    <div class="mb-3 position-relative">
+                      <label for="password">Contraseña</label>
+                      <input [type]="hide2 ? 'password' : 'text'"  id="password" class="form-control" formControlName="password" required>
+                      <span class="toggle-password position-absolute" (click)="toggle2()" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                          <i class="bi" [ngClass]="hide2 ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                      </span>
+                    </div>
                     <div *ngIf="perfilUser.errors?.['passwValid']">
                         <small class="text-danger">Campo requerido</small>
                     </div>
@@ -77,8 +87,13 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="confirmPassword">Confirmar Contraseña</label>
-                    <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword" required>
+                    <div class="mb-3 position-relative">
+                      <label for="confirmPassword">Confirmar Contraseña</label>
+                      <input [type]="hide3 ? 'password' : 'text'" id="confirmPassword" class="form-control" formControlName="confirmPassword" required>
+                      <span class="toggle-password position-absolute" (click)="toggle3()" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                          <i class="bi" [ngClass]="hide3 ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                      </span>
+                    </div>
                     <div *ngIf="perfilUser.errors?.['passwValid']">
                         <small class="text-danger">Campo requerido e igual a la nueva contraseña</small>
                     </div>

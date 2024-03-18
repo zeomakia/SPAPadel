@@ -95,7 +95,12 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="contraseña">Contraseña</label>
-                    <input type="password" class="form-control" id="contraseña" formControlName="contraseña" placeholder="Contraseña">
+                    <div class="mb-3 position-relative">
+                      <input [type]="hide ? 'password' : 'text'"class="form-control" id="contraseña" formControlName="contraseña" placeholder="Contraseña">
+                        <span class="toggle-password position-absolute" (click)="toggle()" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                            <i class="bi" [ngClass]="hide ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                        </span>
+                    </div>
                     <div *ngIf="registroForm.get('contraseña')?.invalid && (registroForm.get('contraseña')?.dirty || registroForm.get('contraseña')?.touched)"
                       class="text-danger">
                       Contraseña es requerida
@@ -105,7 +110,12 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="contraseñaConfirm">Confirme su contraseña</label>
-                    <input type="password" class="form-control" id="contraseñaConfirm" formControlName="contraseñaConfirm" placeholder="Confirme su contraseña">
+                    <div class="mb-3 position-relative">
+                      <input [type]="hide2 ? 'password':'text'" class="form-control" id="contraseñaConfirm" formControlName="contraseñaConfirm" placeholder="Confirme su contraseña">
+                        <span class="toggle-password position-absolute" (click)="toggle2()" style="right: 10px; top: 50%; transform: translateY(-50%);">
+                            <i class="bi" [ngClass]="hide2 ? 'bi-eye-slash-fill' : 'bi-eye-fill'"></i>
+                        </span>
+                    </div>
                     <div *ngIf="registroForm.get('contraseñaConfirm')?.invalid && (registroForm.get('contraseñaConfirm')?.dirty || registroForm.get('contraseñaConfirm')?.touched)"
                       class="text-danger">
                       La contraseña es requerida.
