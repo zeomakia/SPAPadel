@@ -56,7 +56,7 @@ export class OauthService {
     const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
     const username= sessionStorage.getItem('user')
     return this.http.put('http://localhost:8080/api/jugador/update/'+username,user, {headers})
-    .pipe(
+    .pipe( 
     tap(response => {
       this.loggedIn.next(true);
     })

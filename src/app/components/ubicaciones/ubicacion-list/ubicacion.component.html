@@ -1,0 +1,35 @@
+<h3>Ubicaciones</h3>
+<div class="table-responsive">
+  <table class="table table-hover rounded">
+    <thead class="bg-light">
+      <tr>
+        <th class="text-primary">Id</th>
+        <th class="text-primary">Nombre</th>
+        <th class="text-primary">Direccion</th>
+        <th style="width: 60px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ubicacion of ubicaciones; let i = index">
+        <td>{{ ubicacion?.id }}</td>
+        <td>{{ ubicacion?.name }}</td>
+        <td>{{ ubicacion?.direccion }}</td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{i}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+              <span>&#183;&#183;&#183;</span>
+            </button>
+            <ul class="dropdown-menu" >
+              <li><a class="dropdown-item" (click)="goDetail(ubicacion.id,'D')">Detalle</a></li>
+              <li><a class="dropdown-item" (click)="goDetail(ubicacion.id,'M')">Modificar</a></li>
+              <li><a class="dropdown-item" (click)="goBorrar(ubicacion.id)">Borrar</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary" (click)="createUbicacion()" style="float: right;">Nueva Ubicación</button>
+</div>
+</div>
+<app-ubicaciones-detail *ngIf="detalle" [ubicacion]="ubicacion" [tipo]="tipo" (actualizar)="actualizarLista()" (cerrarDetalle)="cerrarHijo()"></app-ubicaciones-detail>

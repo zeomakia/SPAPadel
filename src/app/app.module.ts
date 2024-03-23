@@ -14,6 +14,8 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { SharedModule } from './shared/shared.module';
 import { JugadoresModule } from './components/jugadores/jugadores.module';
 import { OauthModule } from './components/oauth/oauth.module';
+import { UbicacionesModule } from './components/ubicaciones/ubicaciones.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import { OauthModule } from './components/oauth/oauth.module';
     BrowserAnimationsModule,
     JugadoresModule,
     OauthModule,
+    UbicacionesModule
   ],
   exports: [ReactiveFormsModule,
     NgIf,
