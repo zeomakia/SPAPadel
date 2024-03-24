@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, NgZone, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, NgZone, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ubicacion } from 'src/app/models/ubicacion';
 import { ModalService } from 'src/app/services/modal.service';
@@ -16,14 +16,15 @@ export class UbicacionesDetailComponent {
   @Output() actualizar = new EventEmitter<void>();
   @ViewChild('map', { static: true })
   mapElement!: ElementRef;
-  disable=false;
   ubicacionForm: FormGroup; 
 
 
   constructor(private ngZone: NgZone, 
     private ubicacionService: UbicacionService,
-    private modalService: ModalService) { 
+    private modalService: ModalService,
+    private readonly cd: ChangeDetectorRef) { 
     this.ubicacionForm = new FormGroup({
+      id: new FormControl(''),
       name: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
       codigo_postal: new FormControl('', Validators.required),
@@ -31,17 +32,24 @@ export class UbicacionesDetailComponent {
   }
 
   ngOnInit() {
-    if(this.tipo==='D' || this.tipo==='M'){
     // En caso de detalle recuperamos los datos y creamos el mapa
-    const ubicacionMaps = this.ubicacion?.direccion +', ' + this.ubicacion?.codigo_postal;
-    this.geocodeAddress(ubicacionMaps);
-      this.ubicacionForm.setValue({
-        name:this.ubicacion?.name,
-        direccion: this.ubicacion?.direccion,
-        codigo_postal: this.ubicacion?.codigo_postal
-      });
-    }
+    this.actualizarMapa();
+    this.actualizarForm();
+  }
+  ngOnChanges() {
+    // En caso de detalle recuperamos los datos y creamos el mapa
+    this.actualizarMapa();
+   
+    this.actualizarForm();
+    
 
+  }
+  actualizarMapa() {
+    if(this.tipo!=='A'){
+      const ubicacionMaps = this.ubicacion?.direccion +', ' + this.ubicacion?.codigo_postal;
+      this.geocodeAddress(ubicacionMaps);
+    } 
+    
   }
   geocodeAddress(address: string) {
     const geocoder = new google.maps.Geocoder();
@@ -63,8 +71,11 @@ export class UbicacionesDetailComponent {
   }
 
   goBack(): void {
-    // this.location.back();
-    this.modalService.openModalInfo('Ubicación actualizada');
+    if(this.tipo==='M')
+      this.modalService.openModalInfo('Ubicación modificada correctamente');
+    else
+      this.modalService.openModalInfo('Ubicación creada correctamente');
+
     this.cerrarDetalle.emit();
   }
   guardarubicacion(){
@@ -76,20 +87,64 @@ export class UbicacionesDetailComponent {
           direccion: this.ubicacionForm.get('direccion')?.value,
           codigo_postal: this.ubicacionForm.get('codigo_postal')?.value,
         };
-    
-        // Llamar al servicio
-        this.ubicacionService.addUbicacion(ubicacion).subscribe(
-          (response) => {
-              this.actualizar.emit();
-              this.goBack(); 
-          },
-          (error) => {
-              console.error('Error al crear la partida: ', error);
-              this.modalService.openModalError('Error al crear la partida: ' + error);
-          }
-      );
+        if(this.tipo==='M'){
+          // Llamar al servicio
+          this.ubicacionService.modifyUbicacion(ubicacion).subscribe(
+            (response) => {
+                this.actualizar.emit();
+                this.goBack(); 
+            },
+            (error) => {
+                console.error('Error al modificar la partida: ', JSON.stringify(error));
+                this.modalService.openModalError('Error al modificar la partida: ');
+            }
+          );
+        }  else{
+          this.ubicacionService.addUbicacion(ubicacion).subscribe(
+            (response) => {
+                this.actualizar.emit();
+                this.goBack(); 
+            },
+            (error) => {
+                console.error('Error al crear la partida: ', JSON.stringify(error));
+                this.modalService.openModalError('Error al crear la partida: ');
+            }
+          );
+        }
       }
      
     }
+  
+   actualizarForm(): void  {
+    if(this.tipo!=='A'){
+      this.ubicacionForm.setValue({
+        id: this.ubicacion?.id,
+        name:this.ubicacion?.name,
+        direccion: this.ubicacion?.direccion,
+        codigo_postal: this.ubicacion?.codigo_postal
+      });
+      if(this.tipo==='D')
+        this.deshabilitarForm();
+      else
+        this.habilitarForm();
+    }else{
+      this.ubicacionForm = new FormGroup({
+        id: new FormControl(''),
+        name: new FormControl('', Validators.required),
+        direccion: new FormControl('', Validators.required),
+        codigo_postal: new FormControl('', Validators.required),
+      });
+    }
   }
+  habilitarForm() {
+    this.ubicacionForm.get('name')?.enable();
+    this.ubicacionForm.get('direccion')?.enable();
+    this.ubicacionForm.get('codigo_postal')?.enable();
+  }
+  deshabilitarForm() {
+    this.ubicacionForm.get('name')?.disable();
+    this.ubicacionForm.get('direccion')?.disable();
+    this.ubicacionForm.get('codigo_postal')?.disable();
+  }
+}
 

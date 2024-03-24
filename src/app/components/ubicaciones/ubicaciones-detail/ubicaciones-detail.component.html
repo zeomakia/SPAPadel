@@ -4,43 +4,42 @@
     <form [formGroup]="ubicacionForm" class="form-detalle">
       <div class="row">
         <div class="col-md-6">
-          <div style="margin-top: 5px;"   class="form-group">
+          <div style="margin-top: 5px;"  *ngIf="tipo!=='A'"  class="form-group">
             <label for="id">Id:</label>
             <input  type="text" class="form-control" id="id" [value]="ubicacion?.id" disabled>
           </div>
           <div style="margin-top: 5px;"   class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" formControlName="name" class="form-control" id="name" [disabled]="disable">
+            <input type="text" formControlName="name" class="form-control" id="name" >
              <div *ngIf="ubicacionForm.get('name')?.invalid && ubicacionForm.get('name')?.touched" class="error-message" style="color: red;">
                 El nombre del centro requerido.
             </div>
           </div>
           <div style="margin-top: 5px;"   class="form-group">
             <label for="direccion">Dirección</label>
-            <input type="text" class="form-control" formControlName="direccion" id="direccion" [disabled]="disable">
+            <input type="text" class="form-control" formControlName="direccion" id="direccion" >
             <div *ngIf="ubicacionForm.get('direccion')?.invalid && ubicacionForm.get('direccion')?.touched" class="error-message" style="color: red;">
                 El nombre del centro requerido.
            </div>
         </div>
             <div style="margin-top: 5px;"  class="form-group">
                 <label for="codigo_postal">Codigo Postal</label>
-                <input type="text" class="form-control" formControlName="codigo_postal" id="codigo_postal"  [disabled]="disable">
+                <input type="text" class="form-control" formControlName="codigo_postal" id="codigo_postal" >
                 <div *ngIf="ubicacionForm.get('codigo_postal')?.invalid && ubicacionForm.get('codigo_postal')?.touched" class="error-message" style="color: red;">
                      El nombre del centro requerido.
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" >
             <!-- <h2>Localizacion</h2> -->
-            <div #map style="height: 300px; width: 600px;"></div>
+            <div [hidden]="tipo==='A'" #map style="height: 300px; width: 600px;" ></div>
         </div>
       </div><br>
       <div style="display: flex; justify-content: space-between;">
-        <button id="btn" [disabled]="ubicacionForm.invalid" (click)="guardarubicacion()" class="btn btn-primary">Guardar</button>
+        <button id="btn" [hidden]="tipo==='D'" [disabled]="ubicacionForm.invalid" (click)="guardarubicacion()" class="btn btn-primary">Guardar</button>
         <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
       </div>
     </form>
   </div>
-  
   
   <app-modal></app-modal>

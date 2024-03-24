@@ -1,5 +1,5 @@
 /// <reference types="@types/googlemaps" />
-import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { Ubicacion } from '../../../models/ubicacion';
 import { UbicacionService } from 'src/app/services/ubicacion-service.service';
 import { Observable } from 'rxjs';
@@ -16,7 +16,8 @@ export class UbicacionComponent {
   tipo: any;
   ubicacion: Ubicacion | undefined;
   detalle: boolean = false;
-  constructor(private ubicacionService: UbicacionService, private modalService: ModalService) { }
+  constructor(private ubicacionService: UbicacionService, private modalService: ModalService,
+    private readonly cd: ChangeDetectorRef)  { }
 
   ngOnInit() {
    this.getUbicaciones()
@@ -24,7 +25,7 @@ export class UbicacionComponent {
       (ubicaciones)=> { this.ubicaciones = ubicaciones},
       (error)=> {this.modalService.openModalError("Error recuperando ubicaciones"+error)}
     );
-     }
+  }
 
   getUbicaciones(): Observable<Ubicacion[]> {
     return this.ubicacionService.getUbicaciones();
@@ -40,15 +41,20 @@ export class UbicacionComponent {
   // this.
   }
   createUbicacion(){
-    this.detalle=true;
+    this.detalle=false;
     this.tipo='A';
+    this.detalle=true;
   }
 
   cerrarHijo(){
     this.detalle=false;
   }
   actualizarLista(){
-    this.ngOnInit;
+    this.getUbicaciones()
+    .subscribe( 
+      (ubicaciones)=> { this.ubicaciones = ubicaciones},
+      (error)=> {this.modalService.openModalError("Error recuperando ubicaciones"+error)}
+    );
   }
 }
 

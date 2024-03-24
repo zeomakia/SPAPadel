@@ -28,7 +28,20 @@ export class UbicacionService{
     addUbicacion(ubicacion: Ubicacion): Observable<any> {
       const token= sessionStorage.getItem("access_token");
       const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
-       return this.http.put(this.ubicacionUrl+'insert',ubicacion, {headers});
+       return this.http.post(this.ubicacionUrl+'insert',ubicacion, {headers});
+    }
+
+
+    modifyUbicacion(ubicacion: Ubicacion): Observable<any> {
+      const token= sessionStorage.getItem("access_token");
+      const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      return this.http.put(this.ubicacionUrl+'update/'+`${ubicacion.name}`,ubicacion, {headers});
+    }
+
+    deleteUbicacion(name: string){
+      const token= sessionStorage.getItem("access_token");
+      const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      return this.http.post(this.ubicacionUrl+'/delete/'+`${name}`, {headers});
     }
 
 
