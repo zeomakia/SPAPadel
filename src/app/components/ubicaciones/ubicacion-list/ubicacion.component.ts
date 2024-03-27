@@ -38,7 +38,15 @@ export class UbicacionComponent {
     this.detalle=true;
   }
   goBorrar(id: number){
-  // this.
+   this.ubicacionService.deleteUbicacion(id).subscribe(
+    (status)=> {this.modalService.openModalInfo("Ubicacion borrada correctamente.");},
+    (err)=>  {this.modalService.openModalError("Ha habido un error borrando la ubicación.");}
+   );
+    this.getUbicaciones()
+    .subscribe( 
+      (ubicaciones)=> { this.ubicaciones = ubicaciones},
+      (error)=> {this.modalService.openModalError("Error recuperando ubicaciones"+error)}
+    );
   }
   createUbicacion(){
     this.detalle=false;

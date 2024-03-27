@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { JugadoresModule } from './components/jugadores/jugadores.module';
 import { OauthModule } from './components/oauth/oauth.module';
 import { UbicacionesModule } from './components/ubicaciones/ubicaciones.module';
+import { PartidasModule } from './components/partidas/partidas.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UbicacionesModule } from './components/ubicaciones/ubicaciones.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     JugadoresModule,
+    PartidasModule,
     OauthModule,
     UbicacionesModule
   ],

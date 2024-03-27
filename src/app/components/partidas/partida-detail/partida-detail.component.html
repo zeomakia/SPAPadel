@@ -1,0 +1,143 @@
+<!-- -------PARTIDA EXISTENTE-------- -->
+<div *ngIf="tipo==='D'" class="detalle-partida content">
+  <h2 class="header">Detalle de la partida</h2>
+  <form class="form-detalle">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id">ID:</label>
+          <input type="text" class="form-control" id="id" [value]="partida.id" [disabled]="disable">
+        </div>
+        <div class="form-group">
+          <label for="pareja1">Pareja 1:</label>
+          <input type="text" class="form-control" id="pareja1" [value]="partida.pareja1" [disabled]="disable">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pareja2">Pareja 2:</label>
+          <input type="text" class="form-control" id="pareja2" [value]="partida.pareja2" [disabled]="disable">
+        </div>
+        <div class="form-group">
+          <label for="ubicacion">Ubicación:</label>
+          <input type="text" class="form-control" id="ubicacion" [value]="partida.ubicacion" [disabled]="disable">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="dia">Día:</label>
+          <input type="text" class="form-control" id="dia" [value]="partida.dia | date" [disabled]="disable">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="parejaGanadora">Pareja ganadora:</label>
+          <input type="text" class="form-control" id="parejaGanadora" [value]="partida.pareja_ganadora" [disabled]="disable">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="resultado">Resultado:</label>
+          <input type="text" class="form-control" id="resultado" [value]="partida.resultado" [disabled]="disable">
+        </div>
+      </div>
+    </div> 
+    <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
+  </form>
+</div>
+
+<!-- -------PARTIDA NUEVA-------- -->
+<div *ngIf="tipo==='A' || tipo==='M'" class="detalle-partida content">
+  <h2 *ngIf="tipo==='A'" class="header">Crear nueva partida</h2>
+  <h2 *ngIf="tipo==='M'" class="header">Modificar partida</h2>
+  <form [formGroup]="nuevaPartidaForm" class="form-detalle">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pareja1">Pareja 1:</label>
+          <select formControlName="pareja1Form" class="form-control" id="pareja1Form">
+            <option *ngIf="tipo==='A'" value="" disabled selected>Seleccionar</option>
+            <option *ngFor="let pareja of parejas" [value]="pareja.id">{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}</option>
+          </select>
+          <div *ngIf="nuevaPartidaForm.get('pareja1Form')?.invalid && nuevaPartidaForm.get('pareja1Form')?.touched" class="error-message" style="color: red;">
+            Pareja 1 es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pareja2">Pareja 2:</label>
+          <select formControlName="pareja2Form" class="form-control" id="pareja2Form">
+            <option *ngIf="tipo==='A'" value="" disabled selected>Seleccionar</option>
+
+            <option *ngFor="let pareja of parejas" [value]="pareja.id">{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}</option>
+          </select>
+          <div *ngIf="nuevaPartidaForm.get('pareja2Form')?.invalid && nuevaPartidaForm.get('pareja2Form')?.touched" class="error-message" style="color: red;">
+            Pareja 2 es requerido.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="ubicacion">Ubicación:</label>
+          <select formControlName="ubicacionForm" type="text" class="form-control" id="ubicacion">
+            <option *ngIf="tipo==='A'" value="" disabled selected>Seleccionar</option>
+            <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">{{ ubicacion.name }}</option>
+          </select>
+          <div *ngIf="nuevaPartidaForm.get('ubicacionForm')?.invalid && nuevaPartidaForm.get('ubicacionForm')?.touched" class="error-message" style="color: red;">
+            Ubicación es requerida.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="resultado">Resultado:</label>
+          <input formControlName="resultadoForm" placeholder="XX-XX-XX" type="text" class="form-control" id="resultado">
+          
+          <div *ngIf="nuevaPartidaForm.get('resultadoForm')?.invalid && nuevaPartidaForm.get('resultadoForm')?.touched" class="error-message" style="color: red;">
+            Resultado es requerido.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="parejaGanadora">Pareja Ganadora:</label>
+          <select formControlName="parejaGanadoraForm" class="form-control" id="parejaGanadora">
+            <option *ngIf="tipo==='A'" value="" disabled selected>Seleccionar</option>
+            <option *ngFor="let pareja of parejas" [value]="pareja.id">{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}</option>
+          </select>
+          <div *ngIf="nuevaPartidaForm.get('parejaGanadoraForm')?.invalid && nuevaPartidaForm.get('parejaGanadoraForm')?.touched" class="error-message" style="color: red;">
+            Pareja ganadora es requerida.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="dia">Día:</label>
+          <mat-form-field appearance="fill">
+            <input formControlName="diaForm" matInput [matDatepicker]="picker" id="dia">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div *ngIf="nuevaPartidaForm.get('diaForm')?.invalid && nuevaPartidaForm.get('diaForm')?.touched" class="error-message" style="color: red;">
+            Día es requerido.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <button id="btn" [disabled]="nuevaPartidaForm.invalid" (click)="guardarNuevaPartida()" class="btn btn-primary">Guardar</button>
+      <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
+    </div>
+   
+  </form>
+</div>
+<app-modal></app-modal>

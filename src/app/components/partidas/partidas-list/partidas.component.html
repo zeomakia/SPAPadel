@@ -1,0 +1,42 @@
+<div style="margin-top: 10px;">
+<h2>Últimas partidas</h2>
+<div class="table-responsive" style="padding-bottom: 100px;">
+  <table class="table table-hover rounded">
+    <thead class="bg-light">
+      <tr>
+        <th >Partida</th>
+        <th >Pareja 1</th>
+        <th>Pareja 2</th>
+        <th >Ganadores</th>
+        <th style="width: 60px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let partida of partidas | paginate: { itemsPerPage: 5, currentPage: p }; let i = index ">
+        <td>{{ partida.id }}</td>
+        <td>{{ partida.pareja1 }}</td>
+        <td>{{ partida.pareja2 }}</td>
+        <td>{{ partida.pareja_ganadora }}</td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{i}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+                  <!-- <span>&#183;&#183;&#183;</span> -->
+                </button>
+                <ul class="dropdown-menu  ">
+                  <li><a class="dropdown-item " (click)="goDetail(partida.id,'D')" >Detalle</a></li>
+                  <li><a class="dropdown-item" (click)="goDetail(partida.id,'M')">Modificar</a></li>
+                  <li><a class="dropdown-item" (click)="eliminarPartida(partida.id)">Borrar</a></li>
+                </ul>
+              </div>
+        </td>
+      </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </tbody>
+  </table>
+  <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary" (click)="createMatch()" style="float: right;">Alta partida</button>
+   
+  </div>
+</div>
+</div>
+<app-modal></app-modal>
+<app-partida-detail #hijoRef *ngIf="detalle" [tipo]="tipo" [identificador]="identificador" (partidaCreada)="getPartidas()" (cerrarDetalle)="cerrarHijo()"  ></app-partida-detail>
