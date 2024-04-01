@@ -4,6 +4,6 @@ export interface Partida {
   pareja2: string;
   ubicacion: string;
   dia?: Date;
-  pareja_ganadora?: number;
   resultado?: string;
+  parejaGanadora?: string;
 }

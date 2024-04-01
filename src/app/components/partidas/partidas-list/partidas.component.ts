@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/co
 import { Partida } from '../../../models/partida';
 import { PartidaService } from '../../../services/partida.service';
 import { ModalService } from 'src/app/services/modal.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-partidas',
@@ -22,12 +23,16 @@ export class PartidasComponent {
     private readonly cd: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.getPartidas();
+    this.getPartidas().subscribe(partidas=>{
+      this.partidas = partidas;
+      console.log("Partidos:", this.partidas); // Mueve el console.log aquí
+      
+    });
   }
 
-  getPartidas(): void {
-    this.partidaService.getPartidas()
-      .subscribe(partidas=> this.partidas = partidas);
+  getPartidas(): Observable<Partida[]> {
+   return this.partidaService.getPartidas();
+      
   }
   goDetail(id: number,action: string){
     this.detalle=false
@@ -35,8 +40,9 @@ export class PartidasComponent {
     this.tipo=action;
     this.detalle=true;
     setTimeout(() => {
-      this.hijo.nativeElement.scrollIntoView({ behavior: 'smooth' });
-    }, 500);
+      if(this.hijo!== undefined)
+        this.hijo.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 300);
     
   }
   createMatch(){
@@ -59,4 +65,8 @@ export class PartidasComponent {
      }
    });
   }
+
+    
 }
+
+

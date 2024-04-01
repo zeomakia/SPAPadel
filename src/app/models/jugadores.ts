@@ -1,8 +1,8 @@
 export interface Jugadores {
     id: number;
-    nombre: string;
+    name: string;
     apellido: string;
-    foto: string;
+    username: string;
     edad: number;
   }
   

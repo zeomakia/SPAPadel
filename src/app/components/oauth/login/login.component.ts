@@ -44,7 +44,7 @@ export class LoginComponent {
           // Guarda el token en el almacenamiento local
           sessionStorage.setItem('access_token', response.token);
           sessionStorage.setItem('user', response.username);
-          this.router.navigate(['/jugadores']);
+          this.router.navigate(['/partidas']);
         }
         else{
           console.log('Usuario o contraseña incorrectos');

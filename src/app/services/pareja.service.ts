@@ -12,14 +12,16 @@ export class ParejaService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private parejasUrl = 'http://localhost:8080/RWSPadel/api/parejas/';  // URL to web api
+  private parejasUrl = 'http://localhost:8080/api/pareja/';  // URL to web api
   constructor(
     private http: HttpClient) { }
 
 
   
     getParejas(): Observable<Pareja[]> {
-      return this.http.get<Pareja[]>(this.parejasUrl+'findAll')
+      const token= sessionStorage.getItem("access_token");
+      const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      return this.http.get<Pareja[]>(this.parejasUrl+'findAll',{headers})
       .pipe(
         tap(_ => this.log('Get parejas')),
         catchError(this.handleError<Pareja[]>('getPartida', []))

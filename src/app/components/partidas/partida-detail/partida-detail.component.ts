@@ -92,10 +92,10 @@ export class PartidaDetailComponent implements OnInit {
      }
   }
   rellenarFormulario(partida: Partida, parejas:Pareja[],ubicaciones:Ubicacion[]){
-    const pareja1 = parejas.find(pareja => pareja.nombrePareja === partida.pareja1);
+    const pareja1 = parejas.find(pareja => pareja.id === partida.id);
     const pareja2 = parejas.find(pareja => pareja.nombrePareja === partida.pareja2);
     const ubicacion = ubicaciones.find(ubicacion => ubicacion.name === partida.ubicacion);
-    const parejaGanadora = parejas.find(pareja => pareja.nombrePareja === partida.pareja_ganadora);
+    const parejaGanadora = parejas.find(pareja => pareja.nombrePareja === partida.parejaGanadora);
   
     this.nuevaPartidaForm.setValue({
       pareja1Form: pareja1 ? pareja1.id : null,
@@ -131,12 +131,24 @@ export class PartidaDetailComponent implements OnInit {
         dia: this.nuevaPartidaForm.get('diaForm')?.value,
         pareja1: this.nuevaPartidaForm.get('pareja1Form')?.value,
         pareja2: this.nuevaPartidaForm.get('pareja2Form')?.value,
-        pareja_ganadora: this.nuevaPartidaForm.get('parejaGanadoraForm')?.value,
+        parejaGanadora: this.nuevaPartidaForm.get('parejaGanadoraForm')?.value,
         ubicacion: this.nuevaPartidaForm.get('ubicacionForm')?.value,
         resultado: this.nuevaPartidaForm.get('resultadoForm')?.value
       };
   
       // Llamar al servicio con la nueva partida
+      if(this.tipo==='M'){
+        this.partidaService.updatePartida(nuevaPartida).subscribe(
+          () => {
+              this.partidaCreada.emit();
+              this.goBack(); 
+          },
+          error => {
+              console.error('Error al crear la partida: ', error);
+              this.modalService.openModalError('Error al crear la partida: ' + error);
+          }
+      );
+      }else{
       this.partidaService.addPartida(nuevaPartida).subscribe(
         () => {
             this.partidaCreada.emit();
@@ -148,7 +160,7 @@ export class PartidaDetailComponent implements OnInit {
         }
     );
     }
-   
+  }
   }
   
 }

@@ -4,6 +4,7 @@ import { Partida } from '../models/partida';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators'
+import { PartidaOutDTO } from '../models/partidaOutDTO';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,7 @@ export class PartidaService {
     return this.http.get<Partida[]>(this.partidasUrl+'findAll',{headers:this.addToken()})
   }
 
-  getPartida(id: number): Observable<Partida> {
+  getPartida(id: number): Observable<any> {
     const url = `${this.partidasUrl}${id}`;
     return this.http.get<Partida>(url,{headers:this.addToken()}).pipe(
       catchError(this.handleError<Partida>(`getHero id=${id}`))
@@ -35,14 +36,31 @@ export class PartidaService {
   }
 
   updatePartida(partida: Partida): Observable<any> {
-    return this.http.post(this.partidasUrl+`update/${partida.id}`, partida, {headers:this.addToken()}).pipe(
-      catchError(this.handleError<any>('updateHero'))
+    const partidaDTO: PartidaOutDTO={
+      idParejaGanadora: parseInt(partida.parejaGanadora!),
+      idParejaPerdedora: parseInt(partida.parejaGanadora===partida.pareja1?partida.pareja1:partida.pareja2),
+      dia:partida?.dia,
+      idUbicacion: parseInt(partida.ubicacion),
+      resultado: partida.resultado,
+  
+    }
+    return this.http.post(this.partidasUrl+`update/${partida.id}`, partidaDTO, {headers:this.addToken()}).pipe(
+      catchError(this.handleError<any>('updatePArtida'))
     );
   }
 
   /** POST: add a new hero to the server */
 addPartida(partida: Partida): Observable<Partida> {
-  return this.http.post<Partida>(this.partidasUrl+'insert', partida, {headers:this.addToken()}).pipe(
+  const partidaDTO: PartidaOutDTO={
+    idParejaGanadora: parseInt(partida.pareja1),
+    idParejaPerdedora: parseInt(partida.pareja2),
+    dia:partida?.dia,
+    idUbicacion: parseInt(partida.ubicacion),
+    resultado: partida.resultado,
+
+  }
+
+  return this.http.post<Partida>(this.partidasUrl+'insert', partidaDTO, {headers:this.addToken()}).pipe(
     catchError(this.handleError<Partida>('addHero'))
   );
 }
