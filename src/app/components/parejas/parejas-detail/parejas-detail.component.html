@@ -1,0 +1,87 @@
+<!-- -------PAREJA EXISTENTE-------- -->
+<div *ngIf="!isParejaNueva" class="detalle-pareja content">
+   <div>
+    <!-- <canvas baseChart
+    [labels]="doughnutChartLabels"
+    [datasets]="doughnutChartDatasets"
+    [options]="doughnutChartOptions"
+    [legend]="true"
+    [type]="'doughnut'"> 
+</canvas>-->
+   </div>
+    <h2 class="header">Detalle de la pareja</h2>
+    <form class="form-detalle">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id" [value]="pareja?.id" [disabled]="disable">
+          </div>
+          <div class="form-group" *ngIf="tipo==='D'" >
+            <label for="pareja1">Pareja:</label>
+            <select class="form-control" id="pareja1" [value]="pareja!.id" disabled>
+              <option *ngFor="let parejaOption of parejas" [value]="parejaOption.id">{{parejaOption.nombre_jugador1}} - {{parejaOption.nombre_jugador2}}</option>
+            </select>
+          </div>
+          <div class="form-group" *ngIf="tipo==='M'" >
+            <label for="pareja1">Pareja:</label>
+            <select class="form-control" id="pareja1" [(ngModel)]="pareja!.id" [ngModelOptions]="{standalone: true}">
+              <option *ngFor="let parejaOption of parejas" [value]="parejaOption.id">{{parejaOption.nombre_jugador1}} - {{parejaOption.nombre_jugador2}}</option>
+            </select>
+          </div>
+          
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="pareja2">Partidas ganadas:</label>
+            <input type="text" class="form-control" id="pareja2" [value]="pareja?.p_ganadas" [disabled]="disable">
+          </div>
+          <div class="form-group">
+            <label for="ubicacion">Partidas jugadas:</label>
+            <input type="text" class="form-control" id="ubicacion" [value]="pareja?.p_jugadas" [disabled]="disable">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="dia">Partidas perdidas:</label>
+            <input type="text" class="form-control" id="dia" [value]="pareja?.p_perdidas" [disabled]="disable">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <!-- -------PARTIDA NUEVA-------- -->
+  <div *ngIf="isParejaNueva" class="detalle-partida content">
+    <h2 class="header">Crear nueva pareja</h2>
+    <form [formGroup]="nuevaParejaForm" class="form-detalle">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="pareja1">Jugador 1:</label>
+            <select formControlName="jugador1Form" class="form-control" id="jugador1">
+                <option value="" selected>Selecciona un jugador</option>
+                <option *ngFor="let jugador of jugadores" [value]="jugador.id">{{ jugador.name }}</option>
+              </select>
+            <div *ngIf="nuevaParejaForm.get('jugador1Form')?.invalid  && nuevaParejaForm.get('jugador1Form')?.touched" class="error-message" style="color: red;">
+              Jugador 1 es requerido.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <label for="pareja2">Jugador 2:</label>
+            <select formControlName="jugador2Form" class="form-control" id="jugador2">
+              <option value="" selected>Selecciona un jugador</option>
+              <option *ngFor="let jugador of jugadores" [value]="jugador.id">{{ jugador.name }}</option>
+            </select>
+            <div *ngIf="nuevaParejaForm.get('jugador2Form')?.invalid && nuevaParejaForm.get('jugador2Form')?.touched"  class="error-message" style="color: red;">
+              Jugador 2 es requerido.
+            </div>
+        </div>
+      </div>
+      <button id="btn" [disabled]="nuevaParejaForm.invalid" (click)="guardarNuevaPareja()" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+  

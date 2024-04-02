@@ -16,6 +16,7 @@ import { JugadoresModule } from './components/jugadores/jugadores.module';
 import { OauthModule } from './components/oauth/oauth.module';
 import { UbicacionesModule } from './components/ubicaciones/ubicaciones.module';
 import { PartidasModule } from './components/partidas/partidas.module';
+import { ParejasModule } from './components/parejas/parejas.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PartidasModule } from './components/partidas/partidas.module';
     BrowserAnimationsModule,
     JugadoresModule,
     PartidasModule,
+    ParejasModule,
     OauthModule,
     UbicacionesModule
   ],

@@ -38,7 +38,7 @@ export class PartidaService {
   updatePartida(partida: Partida): Observable<any> {
     const partidaDTO: PartidaOutDTO={
       idParejaGanadora: parseInt(partida.parejaGanadora!),
-      idParejaPerdedora: parseInt(partida.parejaGanadora===partida.pareja1?partida.pareja1:partida.pareja2),
+      idParejaPerdedora: parseInt(partida.parejaGanadora!==partida.pareja1?partida.pareja1:partida.pareja2),
       dia:partida?.dia,
       idUbicacion: parseInt(partida.ubicacion),
       resultado: partida.resultado,

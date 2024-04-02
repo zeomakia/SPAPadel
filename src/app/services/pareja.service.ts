@@ -29,7 +29,9 @@ export class ParejaService {
     } 
 
     getPareja(id?: number): Observable<Pareja>{
-      return this.http.get<Pareja>(this.parejasUrl+id)
+      const token= sessionStorage.getItem("access_token");
+      const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      return this.http.get<Pareja>(this.parejasUrl+id,{headers})
       .pipe(
         tap(_ => this.log('get pareja with id ='+id)),
         catchError(this.handleError<Pareja>('get pareja '))
@@ -37,14 +39,18 @@ export class ParejaService {
     }
 
   updatePareja(pareja:Pareja): Observable<any> {
-    return this.http.put(this.parejasUrl, pareja, this.httpOptions).pipe(
+    const token= sessionStorage.getItem("access_token");
+    const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+    return this.http.put(this.parejasUrl, pareja, {headers}).pipe(
       tap(_ => this.log(`delete pareja id=${pareja.id}`)),
       catchError(this.handleError<any>('delete pareja'))
       );
   }
   /** Method to add new partida*/
   addPareja(pareja: Pareja): Observable<Pareja> {
-    return this.http.post<Pareja>(this.parejasUrl+'insert', pareja, this.httpOptions).pipe(
+    const token= sessionStorage.getItem("access_token");
+    const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+    return this.http.post<Pareja>(this.parejasUrl+'insert', pareja, {headers}).pipe(
       tap((newPareja: Pareja) => this.log(`added pareja w/ id=${pareja.id}`)),
       catchError(this.handleError<Pareja>('addPareja'))
     );

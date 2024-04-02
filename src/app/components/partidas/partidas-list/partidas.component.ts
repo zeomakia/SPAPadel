@@ -32,7 +32,6 @@ export class PartidasComponent {
 
   getPartidas(): Observable<Partida[]> {
    return this.partidaService.getPartidas();
-      
   }
   goDetail(id: number,action: string){
     this.detalle=false

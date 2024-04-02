@@ -14,5 +14,9 @@ export class AppComponent {
     });
  
 }
+
+NgOnInit():void{
+  
+}
 title = 'SPAPadel in kubernetes!';
 }

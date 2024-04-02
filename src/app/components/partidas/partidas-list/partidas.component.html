@@ -39,4 +39,4 @@
 </div>
 </div>
 <app-modal></app-modal>
-<app-partida-detail #hijoRef *ngIf="detalle" [tipo]="tipo" [identificador]="identificador" (partidaCreada)="getPartidas()" (cerrarDetalle)="cerrarHijo()"  ></app-partida-detail>
+<app-partida-detail #hijoRef *ngIf="detalle" [tipo]="tipo" [identificador]="identificador" (partidaCreada)="ngOnInit()" (cerrarDetalle)="cerrarHijo()"  ></app-partida-detail>

@@ -1,0 +1,40 @@
+<h3>Listado Parejas</h3>
+<div class="table-responsive" style="padding-bottom: 100px;">
+  <table class="table table-hover rounded">
+    <thead class="bg-light">
+      <tr>
+        <th class="text-primary">Id Pareja</th>
+        <th class="text-primary">Nombre Jugadores</th>
+        <th class="text-primary">Partidas Jugadas</th>
+        <th class="text-primary">Partidas Ganadas</th>
+        <th class="text-primary">Partidas Perdidas</th>
+        <th style="width: 60px;">...</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pareja of parejas; let i = index">
+        <td>{{ i }}</td>
+        <td>{{ pareja.nombrePareja }}</td>
+        <td>{{ pareja.p_jugadas }}</td>
+        <td>{{ pareja.p_ganadas }}</td>
+        <td>{{ pareja.p_perdidas }}</td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown{{i}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" (click)="goDetail(pareja.id, 'D')">Detalle</a></li>
+                  <li><a class="dropdown-item" (click)="goDetail(pareja.id,'M')">Modificar</a></li>
+                  <li><a class="dropdown-item" (click)="eliminarPareja(pareja.id)">Borrar</a></li>
+                </ul>
+              </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary"  (click)="createMatch()" style="float: right;">Alta pareja</button>
+   
+  </div>
+</div>
+
+<app-parejas-detail [identificador]="identificador" [tipo]="tipo" [pareja]="parejaDetalle" *ngIf="detalle"></app-parejas-detail>

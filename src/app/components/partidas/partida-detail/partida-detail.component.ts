@@ -33,7 +33,6 @@ export class PartidaDetailComponent implements OnInit {
     private ubicacionService: UbicacionService,
     private parejaService: ParejaService,
     private location: Location,
-    private readonly cd: ChangeDetectorRef,
     private modalService: ModalService
   ) {
     this.nuevaPartidaForm = new FormGroup({
@@ -92,7 +91,7 @@ export class PartidaDetailComponent implements OnInit {
      }
   }
   rellenarFormulario(partida: Partida, parejas:Pareja[],ubicaciones:Ubicacion[]){
-    const pareja1 = parejas.find(pareja => pareja.id === partida.id);
+    const pareja1 = parejas.find(pareja => pareja.nombrePareja === partida.pareja1);
     const pareja2 = parejas.find(pareja => pareja.nombrePareja === partida.pareja2);
     const ubicacion = ubicaciones.find(ubicacion => ubicacion.name === partida.ubicacion);
     const parejaGanadora = parejas.find(pareja => pareja.nombrePareja === partida.parejaGanadora);
