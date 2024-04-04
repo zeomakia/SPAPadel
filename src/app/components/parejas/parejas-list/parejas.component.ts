@@ -9,11 +9,12 @@ import { ParejaService } from 'src/app/services/pareja.service';
   styleUrls: ['./parejas.component.scss']
 })
 export class ParejasComponent {
-  parejas?: Pareja[]=[];
+  parejas: Pareja[]=[];
   identificador : any;
   tipo: any;
   parejaDetalle? :Pareja;
   detalle:boolean =false;
+  p: number = 1;
 
   constructor(private parejaService: ParejaService,
     private readonly cd: ChangeDetectorRef,

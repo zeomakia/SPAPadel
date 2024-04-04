@@ -13,12 +13,19 @@ export class JugadorService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
-    private partidasUrl = 'http://localhost:8080/RWSPadel/api/jugador/findAll';  // URL to web api
+    private partidasUrl = 'http://localhost:8080/api/jugador/findAll';  // URL to web api
     constructor(
       private http: HttpClient) { }
+
+
+    addToken(){
+      const token= sessionStorage.getItem("access_token");
+      const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      return headers;
+    }    
     getJugadores(): Observable<Jugadores[]> {
       // TODO: send the message _after_ fetching the heroes
-      return this.http.get<Jugadores[]>(this.partidasUrl)
+      return this.http.get<Jugadores[]>(this.partidasUrl,{headers:this.addToken()})
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Jugadores[]>('getJugadores', []))

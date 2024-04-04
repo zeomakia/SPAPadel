@@ -10,13 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ubicacion of ubicaciones; let i = index">
+      <tr *ngFor="let ubicacion of ubicaciones| paginate: { itemsPerPage: 5, currentPage: p };">
         <td>{{ ubicacion?.id }}</td>
         <td>{{ ubicacion?.name }}</td>
         <td>{{ ubicacion?.direccion }}</td>
         <td>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{i}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{ubicacion.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
               <span>&#183;&#183;&#183;</span>
             </button>
             <ul class="dropdown-menu" >
@@ -27,6 +27,7 @@
           </div>
         </td>
       </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tbody>
   </table>
   <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary" (click)="createUbicacion()" style="float: right;">Nueva Ubicación</button>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input, NgModule, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, NgModule, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Jugadores } from 'src/app/models/jugadores';
@@ -18,9 +18,12 @@ import { Observable } from 'rxjs';
 })
 export class ParejasDetailComponent implements OnInit{
     nuevaParejaForm: FormGroup; 
+    parejaForm: FormGroup; 
     @Input() identificador!: number;
     @Input() tipo?: string;
     @Input() pareja?: Pareja;
+    @Output() cerrarDetalle = new EventEmitter<void>();
+    @Output() actualizar = new EventEmitter<void>();
     parejas: Pareja[]=[];
     jugadores: Jugadores[]=[];
     disable: boolean=true;
@@ -36,6 +39,13 @@ export class ParejasDetailComponent implements OnInit{
       private modalService: ModalService,
       
     ) {
+      this.parejaForm= new FormGroup({
+        parejaIdForm : new FormControl('', Validators.required),
+        parejaOptionForm: new FormControl('', Validators.required),
+        p_ganadasForm: new FormControl('', Validators.required),
+        p_jugadasForm: new FormControl('', Validators.required),
+        p_perdidasForm: new FormControl('', Validators.required),
+      })
       this.nuevaParejaForm = new FormGroup({
         jugador1Form: new FormControl('', Validators.required),
         jugador2Form: new FormControl('', Validators.required),
@@ -55,18 +65,24 @@ export class ParejasDetailComponent implements OnInit{
 
   
     ngOnInit(): void {
+      (window as any)["ParejasDetailComponent"] = this;
       console.log("Pareja init "+ JSON.stringify(this.pareja));
       if(this.identificador==0){
       
        this.isParejaNueva=true;
        this.getJugadores();
       }else{
-        this.getParejas().subscribe(parejas =>  this.parejas = parejas);
+        this.getParejas().subscribe(parejas =>{
+
+         this.parejas = parejas;
+         this.rellenarForm();
+        });
         console.log("Pareja"+ JSON.stringify(this.pareja));
-      this.disable= this.tipo==='D';
       }
     }
+   
     ngOnChanges(changes: SimpleChanges): void {
+      (window as any)["ParejasDetailComponent"] = this;
       console.log("Pareja change"+ JSON.stringify(this.pareja));
       if(this.identificador==0){
         this.isParejaNueva=true;
@@ -75,18 +91,15 @@ export class ParejasDetailComponent implements OnInit{
    
        }else{
         this.isParejaNueva=false;
-        console.log("Pareja"+ JSON.stringify(this.pareja));
-        this.getParejas().subscribe(parejas =>  this.parejas = parejas);
-        console.log("Lista parejas" + this.parejas);
-       this.disable= this.tipo==='D';
+        this.getParejas().subscribe(parejas =>{
+
+         this.parejas = parejas;
+         this.rellenarForm(); 
+        });
+     
        }
     }
   
-    // getPareja(id: number): void {
-    //   this.parejaService.getPareja(id)
-    //     .subscribe(pareja => this.pareja = pareja);
-    // }
-
     getJugadores():void{
       this.jugadorService.getJugadores()
         .subscribe(jugadores =>  this.jugadores = jugadores);
@@ -100,7 +113,8 @@ export class ParejasDetailComponent implements OnInit{
 
   
     goBack(): void {
-      this.location.back();
+      this.actualizar.emit();
+      this.cerrarDetalle.emit();
     }
   
     save(): void {
@@ -127,5 +141,35 @@ export class ParejasDetailComponent implements OnInit{
       }
     }
     
+    rellenarForm(){
+      if(this.tipo!=='A'){
+       this.parejaForm.setValue({
+         parejaIdForm : this.pareja?.id,
+         parejaOptionForm: this.pareja!.id,
+         p_ganadasForm: this.pareja?.p_ganadas,
+         p_jugadasForm: this.pareja?.p_jugadas,
+         p_perdidasForm: this.pareja?.p_perdidas
+       });
+       if(this.tipo==='D')
+         this.deshabilitarForm();
+       else
+         this.habilitarForm();
+     }
+
+   };
+   habilitarForm() {
+     this.parejaForm.get('parejaIdForm')?.enable();
+     this.parejaForm.get('parejaOptionForm')?.enable();
+     this.parejaForm.get('p_ganadasForm')?.enable();
+     this.parejaForm.get('p_jugadasForm')?.enable();
+     this.parejaForm.get('p_perdidasForm')?.enable();
+   }
+   deshabilitarForm() {
+     this.parejaForm.get('parejaIdForm')?.disable();    
+     this.parejaForm.get('parejaOptionForm')?.disable();
+     this.parejaForm.get('p_ganadasForm')?.disable();   
+     this.parejaForm.get('p_jugadasForm')?.disable();   
+     this.parejaForm.get('p_perdidasForm')?.disable();  
+   }
   
 }

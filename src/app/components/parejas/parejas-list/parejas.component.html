@@ -12,15 +12,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pareja of parejas; let i = index">
-        <td>{{ i }}</td>
+      <tr *ngFor="let pareja of parejas | paginate: { itemsPerPage: 5, currentPage: p };  ">
+        <td>{{ pareja.id }}</td>
         <td>{{ pareja.nombrePareja }}</td>
         <td>{{ pareja.p_jugadas }}</td>
         <td>{{ pareja.p_ganadas }}</td>
         <td>{{ pareja.p_perdidas }}</td>
         <td>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown{{i}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown{{pareja.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" (click)="goDetail(pareja.id, 'D')">Detalle</a></li>
@@ -30,6 +30,7 @@
               </div>
         </td>
       </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tbody>
   </table>
   <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary"  (click)="createMatch()" style="float: right;">Alta pareja</button>
@@ -37,4 +38,4 @@
   </div>
 </div>
 
-<app-parejas-detail [identificador]="identificador" [tipo]="tipo" [pareja]="parejaDetalle" *ngIf="detalle"></app-parejas-detail>
+<app-parejas-detail [identificador]="identificador" [tipo]="tipo" (cerrarDetalle)="this.detalle=!this.detalle" (actualizar)="getParejas" [pareja]="parejaDetalle" *ngIf="detalle"></app-parejas-detail>

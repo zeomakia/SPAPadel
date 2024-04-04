@@ -10,35 +10,28 @@
 </canvas>-->
    </div>
     <h2 class="header">Detalle de la pareja</h2>
-    <form class="form-detalle">
+    <form  [formGroup]="parejaForm" class="form-detalle">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <label for="id">ID:</label>
-            <input type="text" class="form-control" id="id" [value]="pareja?.id" [disabled]="disable">
+            <label for="parejaIdForm">ID:</label>
+            <input type="text" class="form-control" id="parejaIdForm" formControlName="parejaIdForm" disable>
           </div>
-          <div class="form-group" *ngIf="tipo==='D'" >
-            <label for="pareja1">Pareja:</label>
-            <select class="form-control" id="pareja1" [value]="pareja!.id" disabled>
-              <option *ngFor="let parejaOption of parejas" [value]="parejaOption.id">{{parejaOption.nombre_jugador1}} - {{parejaOption.nombre_jugador2}}</option>
+          <div class="form-group"  >
+            <label for="parejaOption">Pareja:</label>
+            <select class="form-control" id="parejaOption" type="text" formControlName="parejaOptionForm"  >
+              <option *ngFor="let parejaOption of parejas" [ngValue]="parejaOption.id">{{parejaOption.nombre_jugador1}} - {{parejaOption.nombre_jugador2}}</option>
             </select>
           </div>
-          <div class="form-group" *ngIf="tipo==='M'" >
-            <label for="pareja1">Pareja:</label>
-            <select class="form-control" id="pareja1" [(ngModel)]="pareja!.id" [ngModelOptions]="{standalone: true}">
-              <option *ngFor="let parejaOption of parejas" [value]="parejaOption.id">{{parejaOption.nombre_jugador1}} - {{parejaOption.nombre_jugador2}}</option>
-            </select>
-          </div>
-          
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="pareja2">Partidas ganadas:</label>
-            <input type="text" class="form-control" id="pareja2" [value]="pareja?.p_ganadas" [disabled]="disable">
+            <input type="text" class="form-control" id="pareja2"  formControlName="p_ganadasForm" >
           </div>
           <div class="form-group">
             <label for="ubicacion">Partidas jugadas:</label>
-            <input type="text" class="form-control" id="ubicacion" [value]="pareja?.p_jugadas" [disabled]="disable">
+            <input type="text" class="form-control" id="ubicacion" formControlName="p_jugadasForm">
           </div>
         </div>
       </div>
@@ -46,7 +39,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="dia">Partidas perdidas:</label>
-            <input type="text" class="form-control" id="dia" [value]="pareja?.p_perdidas" [disabled]="disable">
+            <input type="text" class="form-control" id="dia" formControlName="p_perdidasForm">
           </div>
         </div>
       </div>
@@ -54,7 +47,7 @@
   </div>
   
   <!-- -------PARTIDA NUEVA-------- -->
-  <div *ngIf="isParejaNueva" class="detalle-partida content">
+  <div *ngIf="isParejaNueva" class="detalle-pareja content">
     <h2 class="header">Crear nueva pareja</h2>
     <form [formGroup]="nuevaParejaForm" class="form-detalle">
       <div class="row">
@@ -81,7 +74,10 @@
             </div>
         </div>
       </div>
-      <button id="btn" [disabled]="nuevaParejaForm.invalid" (click)="guardarNuevaPareja()" class="btn btn-primary">Guardar</button>
+      <div style="display: flex; justify-content: space-between;">
+        <button id="btn" [hidden]="tipo==='D'"  [disabled]="nuevaParejaForm.invalid" (click)="guardarNuevaPareja()" class="btn btn-primary">Guardar</button>
+        <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
+      </div>
     </form>
   </div>
   

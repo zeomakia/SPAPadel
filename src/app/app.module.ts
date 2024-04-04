@@ -17,6 +17,7 @@ import { OauthModule } from './components/oauth/oauth.module';
 import { UbicacionesModule } from './components/ubicaciones/ubicaciones.module';
 import { PartidasModule } from './components/partidas/partidas.module';
 import { ParejasModule } from './components/parejas/parejas.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -33,12 +34,13 @@ import { ParejasModule } from './components/parejas/parejas.module';
     PartidasModule,
     ParejasModule,
     OauthModule,
-    UbicacionesModule
+    UbicacionesModule,
+    NgxPaginationModule,
   ],
   exports: [ReactiveFormsModule,
     NgIf,
     FormsModule,
-    BrowserModule,
+    BrowserModule,NgxPaginationModule
    ] ,
   providers: [provideCharts(withDefaultRegisterables())],
   bootstrap: [AppComponent]

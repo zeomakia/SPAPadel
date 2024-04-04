@@ -16,6 +16,8 @@ export class UbicacionComponent {
   tipo: any;
   ubicacion: Ubicacion | undefined;
   detalle: boolean = false;
+  p: number = 1;
+
   constructor(private ubicacionService: UbicacionService, private modalService: ModalService,
     private readonly cd: ChangeDetectorRef)  { }
 

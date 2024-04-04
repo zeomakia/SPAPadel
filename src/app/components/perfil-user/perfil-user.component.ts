@@ -107,7 +107,7 @@ export class PerfilUserComponent {
   }
 
   onCancel() {
-    this.router.navigate(['/jugadores']);
+    this.router.navigate(['/partidas']);
     this.perfilUser.reset();
     // Aquí puedes manejar la lógica de cancelación del formulario
   }
