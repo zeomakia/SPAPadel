@@ -1,7 +1,7 @@
 export interface Jugadores {
     id: number;
     name: string;
-    apellido: string;
+    apellidos: string;
     username: string;
     edad: number;
   }

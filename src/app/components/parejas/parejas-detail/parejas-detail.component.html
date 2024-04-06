@@ -9,7 +9,8 @@
     [type]="'doughnut'"> 
 </canvas>-->
    </div>
-    <h2 class="header">Detalle de la pareja</h2>
+    <h2 *ngIf="tipo==='D'" class="header">Detalle de la pareja</h2>
+    <h2 *ngIf="tipo==='M'" class="header">Modificar pareja</h2>
     <form  [formGroup]="parejaForm" class="form-detalle">
       <div class="row">
         <div class="col-md-6">
@@ -42,6 +43,10 @@
             <input type="text" class="form-control" id="dia" formControlName="p_perdidasForm">
           </div>
         </div>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <button id="btn" [hidden]="tipo==='D'"  [disabled]="parejaForm.invalid" (click)="save()" class="btn btn-primary">Guardar</button>
+        <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
       </div>
     </form>
   </div>

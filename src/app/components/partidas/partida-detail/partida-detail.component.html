@@ -85,10 +85,10 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="ubicacion">Ubicación:</label>
-          <select formControlName="ubicacionForm" type="text" class="form-control" id="ubicacion">
+          <label for="ubicacionForm">Ubicación:</label>
+          <select formControlName="ubicacionForm" type="text" class="form-control" id="ubicacionForm">
             <option *ngIf="tipo==='A'" value="" disabled selected>Seleccionar</option>
-            <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.id">{{ ubicacion.name }}</option>
+            <option *ngFor="let ubicacion of ubicaciones" [ngValue]="ubicacion.id">{{ ubicacion.name }}</option>
           </select>
           <div *ngIf="nuevaPartidaForm.get('ubicacionForm')?.invalid && nuevaPartidaForm.get('ubicacionForm')?.touched" class="error-message" style="color: red;">
             Ubicación es requerida.

@@ -6,4 +6,5 @@ export interface Partida {
   dia?: Date;
   resultado?: string;
   parejaGanadora?: string;
+  parejaPerdedora?: string;
 }

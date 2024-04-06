@@ -118,10 +118,17 @@ export class ParejasDetailComponent implements OnInit{
     }
   
     save(): void {
-      this.parejaService.updatePareja(this.pareja!)
-        .subscribe(() => this.goBack());
-        this.modalService.openModalInfo('Pareja actualizada');
-    }
+      this.parejaService.updatePareja(this.pareja!).subscribe(
+          () => {
+            this.modalService.openModalInfo("Pareja actualizada correctamente");
+            this.goBack();
+          },
+          error => {
+              console.error('Error al modificar la pareja: ', error.error.message);
+              this.modalService.openModalError('Error al modificar la pareja: ' + error.error.message);
+          }
+      );
+      } 
     guardarNuevaPareja() {
       if (this.nuevaParejaForm.valid) {
         // Crear una nueva instancia de PAreja
@@ -136,8 +143,16 @@ export class ParejasDetailComponent implements OnInit{
     
         // Llamar al servicio con la nueva partida
         this.parejaService.addPareja(nuevaPareja)
-          .subscribe(() => this.goBack());
-          this.modalService.openModalInfo('Pareja creada');
+          .subscribe(
+            () => {
+              this.modalService.openModalInfo("Pareja creada correctamente");
+              this.goBack();
+            },
+            error => {
+                console.error('Error al crear la pareja: ', error.error.message);
+                this.modalService.openModalError('Error al crear la pareja: ' + error.error.message);
+            }
+        );
       }
     }
     
@@ -158,7 +173,7 @@ export class ParejasDetailComponent implements OnInit{
 
    };
    habilitarForm() {
-     this.parejaForm.get('parejaIdForm')?.enable();
+     this.parejaForm.get('parejaIdForm')?.disable();
      this.parejaForm.get('parejaOptionForm')?.enable();
      this.parejaForm.get('p_ganadasForm')?.enable();
      this.parejaForm.get('p_jugadasForm')?.enable();

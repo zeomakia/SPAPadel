@@ -36,33 +36,14 @@ export class PartidaService {
   }
 
   updatePartida(partida: Partida): Observable<any> {
-    const partidaDTO: PartidaOutDTO={
-      idParejaGanadora: parseInt(partida.parejaGanadora!),
-      idParejaPerdedora: parseInt(partida.parejaGanadora!==partida.pareja1?partida.pareja1:partida.pareja2),
-      dia:partida?.dia,
-      idUbicacion: parseInt(partida.ubicacion),
-      resultado: partida.resultado,
-  
-    }
-    return this.http.post(this.partidasUrl+`update/${partida.id}`, partidaDTO, {headers:this.addToken()}).pipe(
-      catchError(this.handleError<any>('updatePArtida'))
-    );
+    
+    return this.http.post(this.partidasUrl+`update/${partida.id}`, partida, {headers:this.addToken()});
   }
 
   /** POST: add a new hero to the server */
 addPartida(partida: Partida): Observable<Partida> {
-  const partidaDTO: PartidaOutDTO={
-    idParejaGanadora: parseInt(partida.pareja1),
-    idParejaPerdedora: parseInt(partida.pareja2),
-    dia:partida?.dia,
-    idUbicacion: parseInt(partida.ubicacion),
-    resultado: partida.resultado,
-
-  }
-
-  return this.http.post<Partida>(this.partidasUrl+'insert', partidaDTO, {headers:this.addToken()}).pipe(
-    catchError(this.handleError<Partida>('addHero'))
-  );
+  
+  return this.http.post<Partida>(this.partidasUrl+'insert', partida, {headers:this.addToken()});
 }
 
 /** DELETE: delete the hero from the server */

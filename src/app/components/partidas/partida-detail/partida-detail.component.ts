@@ -93,7 +93,7 @@ export class PartidaDetailComponent implements OnInit {
   rellenarFormulario(partida: Partida, parejas:Pareja[],ubicaciones:Ubicacion[]){
     const pareja1 = parejas.find(pareja => pareja.nombrePareja === partida.pareja1);
     const pareja2 = parejas.find(pareja => pareja.nombrePareja === partida.pareja2);
-    const ubicacion = ubicaciones.find(ubicacion => ubicacion.name === partida.ubicacion);
+    const ubicacion = ubicaciones.find(ubicacion => ubicacion.name.trim() === partida.ubicacion.trim());
     const parejaGanadora = parejas.find(pareja => pareja.nombrePareja === partida.parejaGanadora);
   
     this.nuevaPartidaForm.setValue({
@@ -131,6 +131,7 @@ export class PartidaDetailComponent implements OnInit {
         pareja1: this.nuevaPartidaForm.get('pareja1Form')?.value,
         pareja2: this.nuevaPartidaForm.get('pareja2Form')?.value,
         parejaGanadora: this.nuevaPartidaForm.get('parejaGanadoraForm')?.value,
+        parejaPerdedora: this.nuevaPartidaForm.get('parejaGanadoraForm')?.value ===this.nuevaPartidaForm.get('pareja1Form')?.value?this.nuevaPartidaForm.get('pareja2Form')?.value:this.nuevaPartidaForm.get('pareja1Form')?.value,
         ubicacion: this.nuevaPartidaForm.get('ubicacionForm')?.value,
         resultado: this.nuevaPartidaForm.get('resultadoForm')?.value
       };
@@ -143,8 +144,8 @@ export class PartidaDetailComponent implements OnInit {
               this.goBack(); 
           },
           error => {
-              console.error('Error al crear la partida: ', error);
-              this.modalService.openModalError('Error al crear la partida: ' + error);
+              console.error('Error al crear la partida: ', error.error.message);
+              this.modalService.openModalError('Error al crear la partida: ' + error.error.message);
           }
       );
       }else{
@@ -154,8 +155,8 @@ export class PartidaDetailComponent implements OnInit {
             this.goBack(); 
         },
         error => {
-            console.error('Error al crear la partida: ', error);
-            this.modalService.openModalError('Error al crear la partida: ' + error);
+            console.error('Error al crear la partida: ', error.error.message);
+            this.modalService.openModalError('Error al crear la partida: ' + error.error.message);
         }
     );
     }
