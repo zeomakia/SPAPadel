@@ -13,6 +13,7 @@ export class JugadoresComponent {
   tipo: any;
   jugador: Jugadores | undefined;
   detalle: boolean = false;
+  p: number = 1;
   constructor(private jugadorService: JugadorService) { }
 
   ngOnInit() {
@@ -32,5 +33,9 @@ export class JugadoresComponent {
   }
   goBorrar(id: number){
   // this.
+  }
+  cerrarHijo(){
+    this.detalle=false;
+    window.scrollTo(0, 0)
   }
 }

@@ -44,6 +44,7 @@ export class LoginComponent {
           // Guarda el token en el almacenamiento local
           sessionStorage.setItem('access_token', response.token);
           sessionStorage.setItem('user', response.username);
+          sessionStorage.setItem('userId',response.id);
           this.router.navigate(['/partidas']);
         }
         else{

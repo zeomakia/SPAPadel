@@ -1,11 +1,12 @@
-<h3>Ubicaciones</h3>
+<div style="margin-top: 10px;">
+  <h2>Listado de Ubicaciones</h2>
 <div class="table-responsive">
   <table class="table table-hover rounded">
     <thead class="bg-light">
       <tr>
-        <th class="text-primary">Id</th>
-        <th class="text-primary">Nombre</th>
-        <th class="text-primary">Direccion</th>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
         <th style="width: 60px;"></th>
       </tr>
     </thead>
@@ -17,7 +18,6 @@
         <td>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{ubicacion.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
-              <span>&#183;&#183;&#183;</span>
             </button>
             <ul class="dropdown-menu" >
               <li><a class="dropdown-item" (click)="goDetail(ubicacion.id,'D')">Detalle</a></li>

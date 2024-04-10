@@ -12,11 +12,13 @@ export class AppComponent {
     this.authService.isLoggedIn.subscribe(loggedIn => {
       this.isLoggedIn = loggedIn;
     });
- 
+    if(sessionStorage.getItem('access_token'))
+    this.isLoggedIn=true;
+    
 }
 
 NgOnInit():void{
-  
+ 
 }
 title = 'SPAPadel in kubernetes!';
 }

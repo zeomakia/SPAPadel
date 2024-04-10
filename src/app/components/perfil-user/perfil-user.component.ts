@@ -51,7 +51,7 @@ export class PerfilUserComponent {
   }
 
   obtenerDatosUsuario(): Observable<any>{
-    const user = sessionStorage.getItem('user')!;
+    const user = sessionStorage.getItem('userId')!;
     if (user!==null) {
       return this.ouathService.getUser(user);
     }else{

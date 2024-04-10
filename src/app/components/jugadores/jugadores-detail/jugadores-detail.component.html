@@ -1,1 +1,42 @@
-<p>jugadores-detail works!</p>
+<div *ngIf="tipo==='D'" class="detalle-jugadores">
+  <h2 class="header">Detalle de {{this.jugador?.username}}</h2>
+  <form class="form-detalle">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id" [value]="jugador?.id" [disabled]="disable">
+          </div>           
+        </div>  
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" [value]="jugador?.name" [disabled]="disable">
+          </div>   
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" [value]="jugador?.apellidos" [disabled]="disable">
+          </div>    
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" [value]="jugador?.username" [disabled]="disable">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="edad">Edad:</label>
+            <input type="integer" class="form-control" [value]="jugador?.edad" [disabled]="disable">
+          </div>
+        </div>
+      </div>
+      <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
+  </form>
+</div>

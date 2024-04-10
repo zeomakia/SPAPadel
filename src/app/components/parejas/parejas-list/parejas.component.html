@@ -1,13 +1,14 @@
-<h3>Listado Parejas</h3>
+<div style="margin-top: 10px;">
+  <h2>Listado de Parejas</h2>
 <div class="table-responsive" style="padding-bottom: 100px;">
   <table class="table table-hover rounded">
     <thead class="bg-light">
       <tr>
-        <th class="text-primary">Id Pareja</th>
-        <th class="text-primary">Nombre Jugadores</th>
-        <th class="text-primary">Partidas Jugadas</th>
-        <th class="text-primary">Partidas Ganadas</th>
-        <th class="text-primary">Partidas Perdidas</th>
+        <th>Id Pareja</th>
+        <th>Nombre Jugadores</th>
+        <th>Partidas Jugadas</th>
+        <th>Partidas Ganadas</th>
+        <th>Partidas Perdidas</th>
         <th style="width: 60px;">...</th>
       </tr>
     </thead>
@@ -20,7 +21,7 @@
         <td>{{ pareja.p_perdidas }}</td>
         <td>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesDropdown{{pareja.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{pareja.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" (click)="goDetail(pareja.id, 'D')">Detalle</a></li>
