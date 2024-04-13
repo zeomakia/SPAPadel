@@ -728,7 +728,7 @@ export class OauthService {
     const headers &#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
     const username&#x3D; sessionStorage.getItem(&#x27;user&#x27;)
     return this.http.put(&#x27;http://localhost:8080/api/jugador/update/&#x27;+username,user, {headers})
-    .pipe(
+    .pipe( 
     tap(response &#x3D;&gt; {
       this.loggedIn.next(true);
     })

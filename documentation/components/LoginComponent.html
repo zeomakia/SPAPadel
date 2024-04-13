@@ -370,8 +370,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -407,8 +407,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -565,7 +565,8 @@ export class LoginComponent {
           // Guarda el token en el almacenamiento local
           sessionStorage.setItem(&#x27;access_token&#x27;, response.token);
           sessionStorage.setItem(&#x27;user&#x27;, response.username);
-          this.router.navigate([&#x27;/jugadores&#x27;]);
+          sessionStorage.setItem(&#x27;userId&#x27;,response.id);
+          this.router.navigate([&#x27;/partidas&#x27;]);
         }
         else{
           console.log(&#x27;Usuario o contraseña incorrectos&#x27;);
@@ -649,7 +650,7 @@ export class LoginComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="login-component d-flex justify-content-center align-items-center flex-column">    <!-- Aquí es donde puedes poner tu logo -->    <div class="mb-3 text-center" style="border: 3px;border-color: black;">            <img src="assets/logo.jpg" alt="Logo" style="width: 150px; height: 150px;">    </div>    <div class="card shadow p-4 rounded">        <form [formGroup]="loginForm" class="form-detalle">        <h2 class="text-center mb-4">Iniciar sesión</h2>        <div class="mb-3">            <input type="text" formControlName="usernameForm"  class="form-control" id="usernameForm" placeholder="Usuario" />        </div>        <div *ngIf="loginForm.get(\'usernameForm\')?.invalid  && loginForm.get(\'usernameForm\')?.touched" class="error-message" style="color: red;">            <h4>Usuario requerido.</h4>          </div>          <div class="mb-3 position-relative">            <input [type]="hide ? \'password\' : \'text\'" formControlName="passwordForm"  id="passwordForm" class="form-control" placeholder="Contraseña" />            <span class="toggle-password position-absolute" (click)="toggle()" style="right: 10px; top: 50%; transform: translateY(-50%);">                <i class="bi" [ngClass]="hide ? \'bi-eye-slash-fill\' : \'bi-eye-fill\'"></i>            </span>        </div>                <div *ngIf="loginForm.get(\'passwordForm\')?.invalid  && loginForm.get(\'passwordForm\')?.touched" class="error-message" style="color: red;">            <h4>Contraseña requerida.</h4>          </div>        <div class="d-grid gap-2">            <button id="btn" [disabled]="loginForm.invalid" (click)="login()" class="btn btn-primary">Iniciar sesión</button>            <button (click)="register()" class="btn btn-outline-primary">Registrarse</button>        </div>    </form>    </div>    <!-- <app-registrarse></app-registrarse> --></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'JugadoresComponent', 'selector': 'app-jugadores'},{'name': 'JugadoresDetailComponent', 'selector': 'app-jugadores-detail'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilUserComponent', 'selector': 'app-perfil-user'},{'name': 'SingUpComponent', 'selector': 'app-sing-up'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'JugadoresComponent', 'selector': 'app-jugadores'},{'name': 'JugadoresDetailComponent', 'selector': 'app-jugadores-detail'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ParejasComponent', 'selector': 'app-parejas'},{'name': 'ParejasDetailComponent', 'selector': 'app-parejas-detail'},{'name': 'PartidaDetailComponent', 'selector': 'app-partida-detail'},{'name': 'PartidasComponent', 'selector': 'app-partidas'},{'name': 'PerfilUserComponent', 'selector': 'app-perfil-user'},{'name': 'SingUpComponent', 'selector': 'app-sing-up'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UbicacionesDetailComponent', 'selector': 'app-ubicaciones-detail'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

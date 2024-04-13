@@ -204,6 +204,20 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#NgOnInit" >NgOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -266,7 +280,49 @@
 
 
 
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NgOnInit"></a>
+                    <span class="name">
+                        <span ><b>NgOnInit</b></span>
+                        <a href="#NgOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>NgOnInit()</code>
+                </td>
+            </tr>
 
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/app.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
@@ -323,7 +379,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/app.component.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -350,6 +406,12 @@ export class AppComponent {
     this.authService.isLoggedIn.subscribe(loggedIn &#x3D;&gt; {
       this.isLoggedIn &#x3D; loggedIn;
     });
+    if(sessionStorage.getItem(&#x27;access_token&#x27;))
+    this.isLoggedIn&#x3D;true;
+    
+}
+
+NgOnInit():void{
  
 }
 title &#x3D; &#x27;SPAPadel in kubernetes!&#x27;;
@@ -432,7 +494,7 @@ h1 {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div style="margin: 35px;"><app-navbar  *ngIf="isLoggedIn"></app-navbar><app-modal></app-modal><router-outlet></router-outlet><div >    <app-footer ></app-footer>    </div></div><!-- <app-messages></app-messages> --></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'JugadoresComponent', 'selector': 'app-jugadores'},{'name': 'JugadoresDetailComponent', 'selector': 'app-jugadores-detail'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilUserComponent', 'selector': 'app-perfil-user'},{'name': 'SingUpComponent', 'selector': 'app-sing-up'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'JugadoresComponent', 'selector': 'app-jugadores'},{'name': 'JugadoresDetailComponent', 'selector': 'app-jugadores-detail'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ParejasComponent', 'selector': 'app-parejas'},{'name': 'ParejasDetailComponent', 'selector': 'app-parejas-detail'},{'name': 'PartidaDetailComponent', 'selector': 'app-partida-detail'},{'name': 'PartidasComponent', 'selector': 'app-partidas'},{'name': 'PerfilUserComponent', 'selector': 'app-perfil-user'},{'name': 'SingUpComponent', 'selector': 'app-sing-up'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UbicacionesDetailComponent', 'selector': 'app-ubicaciones-detail'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

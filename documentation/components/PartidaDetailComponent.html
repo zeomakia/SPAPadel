@@ -1,0 +1,1552 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SPAPadel documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">SPAPadel documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PartidaDetailComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/partidas/partida-detail/partida-detail.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-partida-detail</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./partida-detail.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./partida-detail.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#disable" >disable</a>
+                            </li>
+                            <li>
+                                <a href="#nuevaPartidaForm" >nuevaPartidaForm</a>
+                            </li>
+                            <li>
+                                <a href="#parejas" >parejas</a>
+                            </li>
+                            <li>
+                                <a href="#partida" >partida</a>
+                            </li>
+                            <li>
+                                <a href="#ubicaciones" >ubicaciones</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getParejas" >getParejas</a>
+                            </li>
+                            <li>
+                                <a href="#getPartida" >getPartida</a>
+                            </li>
+                            <li>
+                                <a href="#getUbicaciones" >getUbicaciones</a>
+                            </li>
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#guardarNuevaPartida" >guardarNuevaPartida</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#rellenarFormulario" >rellenarFormulario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#identificador" >identificador</a>
+                            </li>
+                            <li>
+                                <a href="#tipo" >tipo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cerrarDetalle" >cerrarDetalle</a>
+                            </li>
+                            <li>
+                                <a href="#partidaCreada" >partidaCreada</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, partidaService: <a href="../injectables/PartidaService.html" target="_self">PartidaService</a>, ubicacionService: <a href="../injectables/UbicacionService.html" target="_self">UbicacionService</a>, parejaService: <a href="../injectables/ParejaService.html" target="_self">ParejaService</a>, location: Location, modalService: <a href="../injectables/ModalService.html" target="_self">ModalService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>partidaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PartidaService.html" target="_self" >PartidaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ubicacionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UbicacionService.html" target="_self" >UbicacionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>parejaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ParejaService.html" target="_self" >ParejaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>location</td>
+                                                  
+                                                        <td>
+                                                                    <code>Location</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ModalService.html" target="_self" >ModalService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="identificador"></a>
+                        <b>identificador</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tipo"></a>
+                        <b>tipo</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cerrarDetalle"></a>
+                        <b>cerrarDetalle</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="partidaCreada"></a>
+                        <b>partidaCreada</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParejas"></a>
+                    <span class="name">
+                        <span ><b>getParejas</b></span>
+                        <a href="#getParejas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getParejas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;Pareja[]&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPartida"></a>
+                    <span class="name">
+                        <span ><b>getPartida</b></span>
+                        <a href="#getPartida"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPartida()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Partida.html" target="_self" >Observable&lt;Partida&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUbicaciones"></a>
+                    <span class="name">
+                        <span ><b>getUbicaciones</b></span>
+                        <a href="#getUbicaciones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUbicaciones()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Ubicacion.html" target="_self" >Observable&lt;Ubicacion[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarNuevaPartida"></a>
+                    <span class="name">
+                        <span ><b>guardarNuevaPartida</b></span>
+                        <a href="#guardarNuevaPartida"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarNuevaPartida()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:125</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rellenarFormulario"></a>
+                    <span class="name">
+                        <span ><b>rellenarFormulario</b></span>
+                        <a href="#rellenarFormulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rellenarFormulario(partida: <a href="../interfaces/Partida.html" target="_self">Partida</a>, parejas: Pareja[], ubicaciones: <a href="../interfaces/Ubicacion.html" target="_self">Ubicacion[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>partida</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Partida.html" target="_self" >Partida</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>parejas</td>
+                                            <td>
+                                                        <code>Pareja[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ubicaciones</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Ubicacion.html" target="_self" >Ubicacion[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disable"></a>
+                    <span class="name">
+                        <span ><b>disable</b></span>
+                        <a href="#disable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nuevaPartidaForm"></a>
+                    <span class="name">
+                        <span ><b>nuevaPartidaForm</b></span>
+                        <a href="#nuevaPartidaForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parejas"></a>
+                    <span class="name">
+                        <span ><b>parejas</b></span>
+                        <a href="#parejas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Pareja[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="partida"></a>
+                    <span class="name">
+                        <span ><b>partida</b></span>
+                        <a href="#partida"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Partida.html" target="_self" >Partida</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ubicaciones"></a>
+                    <span class="name">
+                        <span ><b>ubicaciones</b></span>
+                        <a href="#ubicaciones"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Ubicacion.html" target="_self" >Ubicacion[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/partidas/partida-detail/partida-detail.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Location, NgIf } from &#x27;@angular/common&#x27;;
+
+import { Partida } from &#x27;../../../models/partida&#x27;;
+import { PartidaService } from &#x27;../../../services/partida.service&#x27;;
+import { FormControl, FormGroup, ReactiveFormsModule, Validators,FormsModule } from &#x27;@angular/forms&#x27;;
+import { Pareja } from &#x27;../../../models/pareja&#x27;;
+import { ParejaService } from &#x27;../../../services/pareja.service&#x27;;
+import { UbicacionService } from &#x27;../../../services/ubicacion-service.service&#x27;;
+import { Ubicacion } from &#x27;../../../models/ubicacion&#x27;;
+import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { ModalService } from &#x27;src/app/services/modal.service&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+@Component({
+  selector: &#x27;app-partida-detail&#x27;,
+  templateUrl: &#x27;./partida-detail.component.html&#x27;,
+  styleUrls: [ &#x27;./partida-detail.component.scss&#x27; ],
+})
+export class PartidaDetailComponent implements OnInit {
+  nuevaPartidaForm: FormGroup; 
+  @Output() partidaCreada &#x3D; new EventEmitter&lt;void&gt;();
+  @Output() cerrarDetalle &#x3D; new EventEmitter&lt;void&gt;();
+  @Input() identificador!: number;
+  @Input() tipo?: string;
+  partida!: Partida;
+  parejas: Pareja[]&#x3D;[];
+  ubicaciones: Ubicacion[]&#x3D;[];
+  disable: boolean&#x3D;true;
+  constructor(
+    private route: ActivatedRoute,
+    private partidaService: PartidaService,
+    private ubicacionService: UbicacionService,
+    private parejaService: ParejaService,
+    private location: Location,
+    private modalService: ModalService
+  ) {
+    this.nuevaPartidaForm &#x3D; new FormGroup({
+      pareja1Form: new FormControl(&#x27;&#x27;, Validators.required),
+      pareja2Form: new FormControl(&#x27;&#x27;, Validators.required),
+      ubicacionForm: new FormControl(&#x27;&#x27;, Validators.required),
+      parejaGanadoraForm: new FormControl (&#x27;&#x27;,Validators.required),
+      resultadoForm: new FormControl (&#x27;&#x27;,Validators.required),
+      diaForm: new FormControl(&#x27;&#x27;, Validators.required)
+    });
+  }
+
+  ngOnInit(): void {
+    if(this.identificador&#x3D;&#x3D;0){
+      this.getParejas().subscribe(parejas &#x3D;&gt; {
+        this.parejas &#x3D; parejas;
+        this.getUbicaciones().subscribe(ubicaciones &#x3D;&gt; {
+          this.ubicaciones &#x3D; ubicaciones;
+          this.rellenarFormulario(this.partida, this.parejas, this.ubicaciones);
+        });
+      });
+    }else{
+      this.getPartida().subscribe(partida &#x3D;&gt; {
+        this.partida &#x3D; partida;
+        this.disable&#x3D; this.tipo&#x3D;&#x3D;&#x3D;&#x27;D&#x27;;
+        if(this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;){
+          this.getParejas().subscribe(parejas &#x3D;&gt; {
+            this.parejas &#x3D; parejas;
+            this.getUbicaciones().subscribe(ubicaciones &#x3D;&gt; {
+              this.ubicaciones &#x3D; ubicaciones;
+              this.rellenarFormulario(this.partida, this.parejas, this.ubicaciones);
+            });
+          });
+        } 
+      });
+    }
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.identificador&#x3D;&#x3D;0){
+      this.getParejas();
+      this.getUbicaciones();
+     }else{
+      this.getPartida().subscribe(partida &#x3D;&gt; {
+        this.partida &#x3D; partida;
+        this.disable&#x3D; this.tipo&#x3D;&#x3D;&#x3D;&#x27;D&#x27;;
+        if(this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;){
+          this.getParejas().subscribe(parejas &#x3D;&gt; {
+            this.parejas &#x3D; parejas;
+            this.getUbicaciones().subscribe(ubicaciones &#x3D;&gt; {
+              this.ubicaciones &#x3D; ubicaciones;
+              this.rellenarFormulario(this.partida, this.parejas, this.ubicaciones);
+            });
+          });
+        } 
+      });
+     }
+  }
+  rellenarFormulario(partida: Partida, parejas:Pareja[],ubicaciones:Ubicacion[]){
+    const pareja1 &#x3D; parejas.find(pareja &#x3D;&gt; pareja.nombrePareja &#x3D;&#x3D;&#x3D; partida.pareja1);
+    const pareja2 &#x3D; parejas.find(pareja &#x3D;&gt; pareja.nombrePareja &#x3D;&#x3D;&#x3D; partida.pareja2);
+    const ubicacion &#x3D; ubicaciones.find(ubicacion &#x3D;&gt; ubicacion.name.trim() &#x3D;&#x3D;&#x3D; partida.ubicacion.trim());
+    const parejaGanadora &#x3D; parejas.find(pareja &#x3D;&gt; pareja.nombrePareja &#x3D;&#x3D;&#x3D; partida.parejaGanadora);
+  
+    this.nuevaPartidaForm.setValue({
+      pareja1Form: pareja1 ? pareja1.id : null,
+      pareja2Form: pareja2 ? pareja2.id : null,
+      ubicacionForm: ubicacion ? ubicacion.id : null,
+      resultadoForm: partida.resultado,
+      parejaGanadoraForm: parejaGanadora ? parejaGanadora.id : null,
+      diaForm: partida.dia
+    });
+  }
+  
+  getPartida(): Observable&lt;Partida&gt; {
+    return this.partidaService.getPartida(this.identificador);
+  }
+  getParejas(): Observable&lt;Pareja[]&gt;{
+    return this.parejaService.getParejas();
+  }
+  getUbicaciones():Observable&lt;Ubicacion[]&gt;{
+    return this.ubicacionService.getUbicaciones();
+  }
+
+  goBack(): void {
+    // this.location.back();
+    this.modalService.openModalInfo(&#x27;Partida actualizada&#x27;);
+    this.cerrarDetalle.emit();
+  }
+
+  guardarNuevaPartida() {
+    if (this.nuevaPartidaForm.valid) {
+      // Crear una nueva instancia de Partida
+      const nuevaPartida: Partida &#x3D; {
+        id: this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;?this.identificador:0,
+        dia: this.nuevaPartidaForm.get(&#x27;diaForm&#x27;)?.value,
+        pareja1: this.nuevaPartidaForm.get(&#x27;pareja1Form&#x27;)?.value,
+        pareja2: this.nuevaPartidaForm.get(&#x27;pareja2Form&#x27;)?.value,
+        parejaGanadora: this.nuevaPartidaForm.get(&#x27;parejaGanadoraForm&#x27;)?.value,
+        parejaPerdedora: this.nuevaPartidaForm.get(&#x27;parejaGanadoraForm&#x27;)?.value &#x3D;&#x3D;&#x3D;this.nuevaPartidaForm.get(&#x27;pareja1Form&#x27;)?.value?this.nuevaPartidaForm.get(&#x27;pareja2Form&#x27;)?.value:this.nuevaPartidaForm.get(&#x27;pareja1Form&#x27;)?.value,
+        ubicacion: this.nuevaPartidaForm.get(&#x27;ubicacionForm&#x27;)?.value,
+        resultado: this.nuevaPartidaForm.get(&#x27;resultadoForm&#x27;)?.value
+      };
+  
+      // Llamar al servicio con la nueva partida
+      if(this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;){
+        this.partidaService.updatePartida(nuevaPartida).subscribe(
+          () &#x3D;&gt; {
+              this.partidaCreada.emit();
+              this.goBack(); 
+          },
+          error &#x3D;&gt; {
+              console.error(&#x27;Error al crear la partida: &#x27;, error.error.message);
+              this.modalService.openModalError(&#x27;Error al crear la partida: &#x27; + error.error.message);
+          }
+      );
+      }else{
+      this.partidaService.addPartida(nuevaPartida).subscribe(
+        () &#x3D;&gt; {
+            this.partidaCreada.emit();
+            this.goBack(); 
+        },
+        error &#x3D;&gt; {
+            console.error(&#x27;Error al crear la partida: &#x27;, error.error.message);
+            this.modalService.openModalError(&#x27;Error al crear la partida: &#x27; + error.error.message);
+        }
+    );
+    }
+  }
+  }
+  
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- -------PARTIDA EXISTENTE-------- --&gt;
+&lt;div *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;D&#x27;&quot; class&#x3D;&quot;detalle-partida content&quot;&gt;
+  &lt;h2 class&#x3D;&quot;header&quot;&gt;Detalle de la partida&lt;/h2&gt;
+  &lt;form class&#x3D;&quot;form-detalle&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;id&quot;&gt;ID:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;id&quot; [value]&#x3D;&quot;partida.id&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;pareja1&quot;&gt;Pareja 1:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;pareja1&quot; [value]&#x3D;&quot;partida.pareja1&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;pareja2&quot;&gt;Pareja 2:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;pareja2&quot; [value]&#x3D;&quot;partida.pareja2&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;ubicacion&quot;&gt;Ubicación:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;ubicacion&quot; [value]&#x3D;&quot;partida.ubicacion&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;dia&quot;&gt;Día:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;dia&quot; [value]&#x3D;&quot;partida.dia | date&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;parejaGanadora&quot;&gt;Pareja ganadora:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;parejaGanadora&quot; [value]&#x3D;&quot;partida.parejaGanadora&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;resultado&quot;&gt;Resultado:&lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;resultado&quot; [value]&#x3D;&quot;partida.resultado&quot; [disabled]&#x3D;&quot;disable&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt; 
+    &lt;button id&#x3D;&quot;btn&quot; (click)&#x3D;&quot;cerrarDetalle.emit()&quot; class&#x3D;&quot;btn btn-secondary&quot;&gt;Cancelar&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;!-- -------PARTIDA NUEVA-------- --&gt;
+&lt;div *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;A&#x27; || tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;&quot; class&#x3D;&quot;detalle-partida content&quot;&gt;
+  &lt;h2 *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;A&#x27;&quot; class&#x3D;&quot;header&quot;&gt;Crear nueva partida&lt;/h2&gt;
+  &lt;h2 *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;&quot; class&#x3D;&quot;header&quot;&gt;Modificar partida&lt;/h2&gt;
+  &lt;form [formGroup]&#x3D;&quot;nuevaPartidaForm&quot; class&#x3D;&quot;form-detalle&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;pareja1&quot;&gt;Pareja 1:&lt;/label&gt;
+          &lt;select formControlName&#x3D;&quot;pareja1Form&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;pareja1Form&quot;&gt;
+            &lt;option *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;A&#x27;&quot; value&#x3D;&quot;&quot; disabled selected&gt;Seleccionar&lt;/option&gt;
+            &lt;option *ngFor&#x3D;&quot;let pareja of parejas&quot; [value]&#x3D;&quot;pareja.id&quot;&gt;{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;div *ngIf&#x3D;&quot;nuevaPartidaForm.get(&#x27;pareja1Form&#x27;)?.invalid &amp;&amp; nuevaPartidaForm.get(&#x27;pareja1Form&#x27;)?.touched&quot; class&#x3D;&quot;error-message&quot; style&#x3D;&quot;color: red;&quot;&gt;
+            Pareja 1 es requerido.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;pareja2&quot;&gt;Pareja 2:&lt;/label&gt;
+          &lt;select formControlName&#x3D;&quot;pareja2Form&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;pareja2Form&quot;&gt;
+            &lt;option *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;A&#x27;&quot; value&#x3D;&quot;&quot; disabled selected&gt;Seleccionar&lt;/option&gt;
+
+            &lt;option *ngFor&#x3D;&quot;let pareja of parejas&quot; [value]&#x3D;&quot;pareja.id&quot;&gt;{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;div *ngIf&#x3D;&quot;nuevaPartidaForm.get(&#x27;pareja2Form&#x27;)?.invalid &amp;&amp; nuevaPartidaForm.get(&#x27;pareja2Form&#x27;)?.touched&quot; class&#x3D;&quot;error-message&quot; style&#x3D;&quot;color: red;&quot;&gt;
+            Pareja 2 es requerido.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;ubicacionForm&quot;&gt;Ubicación:&lt;/label&gt;
+          &lt;select formControlName&#x3D;&quot;ubicacionForm&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;ubicacionForm&quot;&gt;
+            &lt;option *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;A&#x27;&quot; value&#x3D;&quot;&quot; disabled selected&gt;Seleccionar&lt;/option&gt;
+            &lt;option *ngFor&#x3D;&quot;let ubicacion of ubicaciones&quot; [ngValue]&#x3D;&quot;ubicacion.id&quot;&gt;{{ ubicacion.name }}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;div *ngIf&#x3D;&quot;nuevaPartidaForm.get(&#x27;ubicacionForm&#x27;)?.invalid &amp;&amp; nuevaPartidaForm.get(&#x27;ubicacionForm&#x27;)?.touched&quot; class&#x3D;&quot;error-message&quot; style&#x3D;&quot;color: red;&quot;&gt;
+            Ubicación es requerida.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;resultado&quot;&gt;Resultado:&lt;/label&gt;
+          &lt;input formControlName&#x3D;&quot;resultadoForm&quot; placeholder&#x3D;&quot;XX-XX-XX&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;resultado&quot;&gt;
+          
+          &lt;div *ngIf&#x3D;&quot;nuevaPartidaForm.get(&#x27;resultadoForm&#x27;)?.invalid &amp;&amp; nuevaPartidaForm.get(&#x27;resultadoForm&#x27;)?.touched&quot; class&#x3D;&quot;error-message&quot; style&#x3D;&quot;color: red;&quot;&gt;
+            Resultado es requerido.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;parejaGanadora&quot;&gt;Pareja Ganadora:&lt;/label&gt;
+          &lt;select formControlName&#x3D;&quot;parejaGanadoraForm&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;parejaGanadora&quot;&gt;
+            &lt;option *ngIf&#x3D;&quot;tipo&#x3D;&#x3D;&#x3D;&#x27;A&#x27;&quot; value&#x3D;&quot;&quot; disabled selected&gt;Seleccionar&lt;/option&gt;
+            &lt;option *ngFor&#x3D;&quot;let pareja of parejas&quot; [value]&#x3D;&quot;pareja.id&quot;&gt;{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;div *ngIf&#x3D;&quot;nuevaPartidaForm.get(&#x27;parejaGanadoraForm&#x27;)?.invalid &amp;&amp; nuevaPartidaForm.get(&#x27;parejaGanadoraForm&#x27;)?.touched&quot; class&#x3D;&quot;error-message&quot; style&#x3D;&quot;color: red;&quot;&gt;
+            Pareja ganadora es requerida.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label for&#x3D;&quot;dia&quot;&gt;Día:&lt;/label&gt;
+          &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+            &lt;input formControlName&#x3D;&quot;diaForm&quot; matInput [matDatepicker]&#x3D;&quot;picker&quot; id&#x3D;&quot;dia&quot;&gt;
+            &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+          &lt;/mat-form-field&gt;
+          &lt;div *ngIf&#x3D;&quot;nuevaPartidaForm.get(&#x27;diaForm&#x27;)?.invalid &amp;&amp; nuevaPartidaForm.get(&#x27;diaForm&#x27;)?.touched&quot; class&#x3D;&quot;error-message&quot; style&#x3D;&quot;color: red;&quot;&gt;
+            Día es requerido.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style&#x3D;&quot;display: flex; justify-content: space-between;&quot;&gt;
+      &lt;button id&#x3D;&quot;btn&quot; [disabled]&#x3D;&quot;nuevaPartidaForm.invalid&quot; (click)&#x3D;&quot;guardarNuevaPartida()&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Guardar&lt;/button&gt;
+      &lt;button id&#x3D;&quot;btn&quot; (click)&#x3D;&quot;cerrarDetalle.emit()&quot; class&#x3D;&quot;btn btn-secondary&quot;&gt;Cancelar&lt;/button&gt;
+    &lt;/div&gt;
+   
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;app-modal&gt;&lt;/app-modal&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./partida-detail.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">label {
+    display: inline-block;
+    width: 3em;
+    // margin: .5em 0;
+    color: #607D8B;
+    font-weight: bold;
+  }
+  input {
+    height: 2em;
+    font-size: 1em;
+    padding-left: .4em;
+  }
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #cfd8dc;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #ccc;
+    cursor: auto;
+  }
+  .detalle-partida {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .header {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-detalle .form-group {
+    margin-bottom: 20px;
+  }
+  
+  div label{
+    color: rgb(0, 0, 5);
+    white-space: nowrap;
+  }
+  input {
+    font-weight: bold; /* Aplica negrita al texto del label */
+    border: none !important; /* Elimina el borde del label */
+  }
+    /* Estilo para los inputs */
+    .form-control {
+      background-color: #f2f2f2; /* Color de fondo gris muy suave */
+      border-color: #ddd; /* Color del borde */
+    }
+    #btn {
+      /* Otros estilos específicos si los hay */
+      /* Aquí agregamos las clases de Bootstrap */
+      background-color: #0d6efd; /* Estilo personalizado */
+      // btn btn-primary;
+    }   
+
+    .mat-form-field {
+      width: 100%; /* Opcional, ajusta el ancho del campo según sea necesario */
+    }
+    
+    .mat-form-field-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .mat-datepicker-toggle {
+      flex-shrink: 0; /* Evita que el icono del datepicker se reduzca */
+    }
+    
+
+  /*
+  Copyright Google LLC. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license
+  */</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- -------PARTIDA EXISTENTE-------- --><div *ngIf="tipo===\'D\'" class="detalle-partida content">  <h2 class="header">Detalle de la partida</h2>  <form class="form-detalle">    <div class="row">      <div class="col-md-6">        <div class="form-group">          <label for="id">ID:</label>          <input type="text" class="form-control" id="id" [value]="partida.id" [disabled]="disable">        </div>        <div class="form-group">          <label for="pareja1">Pareja 1:</label>          <input type="text" class="form-control" id="pareja1" [value]="partida.pareja1" [disabled]="disable">        </div>      </div>      <div class="col-md-6">        <div class="form-group">          <label for="pareja2">Pareja 2:</label>          <input type="text" class="form-control" id="pareja2" [value]="partida.pareja2" [disabled]="disable">        </div>        <div class="form-group">          <label for="ubicacion">Ubicación:</label>          <input type="text" class="form-control" id="ubicacion" [value]="partida.ubicacion" [disabled]="disable">        </div>      </div>    </div>    <div class="row">      <div class="col-md-6">        <div class="form-group">          <label for="dia">Día:</label>          <input type="text" class="form-control" id="dia" [value]="partida.dia | date" [disabled]="disable">        </div>      </div>      <div class="col-md-6">        <div class="form-group">          <label for="parejaGanadora">Pareja ganadora:</label>          <input type="text" class="form-control" id="parejaGanadora" [value]="partida.parejaGanadora" [disabled]="disable">        </div>      </div>    </div>    <div class="row">      <div class="col-md-6">        <div class="form-group">          <label for="resultado">Resultado:</label>          <input type="text" class="form-control" id="resultado" [value]="partida.resultado" [disabled]="disable">        </div>      </div>    </div>     <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>  </form></div><!-- -------PARTIDA NUEVA-------- --><div *ngIf="tipo===\'A\' || tipo===\'M\'" class="detalle-partida content">  <h2 *ngIf="tipo===\'A\'" class="header">Crear nueva partida</h2>  <h2 *ngIf="tipo===\'M\'" class="header">Modificar partida</h2>  <form [formGroup]="nuevaPartidaForm" class="form-detalle">    <div class="row">      <div class="col-md-6">        <div class="form-group">          <label for="pareja1">Pareja 1:</label>          <select formControlName="pareja1Form" class="form-control" id="pareja1Form">            <option *ngIf="tipo===\'A\'" value="" disabled selected>Seleccionar</option>            <option *ngFor="let pareja of parejas" [value]="pareja.id">{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}</option>          </select>          <div *ngIf="nuevaPartidaForm.get(\'pareja1Form\')?.invalid && nuevaPartidaForm.get(\'pareja1Form\')?.touched" class="error-message" style="color: red;">            Pareja 1 es requerido.          </div>        </div>      </div>      <div class="col-md-6">        <div class="form-group">          <label for="pareja2">Pareja 2:</label>          <select formControlName="pareja2Form" class="form-control" id="pareja2Form">            <option *ngIf="tipo===\'A\'" value="" disabled selected>Seleccionar</option>            <option *ngFor="let pareja of parejas" [value]="pareja.id">{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}</option>          </select>          <div *ngIf="nuevaPartidaForm.get(\'pareja2Form\')?.invalid && nuevaPartidaForm.get(\'pareja2Form\')?.touched" class="error-message" style="color: red;">            Pareja 2 es requerido.          </div>        </div>      </div>    </div>    <div class="row">      <div class="col-md-6">        <div class="form-group">          <label for="ubicacionForm">Ubicación:</label>          <select formControlName="ubicacionForm" type="text" class="form-control" id="ubicacionForm">            <option *ngIf="tipo===\'A\'" value="" disabled selected>Seleccionar</option>            <option *ngFor="let ubicacion of ubicaciones" [ngValue]="ubicacion.id">{{ ubicacion.name }}</option>          </select>          <div *ngIf="nuevaPartidaForm.get(\'ubicacionForm\')?.invalid && nuevaPartidaForm.get(\'ubicacionForm\')?.touched" class="error-message" style="color: red;">            Ubicación es requerida.          </div>        </div>      </div>      <div class="col-md-6">        <div class="form-group">          <label for="resultado">Resultado:</label>          <input formControlName="resultadoForm" placeholder="XX-XX-XX" type="text" class="form-control" id="resultado">                    <div *ngIf="nuevaPartidaForm.get(\'resultadoForm\')?.invalid && nuevaPartidaForm.get(\'resultadoForm\')?.touched" class="error-message" style="color: red;">            Resultado es requerido.          </div>        </div>      </div>    </div>    <div class="row">      <div class="col-md-6">        <div class="form-group">          <label for="parejaGanadora">Pareja Ganadora:</label>          <select formControlName="parejaGanadoraForm" class="form-control" id="parejaGanadora">            <option *ngIf="tipo===\'A\'" value="" disabled selected>Seleccionar</option>            <option *ngFor="let pareja of parejas" [value]="pareja.id">{{ pareja.nombre_jugador1 }} - {{ pareja.nombre_jugador2 }}</option>          </select>          <div *ngIf="nuevaPartidaForm.get(\'parejaGanadoraForm\')?.invalid && nuevaPartidaForm.get(\'parejaGanadoraForm\')?.touched" class="error-message" style="color: red;">            Pareja ganadora es requerida.          </div>        </div>      </div>      <div class="col-md-6">        <div class="form-group">          <label for="dia">Día:</label>          <mat-form-field appearance="fill">            <input formControlName="diaForm" matInput [matDatepicker]="picker" id="dia">            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>            <mat-datepicker #picker></mat-datepicker>          </mat-form-field>          <div *ngIf="nuevaPartidaForm.get(\'diaForm\')?.invalid && nuevaPartidaForm.get(\'diaForm\')?.touched" class="error-message" style="color: red;">            Día es requerido.          </div>        </div>      </div>    </div>    <div style="display: flex; justify-content: space-between;">      <button id="btn" [disabled]="nuevaPartidaForm.invalid" (click)="guardarNuevaPartida()" class="btn btn-primary">Guardar</button>      <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>    </div>     </form></div><app-modal></app-modal></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'JugadoresComponent', 'selector': 'app-jugadores'},{'name': 'JugadoresDetailComponent', 'selector': 'app-jugadores-detail'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ParejasComponent', 'selector': 'app-parejas'},{'name': 'ParejasDetailComponent', 'selector': 'app-parejas-detail'},{'name': 'PartidaDetailComponent', 'selector': 'app-partida-detail'},{'name': 'PartidasComponent', 'selector': 'app-partidas'},{'name': 'PerfilUserComponent', 'selector': 'app-perfil-user'},{'name': 'SingUpComponent', 'selector': 'app-sing-up'},{'name': 'UbicacionComponent', 'selector': 'app-ubicacion'},{'name': 'UbicacionesDetailComponent', 'selector': 'app-ubicaciones-detail'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'PartidaDetailComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PartidaDetailComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

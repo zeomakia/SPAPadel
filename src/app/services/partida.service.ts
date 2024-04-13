@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Partida } from '../models/partida';
-// import { HEROES } from './mock-heroes';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators'
@@ -40,13 +39,13 @@ export class PartidaService {
     return this.http.post(this.partidasUrl+`update/${partida.id}`, partida, {headers:this.addToken()});
   }
 
-  /** POST: add a new hero to the server */
+  /** POST: add a new Partida to the server */
 addPartida(partida: Partida): Observable<Partida> {
   
   return this.http.post<Partida>(this.partidasUrl+'insert', partida, {headers:this.addToken()});
 }
 
-/** DELETE: delete the hero from the server */
+/** DELETE: delete the Partida from the server */
 deletePartida(partida: number): Observable<Boolean> {
   const url = `${this.partidasUrl}delete/${partida}`;
 

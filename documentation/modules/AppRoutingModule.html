@@ -142,13 +142,22 @@ import { JugadoresComponent } from &#x27;./components/jugadores/jugadores-list/j
 import { LoginComponent } from &#x27;./components/oauth/login/login.component&#x27;;
 import { SingUpComponent } from &#x27;./components/oauth/sing-up/sing-up.component&#x27;;
 import { PerfilUserComponent } from &#x27;./components/perfil-user/perfil-user.component&#x27;;
+import { UbicacionComponent } from &#x27;./components/ubicaciones/ubicacion-list/ubicacion.component&#x27;;
+import { PartidasComponent } from &#x27;./components/partidas/partidas-list/partidas.component&#x27;;
+import { ParejasComponent } from &#x27;./components/parejas/parejas-list/parejas.component&#x27;;
+import { AuthGuard } from &#x27;./authGuard&#x27;;
+import { LoginGuard } from &#x27;./loginGuard&#x27;;
 
 const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, redirectTo: &#x27;/login&#x27;, pathMatch: &#x27;full&#x27; },
-  { path: &#x27;login&#x27;, component: LoginComponent, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;login&#x27;, component: LoginComponent, pathMatch: &#x27;full&#x27; ,canActivate: [LoginGuard]},
   { path: &#x27;singup&#x27;, component: SingUpComponent, pathMatch: &#x27;full&#x27; },
-  { path: &#x27;jugadores&#x27;, component: JugadoresComponent },
-  { path: &#x27;perfil-user&#x27;, component: PerfilUserComponent },
+  { path: &#x27;jugador&#x27;, component: JugadoresComponent,  canActivate: [AuthGuard] },
+  { path: &#x27;pareja&#x27;, component: ParejasComponent ,  canActivate: [AuthGuard]},
+  { path: &#x27;perfil-user&#x27;, component: PerfilUserComponent ,  canActivate: [AuthGuard]},
+  { path: &#x27;ubicacion&#x27;, component: UbicacionComponent,  canActivate: [AuthGuard] },
+  { path: &#x27;partidas&#x27;, component: PartidasComponent,  canActivate: [AuthGuard] },
+  { path: &#x27;**&#x27;, redirectTo: &#x27;/login&#x27;, pathMatch: &#x27;full&#x27; } // Redirige a https://ejemplo.com si la ruta no coincide
 ];
 
 @NgModule({

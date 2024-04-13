@@ -148,9 +148,9 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#apellido" 
+                                        <a href="#apellidos" 
 >
-                                            apellido
+                                            apellidos
                                         </a>
                                 </li>
                                 <li>
@@ -160,21 +160,21 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#foto" 
->
-                                            foto
-                                        </a>
-                                </li>
-                                <li>
                                         <a href="#id" 
 >
                                             id
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#nombre" 
+                                        <a href="#name" 
 >
-                                            nombre
+                                            name
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#username" 
+>
+                                            username
                                         </a>
                                 </li>
                             </ul>
@@ -192,9 +192,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="apellido"></a>
-                                        <span class="name "><b>apellido</b>
-                                            <a href="#apellido">
+                                        <a name="apellidos"></a>
+                                        <span class="name "><b>apellidos</b>
+                                            <a href="#apellidos">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -202,7 +202,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>apellido:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>apellidos:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -258,39 +258,6 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="foto"></a>
-                                        <span class="name "><b>foto</b>
-                                            <a href="#foto">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>foto:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
                                         <a name="id"></a>
                                         <span class="name "><b>id</b>
                                             <a href="#id">
@@ -324,9 +291,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="nombre"></a>
-                                        <span class="name "><b>nombre</b>
-                                            <a href="#nombre">
+                                        <a name="name"></a>
+                                        <span class="name "><b>name</b>
+                                            <a href="#name">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -334,7 +301,40 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>nombre:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="username"></a>
+                                        <span class="name "><b>username</b>
+                                            <a href="#username">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>username:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -360,9 +360,9 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Jugadores {
     id: number;
-    nombre: string;
-    apellido: string;
-    foto: string;
+    name: string;
+    apellidos: string;
+    username: string;
     edad: number;
   }
   </code></pre>
