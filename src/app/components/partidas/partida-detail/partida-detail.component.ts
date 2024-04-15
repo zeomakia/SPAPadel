@@ -40,7 +40,8 @@ export class PartidaDetailComponent implements OnInit {
       pareja2Form: new FormControl('', Validators.required),
       ubicacionForm: new FormControl('', Validators.required),
       parejaGanadoraForm: new FormControl ('',Validators.required),
-      resultadoForm: new FormControl ('',Validators.required),
+      resultadoForm: new FormControl ('',[Validators.required,
+      Validators.pattern('^((6-[0-4])|(7-[5-6])|([5-7]-7)|([0-4]-6)) ((6-[0-4])|(7-[5-6])|([5-7]-7)|([0-4]-6)) ((6-[0-4])|(7-[5-6])|([5-7]-7)|([0-4]-6))')]),
       diaForm: new FormControl('', Validators.required)
     });
   }

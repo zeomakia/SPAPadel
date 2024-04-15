@@ -98,10 +98,10 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="resultado">Resultado:</label>
-          <input formControlName="resultadoForm" placeholder="XX-XX-XX" type="text" class="form-control" id="resultado">
+          <input formControlName="resultadoForm" placeholder="X-X X-X X-X" type="text" class="form-control" id="resultado">
           
           <div *ngIf="nuevaPartidaForm.get('resultadoForm')?.invalid && nuevaPartidaForm.get('resultadoForm')?.touched" class="error-message" style="color: red;">
-            Resultado es requerido.
+            Resultado es requerido y ha de tener el formato válido X-X X-X X-X.
           </div>
         </div>
       </div>
