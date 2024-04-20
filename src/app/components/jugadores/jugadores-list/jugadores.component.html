@@ -1,34 +1,81 @@
-<div style="margin-top: 10px;">
+<div style="margin-top: 10px">
   <h2>Listado de Jugadores</h2>
-<div class="table-responsive">
-  <table class="table table-hover rounded">
-    <thead class="bg-light">
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Edad</th>
-        <th style="width: 60px;"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let jugador of jugadores | paginate: { itemsPerPage: 5, currentPage: p };">
-        <td>{{ jugador.name }}</td>
-        <td>{{ jugador.apellidos }}</td>
-        <td>{{ jugador.edad }}</td>
-        <td>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{jugador.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
-            </button>
-            <ul class="dropdown-menu" >
-              <li><a class="dropdown-item" (click)="goDetail(jugador.id,'D')">Detalle</a></li>
-              <!-- <li><a class="dropdown-item" (click)="goDetail(jugador.id,'M')">Modificar</a></li> -->
-              <!-- <li><a class="dropdown-item" (click)="goBorrar(jugador.id)">Borrar</a></li> -->
-            </ul>
+  <div class="table-responsive">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Columna para el table -->
+        <div class="col-md-7">
+          <table class="table table-hover rounded">
+            <thead class="bg-light">
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th style="width: 60px"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="
+                  let jugador of jugadores
+                    | paginate : { itemsPerPage: 5, currentPage: p }
+                "
+              >
+                <td>{{ jugador.name }}</td>
+                <td>{{ jugador.apellidos }}</td>
+                <td>{{ jugador.edad }}</td>
+                <td>
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-secondary dropdown-toggle mi-item-personalizado"
+                      type="button"
+                      id="accionesDropdown{{ jugador.id }}"
+                      data-bs-toggle="dropdown"
+                      data-bs-flip="true"
+                      aria-expanded="false"
+                    ></button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" (click)="goDetail(jugador.id, 'D')"
+                          >Detalle</a
+                        >
+                      </li>
+                      <!-- <li><a class="dropdown-item" (click)="goDetail(jugador.id,'M')">Modificar</a></li> -->
+                      <!-- <li><a class="dropdown-item" (click)="goBorrar(jugador.id)">Borrar</a></li> -->
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </tbody>
+          </table>
+        </div>
+        <!-- Columna para el canvas -->
+        <div class="col-md-5">
+          <div class="container">
+            <h2>Top 3 mejores jugadores</h2>
+            <div class="chart-container">
+              <canvas
+                baseChart
+                [labels]="doughnutChartLabels"
+                [datasets]="doughnutChartDatasets"
+                [options]="doughnutChartOptions"
+                [legend]="true"
+                [type]="'doughnut'"
+              >
+              </canvas>
+            </div>
           </div>
-        </td>
-      </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <app-jugadores-detail
+    *ngIf="detalle"
+    [jugador]="jugador"
+    [tipo]="tipo"
+    (cerrarDetalle)="this.detalle = !this.detalle"
+  ></app-jugadores-detail>
+  
 </div>
-<app-jugadores-detail *ngIf="detalle" [jugador]="jugador" [tipo]="tipo" (cerrarDetalle)="this.detalle=!this.detalle"></app-jugadores-detail>

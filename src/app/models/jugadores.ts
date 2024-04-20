@@ -4,5 +4,8 @@ export interface Jugadores {
     apellidos: string;
     username: string;
     edad: number;
+    partidasGanadas: number;
+    partidasPerdidas: number;
+    partidasJugadas: number;
   }
   

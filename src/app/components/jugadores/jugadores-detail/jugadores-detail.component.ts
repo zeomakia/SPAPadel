@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, NgModule, OnInit, Output, SimpleChanges, output } from '@angular/core';
 import {FormControl, FormGroup,Validators,FormsModule} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ChartConfiguration } from 'chart.js';
+import { Observable } from 'rxjs';
 import {Jugadores} from 'src/app/models/jugadores';
 import { JugadorService } from 'src/app/services/jugador.service';
 @Component({
@@ -14,6 +16,10 @@ export class JugadoresDetailComponent {
   @Input() tipo!: string;
   @Output() cerrarDetalle = new EventEmitter<void>();
   disable : boolean=true;
+  doughnutChartLabels: string[] = [];
+  doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [  ];
+  porcentaje: number=0;
+
   constructor(
     private route: ActivatedRoute,
     private jugadorService: JugadorService,
@@ -26,6 +32,9 @@ export class JugadoresDetailComponent {
       edadForm:  new FormControl(' ',Validators.required)
     });
   }
+  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+    responsive: false
+  };
   goBack():void{
     this.cerrarDetalle.emit();
   }
@@ -41,9 +50,27 @@ export class JugadoresDetailComponent {
       if(this.tipo==='D')
       this.deshabilitarForm();
     }else
-    this.habilitarForm  
-  }
+    this.habilitarForm 
 
+  }
+  rellenarEstadisticas() {
+
+    let ganadas: number = this.jugador===undefined?0:this.jugador?.partidasGanadas;
+    let perdidas: number= this.jugador===undefined?0:this.jugador?.partidasPerdidas;
+    let jugadas: number = this.jugador===undefined?0:this.jugador?.partidasJugadas;
+    this.porcentaje = (ganadas / jugadas) * 100;
+    // Redondea el porcentaje a dos decimales
+    this.porcentaje = parseFloat(this.porcentaje.toFixed(0));
+    this.doughnutChartLabels =  ['Partidas Ganadas','Partidas Perdidas'];
+        this.doughnutChartDatasets= [
+            { data:[ganadas,perdidas] }]
+            
+  }
+ngOnChanges(changes: any): void {
+    if (changes.jugador && this.jugador) {
+      this.rellenarEstadisticas();
+    }
+  }
   deshabilitarForm(){
     this.jugadorForm.get('jugadorIdForm')?.disable();
     this.jugadorForm.get('nameForm')?.disable();

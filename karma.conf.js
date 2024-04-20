@@ -13,9 +13,9 @@ module.exports = function (config) {
         { pattern: './src/test.ts', watched: false }
       ],
   
-      preprocessors: {
-        './src/test.ts': ['@angular-devkit/build-angular']
-      },
+      // preprocessors: {
+      //   './src/test.ts': ['@angular-devkit/build-angular']
+      // },
   
       browsers: ['Chrome'],
 
@@ -26,11 +26,14 @@ module.exports = function (config) {
           binary: '/ruta/a/google-chrome' // Ruta al ejecutable de Chrome, si no está en la ruta predeterminada
         }
       },
-      reporters: ['progress', 'coverage'],
+      reporters: ['progress', 'coverage-istanbul'],
+      preprocessors:{
+        'src/**': ['coverage']
+      },
   
-      coverageReporter: {
+      coverageIstanbulReporter: {
         dir: require('path').join(__dirname, 'coverage'),
-        reports: ['html', 'lcovonly'],
+        reports: ['html', 'lcovonly','text-summary'],
         fixWebpackSourcePaths: true
       },
   
