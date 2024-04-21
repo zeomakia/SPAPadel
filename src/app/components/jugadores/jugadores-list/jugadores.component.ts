@@ -36,6 +36,14 @@ export class JugadoresComponent {
         }
     }
   };
+  public percentageChartOptions: ChartConfiguration<'bar'>['options'] = {
+    responsive: true,
+    scales: {
+        y: {
+            suggestedMax: 100
+        }
+    }
+  };
   ngOnInit() {
     this.getEstadisticasJugadores().subscribe(
       (estadisticas) => {
@@ -45,7 +53,7 @@ export class JugadoresComponent {
         this.partidasPerdidas=this.estadisticasJugadores.partidasPerdidas;
         this.porcentajeVictorias=this.estadisticasJugadores.porcentajeVictorias;
         this.nombresJugadores=this.estadisticasJugadores.names;
-        this.nombresJugadoresPorcentajes=this.estadisticasJugadores.namesPorcentajes;
+        this.nombresJugadoresPorcentajes=this.estadisticasJugadores.namesPorcentaje;
         // Imprimir los arrays
         console.log("Array de partidas ganadas ordenadas descendentemente:");
         console.log(this.partidasGanadas);
@@ -59,50 +67,22 @@ export class JugadoresComponent {
         console.log(this.nombresJugadoresPorcentajes);   
         this.doughnutChartLabels =  this.nombresJugadores.splice(0,3) ;
         this.doughnutChartDatasets= [
-            { data:this.partidasGanadas.splice(0,3), label: 'Partidas ganadas' },
-            // { data: [ 50, 150, 120 ], label: 'Series B' },
-            // { data: [ 250, 130, 70 ], label: 'Series C' }
+            { data:this.partidasGanadas.splice(0,3), label: 'Partidas Ganadas' },
+            { data:this.partidasPerdidas.splice(0,3), label: 'Partidas Perdidas' }
           ];
-        this.percentageChartLabels =  this.nombresJugadores.splice(0,3) ;
+        this.percentageChartLabels =  this.nombresJugadoresPorcentajes.splice(0,3) ;
         this.percentageChartDatasets= [
-            { data:this.partidasGanadas.splice(0,3), label: 'Porcentaje Victorias' },
-            // { data: [ 50, 150, 120 ], label: 'Series B' },
-            // { data: [ 250, 130, 70 ], label: 'Series C' }
+            { data:this.porcentajeVictorias.splice(0,3), label: 'Porcentaje Victorias' }
           ];
       },
       (error) => {
-        console.log('error en recuperar jugadores');
+        console.log('error en recuperar estadisticas jugadores');
       }
     );
 
     this.getJugadores().subscribe(
       (jugadores) => {
         this.jugadores = jugadores;
-        console.log('Jugadores' + JSON.stringify(this.jugadores));
-        const jugadoresOrdenados = jugadores.sort((a, b) => b.partidasGanadas - a.partidasGanadas);
-
-        // Crear arrays separados para partidas ganadas y nombres de jugadores
-        this.partidasGanadas = jugadoresOrdenados.map(jugador => jugador.partidasGanadas);
-        this.nombresJugadores = jugadoresOrdenados.map(jugador => jugador.name);
-
-        // Imprimir los arrays
-        console.log("Array de partidas ganadas ordenadas descendentemente:");
-        console.log(this.partidasGanadas);
-        console.log("Array de nombres de jugadores en la misma posición:");
-        console.log(this.nombresJugadores);
-           
-        this.doughnutChartLabels =  this.nombresJugadores.splice(0,3) ;
-        this.doughnutChartDatasets= [
-            { data:this.partidasGanadas.splice(0,3), label: 'Partidas ganadas' },
-            // { data: [ 50, 150, 120 ], label: 'Series B' },
-            // { data: [ 250, 130, 70 ], label: 'Series C' }
-          ];
-        this.percentageChartLabels =  this.nombresJugadores.splice(0,3) ;
-        this.percentageChartDatasets= [
-            { data:this.partidasGanadas.splice(0,3), label: 'Porcentaje Victorias' },
-            // { data: [ 50, 150, 120 ], label: 'Series B' },
-            // { data: [ 250, 130, 70 ], label: 'Series C' }
-          ];
       },
       (error) => {
         console.log('error en recuperar jugadores');

@@ -1,4 +1,4 @@
-export interface EstadisticasJugadores {
+export interface EstadisticasParejasJugador {
   partidasGanadas:number []
   partidasPerdidas:number []
   porcentajeVictorias:number []

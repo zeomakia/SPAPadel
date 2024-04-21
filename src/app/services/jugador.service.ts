@@ -5,6 +5,7 @@ import { Jugadores } from 'src/app/models/jugadores';
 import { catchError, map, tap } from 'rxjs/operators'
 import { of } from 'rxjs';
 import { EstadisticasJugadores } from '../models/estadisticasJugadores';
+import { EstadisticasParejasJugador } from '../models/estadisticasParejasJugador';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,15 @@ export class JugadorService {
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<EstadisticasJugadores>('getEstadisticasJugadores'))
       );
+    }
+
+    getEstadisticasParejasJugador(jugadorId:number):Observable<EstadisticasParejasJugador>{
+      return this.http.get<EstadisticasParejasJugador>(this.jugadoresEstadisticasUrl+'/'+jugadorId,{headers:this.addToken()})
+      .pipe(
+        tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError<EstadisticasParejasJugador>('getEstadisticasParejasJugador'))
+      );
+
     }
 
     private log(message: string) {
