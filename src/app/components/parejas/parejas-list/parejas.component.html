@@ -6,9 +6,6 @@
       <tr>
         <th>Id Pareja</th>
         <th>Nombre Jugadores</th>
-        <th>Partidas Jugadas</th>
-        <th>Partidas Ganadas</th>
-        <th>Partidas Perdidas</th>
         <th style="width: 60px;">...</th>
       </tr>
     </thead>
@@ -16,9 +13,6 @@
       <tr *ngFor="let pareja of parejas | paginate: { itemsPerPage: 5, currentPage: p };  ">
         <td>{{ pareja.id }}</td>
         <td>{{ pareja.nombrePareja }}</td>
-        <td>{{ pareja.p_jugadas }}</td>
-        <td>{{ pareja.p_ganadas }}</td>
-        <td>{{ pareja.p_perdidas }}</td>
         <td>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{pareja.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
@@ -34,6 +28,36 @@
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </tbody>
   </table>
+  </div>
+  <div class="col-md-5">
+    <div class="container">
+      <h2>Top 3 mejores jugadores</h2>
+      <div class="chart-container">
+        <canvas
+          *ngIf="isFirstChartVisible"
+          baseChart
+          [labels]="doughnutChartLabels"
+          [datasets]="doughnutChartDatasets"
+          [options]="doughnutChartOptions"
+          [legend]="true"
+          [type]="'bar'"
+        >
+        </canvas>
+        <!-- Second chart (assuming you're using the same data as the first one for now) -->
+        <canvas
+          *ngIf="!isFirstChartVisible"
+          baseChart
+          [labels]="percentageChartLabels"
+          [datasets]="percentageChartDatasets"
+          [options]="percentageChartOptions"
+          [legend]="true"
+          [type]="'bar'"
+        >
+        </canvas>
+      </div>
+      <!-- Button to toggle between charts -->
+      <button (click)="toggleCharts()">Mostrar otro gráfico</button>
+      
   <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary"  (click)="createMatch()" style="float: right;">Alta pareja</button>
    
   </div>

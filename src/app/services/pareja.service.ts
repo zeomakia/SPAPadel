@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Pareja } from 'src/app/models/pareja';
+import { EstadisticasParejasJugador } from '../models/estadisticasParejasJugador';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,16 @@ export class ParejaService {
     return this.http.delete<Boolean>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted partida id=${id}`)),
       catchError(this.handleError<Boolean>('deletePartida'))
+    );
+  }
+
+  getEstadisticasParejas(): Observable<EstadisticasParejasJugador> {
+    const token= sessionStorage.getItem("access_token");
+    const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+    return this.http.get<EstadisticasParejasJugador>(this.parejasUrl+'estadisticas',{headers})
+    .pipe(
+      tap(_ => this.log('Get parejas')),
+      catchError(this.handleError<EstadisticasParejasJugador>('getEstadisticasParejas'))
     );
   }
   
