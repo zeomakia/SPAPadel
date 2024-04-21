@@ -1,66 +1,104 @@
-<div style="margin-top: 10px;">
+<div style="margin-top: 10px">
   <h2>Listado de Parejas</h2>
-<div class="table-responsive" style="padding-bottom: 100px;">
-  <table class="table table-hover rounded">
-    <thead class="bg-light">
-      <tr>
-        <th>Id Pareja</th>
-        <th>Nombre Jugadores</th>
-        <th style="width: 60px;">...</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let pareja of parejas | paginate: { itemsPerPage: 5, currentPage: p };  ">
-        <td>{{ pareja.id }}</td>
-        <td>{{ pareja.nombrePareja }}</td>
-        <td>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle mi-item-personalizado " type="button" id="accionesDropdown{{pareja.id}}" data-bs-toggle="dropdown" data-bs-flip="true" aria-expanded="false">
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" (click)="goDetail(pareja.id, 'D')">Detalle</a></li>
-                  <!-- <li><a class="dropdown-item" (click)="goDetail(pareja.id,'M')">Modificar</a></li> -->
-                  <!-- <li><a class="dropdown-item" (click)="eliminarPareja(pareja.id)">Borrar</a></li> -->
-                </ul>
-              </div>
-        </td>
-      </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    </tbody>
-  </table>
-  </div>
-  <div class="col-md-5">
-    <div class="container">
-      <h2>Top 3 mejores jugadores</h2>
-      <div class="chart-container">
-        <canvas
-          *ngIf="isFirstChartVisible"
-          baseChart
-          [labels]="doughnutChartLabels"
-          [datasets]="doughnutChartDatasets"
-          [options]="doughnutChartOptions"
-          [legend]="true"
-          [type]="'bar'"
-        >
-        </canvas>
-        <!-- Second chart (assuming you're using the same data as the first one for now) -->
-        <canvas
-          *ngIf="!isFirstChartVisible"
-          baseChart
-          [labels]="percentageChartLabels"
-          [datasets]="percentageChartDatasets"
-          [options]="percentageChartOptions"
-          [legend]="true"
-          [type]="'bar'"
-        >
-        </canvas>
+  <div class="table-responsive" style="padding-bottom: 100px">
+    <div class="row">
+      <!-- Columna para el table -->
+      <div class="col-md-7">
+        <table class="table table-hover rounded">
+          <thead class="bg-light">
+            <tr>
+              <th>Id Pareja</th>
+              <th>Nombre Jugadores</th>
+              <th style="width: 60px">...</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let pareja of parejas
+                  | paginate : { itemsPerPage: 5, currentPage: p }
+              "
+            >
+              <td>{{ pareja.id }}</td>
+              <td>{{ pareja.nombrePareja }}</td>
+              <td>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle mi-item-personalizado"
+                    type="button"
+                    id="accionesDropdown{{ pareja.id }}"
+                    data-bs-toggle="dropdown"
+                    data-bs-flip="true"
+                    aria-expanded="false"
+                  ></button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        (click)="goDetail(pareja.id, 'D')"
+                        >Detalle</a
+                      >
+                    </li>
+                    <!-- <li><a class="dropdown-item" (click)="goDetail(pareja.id,'M')">Modificar</a></li> -->
+                    <!-- <li><a class="dropdown-item" (click)="eliminarPareja(pareja.id)">Borrar</a></li> -->
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <pagination-controls
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </tbody>
+        </table>
       </div>
-      <!-- Button to toggle between charts -->
-      <button (click)="toggleCharts()">Mostrar otro gráfico</button>
-      
-  <div class="display: flex; justify-content: space-between;"> <button class="btn btn-primary"  (click)="createMatch()" style="float: right;">Alta pareja</button>
-   
+      <div class="col-md-5">
+        <div class="container">
+          <h2>Top 3 mejores jugadores</h2>
+          <div class="chart-container">
+            <canvas
+              *ngIf="isFirstChartVisible"
+              baseChart
+              [labels]="doughnutChartLabels"
+              [datasets]="doughnutChartDatasets"
+              [options]="doughnutChartOptions"
+              [legend]="true"
+              [type]="'bar'"
+            >
+            </canvas>
+            <!-- Second chart (assuming you're using the same data as the first one for now) -->
+            <canvas
+              *ngIf="!isFirstChartVisible"
+              baseChart
+              [labels]="percentageChartLabels"
+              [datasets]="percentageChartDatasets"
+              [options]="percentageChartOptions"
+              [legend]="true"
+              [type]="'bar'"
+            >
+            </canvas>
+          </div>
+          <!-- Button to toggle between charts -->
+          <button (click)="toggleCharts()">Mostrar otro gráfico</button>
+
+          <div class="display: flex; justify-content: space-between;">
+            <button
+              class="btn btn-primary"
+              (click)="createMatch()"
+              style="float: right"
+            >
+              Alta pareja
+            </button>
+          </div>
+        </div>
+      </div>
+      <app-parejas-detail
+      [identificador]="identificador"
+      [tipo]="tipo"
+      (cerrarDetalle)="this.detalle = !this.detalle"
+      (actualizar)="(getParejas)"
+      [pareja]="parejaDetalle"
+      *ngIf="detalle"
+    ></app-parejas-detail>
+  </div>
   </div>
 </div>
-
-<app-parejas-detail [identificador]="identificador" [tipo]="tipo" (cerrarDetalle)="this.detalle=!this.detalle" (actualizar)="getParejas" [pareja]="parejaDetalle" *ngIf="detalle"></app-parejas-detail>
