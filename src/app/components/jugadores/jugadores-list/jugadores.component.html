@@ -56,15 +56,29 @@
             <h2>Top 3 mejores jugadores</h2>
             <div class="chart-container">
               <canvas
+                *ngIf="isFirstChartVisible"
                 baseChart
                 [labels]="doughnutChartLabels"
                 [datasets]="doughnutChartDatasets"
                 [options]="doughnutChartOptions"
                 [legend]="true"
-                [type]="'doughnut'"
+                [type]="'bar'"
+              >
+              </canvas>
+              <!-- Second chart (assuming you're using the same data as the first one for now) -->
+              <canvas
+                *ngIf="!isFirstChartVisible"
+                baseChart
+                [labels]="percentageChartLabels"
+                [datasets]="percentageChartDatasets"
+                [options]="doughnutChartOptions"
+                [legend]="true"
+                [type]="'bar'"
               >
               </canvas>
             </div>
+            <!-- Button to toggle between charts -->
+            <button (click)="toggleCharts()">Mostrar otro gráfico</button>
           </div>
         </div>
       </div>
