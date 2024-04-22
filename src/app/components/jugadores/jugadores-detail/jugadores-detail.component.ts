@@ -75,8 +75,10 @@ export class JugadoresDetailComponent {
       });
       if(this.tipo==='D')
       this.deshabilitarForm();
-    }else
-    this.habilitarForm 
+    }else{
+      console.log("Deshabilitamos")
+    this.habilitarForm(); 
+    }
 
   }
   rellenarEstadisticas() {
@@ -90,7 +92,7 @@ export class JugadoresDetailComponent {
     this.doughnutChartLabels =  ['Partidas Ganadas','Partidas Perdidas'];
         this.doughnutChartDatasets= [
             { data:[ganadas,perdidas] }]
-    this.getEstadisticasParejas(this.jugador===undefined?0:this.jugador?.id)    
+    this.getEstadisticasParejas(this.jugador===undefined?0:this.jugador?.id);    
   }
   getEstadisticasParejas(jugadorId:number){
     this.getEstadisticasParejasJugador(jugadorId).subscribe(

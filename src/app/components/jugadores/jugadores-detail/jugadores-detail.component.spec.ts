@@ -10,7 +10,16 @@ describe('JugadoresDetailComponent', () => {
   let component: JugadoresDetailComponent;
   let fixture: ComponentFixture<JugadoresDetailComponent>;
   let jugadorServiceSpy: jasmine.SpyObj<JugadorService>;
-
+  const jugador: Jugadores = {
+    id: 1,
+    name: 'demo',
+    apellidos: 'Apellido Demo',
+    username: 'demo_username',
+    edad: 25,
+    partidasGanadas: 10,
+    partidasPerdidas: 5,
+    partidasJugadas: 15
+};
   beforeEach(async () => {
     const jugadorServiceSpyObj = jasmine.createSpyObj('JugadorService', ['getJugador']);
     await TestBed.configureTestingModule({
@@ -40,8 +49,8 @@ describe('JugadoresDetailComponent', () => {
     component.goBack();
   });
 
-  fit('should disable form fields when tipo is D', () => {
-    
+  it('should disable form fields when tipo is D', () => {
+    component.jugador=jugador;
     component.tipo = 'D';
     component.jugadorForm.controls['jugadorIdForm'].setValue('1');
     component.jugadorForm.controls['nameForm'].setValue('John');
@@ -50,7 +59,7 @@ describe('JugadoresDetailComponent', () => {
     component.jugadorForm.controls['edadForm'].setValue(25);
 
     component.rellenarForm();
-
+ console.log('disabled?' +component.jugadorForm.controls['jugadorIdForm'].disabled);
     expect(component.jugadorForm.controls['jugadorIdForm'].disabled).toBeTruthy();
     expect(component.jugadorForm.controls['nameForm'].disabled).toBeTruthy();
     expect(component.jugadorForm.controls['apellidosForm'].disabled).toBeTruthy();
@@ -60,14 +69,22 @@ describe('JugadoresDetailComponent', () => {
 
   it('should enable form fields when tipo is A', () => {
     component.tipo = 'A';
-
+    component.jugador=jugador;
     component.rellenarForm();
 
-    expect(component.jugadorForm.controls['jugadorIdForm'].disabled).toBeTruthy(); // Assuming jugadorIdForm should always be disabled
+
     expect(component.jugadorForm.controls['nameForm'].enabled).toBeTruthy();
     expect(component.jugadorForm.controls['apellidosForm'].enabled).toBeTruthy();
     expect(component.jugadorForm.controls['usernameForm'].enabled).toBeTruthy();
     expect(component.jugadorForm.controls['edadForm'].enabled).toBeTruthy();
+  });
+
+  fit('should  rellenar estadisticas works', () => {
+    component.jugador=jugador;
+    component.rellenarEstadisticas();
+
+    expect(component.porcentaje!==0).toBeTruthy();
+ 
   });
 
   // Add more test cases as needed...

@@ -30,6 +30,7 @@ export class SingUpComponent {
                   emailConfirm: ['', [Validators.required, Validators.email]],
                   telefono: ['', Validators.required],
                   edad: ['', Validators.required],
+                  RGPD:['',Validators.required]
                 } ,{validator: [this.checkPasswords, this.checkEmail] });
     }
 
