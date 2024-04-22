@@ -44,9 +44,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="pareja?.p_jugadas!==0">
         <div class="container">
-          <h2>Tienes un porcentaje de victoria de un {{porcentaje}}% </h2>
+          <h2>Teneis un porcentaje de victoria de un {{porcentaje}}% </h2>
           <div class="chart-container">
             <canvas
               baseChart

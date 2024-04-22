@@ -33,7 +33,7 @@
           </div>
         </div>
      
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="jugador?.partidasJugadas!==0">
         <div class="container">
           <h2>Tienes un porcentaje de victoria de un {{porcentaje}}% </h2>
           <div class="chart-container">
@@ -50,7 +50,7 @@
         </div>
       </div> 
     </div>
-    <div class="row">
+    <div class="row" *ngIf="jugador?.partidasJugadas!==0">
       <div class="col-md-6">
         <div class="container">
           <h2>Mejores acompañantes segun porcentaje de victorias </h2>

@@ -31,15 +31,8 @@ export class LoginComponent {
     if(this.loginForm.valid){
       this.oauthService.login(
         this.loginForm.get('usernameForm')?.value,
-      this.loginForm.get('passwordForm')?.value).pipe(
-        catchError(error => {
-          // Maneja el error aquí
-          console.log(error);
-          this.modalService.openModalError('Ha ocurrido un error durante el inicio de sesión');
-          // Puedes retornar un nuevo valor u Observable si lo necesitas
-          return of(null);
-        })
-      ).subscribe(response => {
+      this.loginForm.get('passwordForm')?.value).subscribe(
+        (response) => {
         if (response.token) {
           // Guarda el token en el almacenamiento local
           sessionStorage.setItem('access_token', response.token);
@@ -47,11 +40,10 @@ export class LoginComponent {
           sessionStorage.setItem('userId',response.id);
           this.router.navigate(['/partidas']);
         }
-        else{
+        },(error)=>{
           console.log('Usuario o contraseña incorrectos');
           this.modalService.openModalError('Usuario o contraseña incorrectos');
-        }
-      });
+       });
     }
   }
 
@@ -60,6 +52,7 @@ export class LoginComponent {
     console.log('Registering user');
     this.router.navigate(['/singup']);
   }
+  
   toggle() {
     this.hide = !this.hide;
   }

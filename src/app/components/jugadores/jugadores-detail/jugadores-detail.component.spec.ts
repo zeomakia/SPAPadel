@@ -5,6 +5,7 @@ import { JugadoresDetailComponent } from './jugadores-detail.component';
 import { JugadorService } from 'src/app/services/jugador.service';
 import { of } from 'rxjs';
 import { Jugadores } from 'src/app/models/jugadores';
+import { EstadisticasParejasJugador } from 'src/app/models/estadisticasParejasJugador';
 
 describe('JugadoresDetailComponent', () => {
   let component: JugadoresDetailComponent;
@@ -20,8 +21,16 @@ describe('JugadoresDetailComponent', () => {
     partidasPerdidas: 5,
     partidasJugadas: 15
 };
+  const estadisticasJugador:EstadisticasParejasJugador = {
+    partidasGanadas:[],
+    partidasPerdidas:[],
+    porcentajeVictorias:[],
+    names:[],
+    namesPorcentaje:[]
+  };
+
   beforeEach(async () => {
-    const jugadorServiceSpyObj = jasmine.createSpyObj('JugadorService', ['getJugador']);
+    const jugadorServiceSpyObj = jasmine.createSpyObj('JugadorService', ['getJugador','getEstadisticasParejasJugador']);
     await TestBed.configureTestingModule({
       declarations: [ JugadoresDetailComponent ],
       imports: [FormsModule, ReactiveFormsModule],
@@ -33,6 +42,7 @@ describe('JugadoresDetailComponent', () => {
     .compileComponents();
  
     jugadorServiceSpy = TestBed.inject(JugadorService) as jasmine.SpyObj<JugadorService>;
+    jugadorServiceSpy.getEstadisticasParejasJugador.and.returnValue(of(estadisticasJugador));
   });
 
   beforeEach(() => {
@@ -79,7 +89,7 @@ describe('JugadoresDetailComponent', () => {
     expect(component.jugadorForm.controls['edadForm'].enabled).toBeTruthy();
   });
 
-  fit('should  rellenar estadisticas works', () => {
+  it('should  rellenar estadisticas works', () => {
     component.jugador=jugador;
     component.rellenarEstadisticas();
 

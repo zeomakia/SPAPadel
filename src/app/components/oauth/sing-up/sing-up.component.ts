@@ -58,24 +58,19 @@ export class SingUpComponent {
       edad:this.registroForm.get("edad")?.value,
       passwordActual:""
       }
-      this.oauthService.singUpComponent(request).pipe(
-        catchError(error => {
-          console.log(error);
-          this.modalService.openModalError;
-          return of(null);
-        })
-      ).subscribe((response: Boolean) => {
-          if(response)
+      this.oauthService.singUpComponent(request).subscribe(
+          (response) =>
           {
             console.log("Usuari: " + this.registroForm.get("user")?.value + " creat correctament!");
             this.modalService.openModalInfo("Benvingut/da! " + this.registroForm.get("user")?.value);
             this.router.navigate(['/login']);
-          }else{
+          },
+          (error)=>{
             console.log("Error.");
-            this.modalService.openModalError;
+            this.modalService.openModalError("Ha ocurrido un error al registrarse");
           }
         
-      });
+      );
     
       
     }
