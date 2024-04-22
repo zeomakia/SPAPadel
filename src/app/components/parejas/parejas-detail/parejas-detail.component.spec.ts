@@ -39,4 +39,8 @@ describe('ParejasDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should create2', () => {
+    component.identificador=0;
+    expect(component).toBeTruthy();
+  });
 });

@@ -44,6 +44,22 @@
           </div>
         </div>
       </div>
+      <div class="col-md-6" *ngIf="pareja?.p_jugadas!==0">
+        <div class="container">
+          <h2>Teneis un porcentaje de victoria de un {{porcentaje}}% </h2>
+          <div class="chart-container">
+            <canvas
+              baseChart
+              [labels]="doughnutChartLabels"
+              [datasets]="doughnutChartDatasets"
+              [options]="doughnutChartOptions"
+              [legend]="true"
+              [type]="'doughnut'"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div> 
       <div style="display: flex; justify-content: space-between;">
         <button id="btn" [hidden]="tipo==='D'"  [disabled]="parejaForm.invalid" (click)="save()" class="btn btn-primary">Guardar</button>
         <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>

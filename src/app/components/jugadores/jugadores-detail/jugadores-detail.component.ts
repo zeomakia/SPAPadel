@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ChartConfiguration } from 'chart.js';
 import { Observable } from 'rxjs';
 import {Jugadores} from 'src/app/models/jugadores';
+import {EstadisticasParejasJugador} from 'src/app/models/estadisticasParejasJugador';
 import { JugadorService } from 'src/app/services/jugador.service';
 @Component({
   selector: 'app-jugadores-detail',
@@ -18,8 +19,17 @@ export class JugadoresDetailComponent {
   disable : boolean=true;
   doughnutChartLabels: string[] = [];
   doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [  ];
+  ganadasChartLabels: string[] = [];
+  ganadasChartDatasets: ChartConfiguration<'bar'>['data']['datasets'] = [  ];
   porcentaje: number=0;
-
+  percentageChartLabels: string[] = [];
+  percentageChartDatasets: ChartConfiguration<'bar'>['data']['datasets'] = [  ];
+  partidasGanadas:number []=[];
+  partidasPerdidas:number []=[];
+  porcentajeVictorias:number []=[];
+  nombresJugadores: string [] = [];
+  nombresJugadoresPorcentajes: string [] = [];
+  estadisticasParejasJugador!:EstadisticasParejasJugador;
   constructor(
     private route: ActivatedRoute,
     private jugadorService: JugadorService,
@@ -35,6 +45,22 @@ export class JugadoresDetailComponent {
   public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
     responsive: false
   };
+  public ganadasChartOptions: ChartConfiguration<'bar'>['options'] = {
+    responsive: true,
+    scales: {
+        y: {
+            beginAtZero: true
+        }
+    }
+  };
+  public percentageChartOptions: ChartConfiguration<'bar'>['options'] = {
+    responsive: true,
+    scales: {
+        y: {
+            suggestedMax: 100
+        }
+    }
+  };
   goBack():void{
     this.cerrarDetalle.emit();
   }
@@ -49,8 +75,10 @@ export class JugadoresDetailComponent {
       });
       if(this.tipo==='D')
       this.deshabilitarForm();
-    }else
-    this.habilitarForm 
+    }else{
+      console.log("Deshabilitamos")
+    this.habilitarForm(); 
+    }
 
   }
   rellenarEstadisticas() {
@@ -64,9 +92,49 @@ export class JugadoresDetailComponent {
     this.doughnutChartLabels =  ['Partidas Ganadas','Partidas Perdidas'];
         this.doughnutChartDatasets= [
             { data:[ganadas,perdidas] }]
-            
+    this.getEstadisticasParejas(this.jugador===undefined?0:this.jugador?.id);    
   }
-ngOnChanges(changes: any): void {
+  getEstadisticasParejas(jugadorId:number){
+    this.getEstadisticasParejasJugador(jugadorId).subscribe(
+      (estadisticas) => {
+        this.estadisticasParejasJugador = estadisticas;
+        console.log('Estadisticas' + JSON.stringify(this.estadisticasParejasJugador));
+        this.partidasGanadas=this.estadisticasParejasJugador.partidasGanadas;
+        this.partidasPerdidas=this.estadisticasParejasJugador.partidasPerdidas;
+        this.porcentajeVictorias=this.estadisticasParejasJugador.porcentajeVictorias;
+        this.nombresJugadores=this.estadisticasParejasJugador.names;
+        this.nombresJugadoresPorcentajes=this.estadisticasParejasJugador.namesPorcentaje;
+        // Imprimir los arrays
+        console.log("Array de partidas ganadas ordenadas descendentemente:");
+        console.log(this.partidasGanadas);
+        console.log("Array de partidas perdidas ordenadas descendentemente por partidaas ganadas:");
+        console.log(this.partidasPerdidas);
+        console.log("Array de nombres de jugadores en la misma posición:");
+        console.log(this.nombresJugadores);
+        console.log("Array de porcentajes de victorias ordenadas descendentemente:");
+        console.log(this.porcentajeVictorias);
+        console.log("Array de nombres de jugadores en la misma posición:");
+        console.log(this.nombresJugadoresPorcentajes);   
+        this.ganadasChartLabels =  this.nombresJugadores.splice(0,3) ;
+        this.ganadasChartDatasets= [
+            { data:this.partidasGanadas.splice(0,3), label: 'Partidas Ganadas' },
+            { data:this.partidasPerdidas.splice(0,3), label: 'Partidas Perdidas' }
+          ];
+        this.percentageChartLabels =  this.nombresJugadoresPorcentajes.splice(0,3) ;
+        this.percentageChartDatasets= [
+            { data:this.porcentajeVictorias.splice(0,3), label: 'Porcentaje Victorias' }
+          ];
+      },
+      (error) => {
+        console.log('error en recuperar estadisticas jugadores');
+      }
+    );
+
+  }
+  getEstadisticasParejasJugador(jugadorId:number): Observable<EstadisticasParejasJugador> {
+    return this.jugadorService.getEstadisticasParejasJugador(jugadorId);
+  }
+  ngOnChanges(changes: any): void {
     if (changes.jugador && this.jugador) {
       this.rellenarEstadisticas();
     }

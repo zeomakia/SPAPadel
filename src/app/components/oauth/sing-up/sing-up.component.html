@@ -128,8 +128,18 @@
                 </div>
               </div>
               <br>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>
+                      <input type="checkbox" formControlName="RGPD"> Acepto los términos y condiciones
+                    </label>    
+                  </div> 
+                </div>
+              </div>      
+              <br>
               <div style="display: flex;justify-content: space-between;">
-              <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">Registrarse</button>
+              <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid || !registroForm.get('RGPD')?.value">Registrarse</button>
               <button (click)="login()" class="btn btn-primary float-right" routerLink="/">Cancelar</button>
               </div>
             </form>
@@ -138,4 +148,5 @@
       </div>
     </div>
   </div>
+  
   

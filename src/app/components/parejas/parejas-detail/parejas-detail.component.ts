@@ -28,6 +28,9 @@ export class ParejasDetailComponent implements OnInit{
     jugadores: Jugadores[]=[];
     disable: boolean=true;
     isParejaNueva:boolean=false;
+    doughnutChartLabels: string[] = [];
+    doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [  ];
+    porcentaje: number=0;
     constructor(
       private route: ActivatedRoute,
       private partidaService: PartidaService,
@@ -50,18 +53,11 @@ export class ParejasDetailComponent implements OnInit{
         jugador1Form: new FormControl('', Validators.required),
         jugador2Form: new FormControl('', Validators.required),
       });
+      
     }
-     // Doughnut
-  public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
-  public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
-      { data: [ 355, 450, 100,133], label: 'Series A' },
-      // { data: [ 50, 150, 120 ], label: 'Series B' },
-      // { data: [ 250, 130, 70 ], label: 'Series C' }
-    ];
-
-  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
-    responsive: false
-  };
+    public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+      responsive: false
+    };
 
   
     ngOnInit(): void {
@@ -80,7 +76,7 @@ export class ParejasDetailComponent implements OnInit{
         console.log("Pareja"+ JSON.stringify(this.pareja));
       }
     }
-   
+    
     ngOnChanges(changes: SimpleChanges): void {
       (window as any)["ParejasDetailComponent"] = this;
       console.log("Pareja change"+ JSON.stringify(this.pareja));
@@ -99,7 +95,18 @@ export class ParejasDetailComponent implements OnInit{
      
        }
     }
-  
+    rellenarEstadisticas() {
+
+      let ganadas: number = this.pareja?.p_ganadas || 0; 
+      let perdidas: number = this.pareja?.p_perdidas || 0;
+      let jugadas: number = this.pareja?.p_jugadas || 1;
+      this.porcentaje = (ganadas / jugadas) * 100;
+      // Redondea el porcentaje a dos decimales
+      this.porcentaje = parseFloat(this.porcentaje.toFixed(0));
+      this.doughnutChartLabels =  ['Partidas Ganadas','Partidas Perdidas'];
+      this.doughnutChartDatasets= [{ data:[ganadas,perdidas] }];   
+    }
+
     getJugadores():void{
       this.jugadorService.getJugadores()
         .subscribe(jugadores =>  this.jugadores = jugadores);
@@ -165,9 +172,10 @@ export class ParejasDetailComponent implements OnInit{
          p_jugadasForm: this.pareja?.p_jugadas,
          p_perdidasForm: this.pareja?.p_perdidas
        });
-       if(this.tipo==='D')
-         this.deshabilitarForm();
-       else
+       if(this.tipo==='D'){
+        this.deshabilitarForm();
+        this.rellenarEstadisticas();
+       }else
          this.habilitarForm();
      }
 

@@ -23,11 +23,19 @@
             <label for="edad">Edad:</label>
             <input type="integer" class="form-control" [value]="jugador?.edad" [disabled]="disable">
           </div>
+          <div class="form-group">
+            <label for="partidasGanadas">Partidas Ganadas</label>
+            <input type="integer" class="form-control" [value]="jugador?.partidasGanadas" [disabled]="disable">
+          </div>
+          <div class="form-group">
+            <label for="partidasPerdidas">Partidas Perdidas:</label>
+            <input type="integer" class="form-control" [value]="jugador?.partidasPerdidas" [disabled]="disable">
+          </div>
         </div>
      
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="jugador?.partidasJugadas!==0">
         <div class="container">
-          <h2>Tienes un porcentaje de victoria de {{porcentaje}} % </h2>
+          <h2>Tienes un porcentaje de victoria de un {{porcentaje}}% </h2>
           <div class="chart-container">
             <canvas
               baseChart
@@ -41,7 +49,42 @@
           </div>
         </div>
       </div> 
-    </div>    
+    </div>
+    <div class="row" *ngIf="jugador?.partidasJugadas!==0">
+      <div class="col-md-6">
+        <div class="container">
+          <h2>Mejores acompañantes segun porcentaje de victorias </h2>
+          <div class="chart-container">
+            <canvas
+              baseChart
+              [labels]="percentageChartLabels"
+              [datasets]="percentageChartDatasets"
+              [options]="percentageChartOptions"
+              [legend]="true"
+              [type]="'bar'"
+            >
+            </canvas>
+          </div>
+        </div>
+      </div> 
+   
+    <div class="col-md-6">
+      <div class="container">
+        <h2>Mejores acompañantes segun partidas ganadas </h2>
+        <div class="chart-container">
+          <canvas
+            baseChart
+            [labels]="ganadasChartLabels"
+            [datasets]="ganadasChartDatasets"
+            [options]="ganadasChartOptions"
+            [legend]="true"
+            [type]="'bar'"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div> 
+  </div>    
       <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>
   </form>
 </div>

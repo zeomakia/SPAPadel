@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Jugadores } from 'src/app/models/jugadores';
 import { catchError, map, tap } from 'rxjs/operators'
 import { of } from 'rxjs';
+import { EstadisticasJugadores } from '../models/estadisticasJugadores';
+import { EstadisticasParejasJugador } from '../models/estadisticasParejasJugador';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,8 @@ export class JugadorService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
-    private partidasUrl = 'http://localhost:8080/api/jugador/findAll';  // URL to web api
+    private partidasUrl = 'http://localhost:8080/api/jugador/findAll';
+    private jugadoresEstadisticasUrl = 'http://localhost:8080/api/jugador/estadisticas';  // URL to web api
     constructor(
       private http: HttpClient) { }
 
@@ -30,6 +33,24 @@ export class JugadorService {
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Jugadores[]>('getJugadores', []))
       );
+    }
+
+    getEstadisticasJugadores(): Observable<EstadisticasJugadores> {
+      // TODO: send the message _after_ fetching the heroes
+      return this.http.get<EstadisticasJugadores>(this.jugadoresEstadisticasUrl,{headers:this.addToken()})
+      .pipe(
+        tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError<EstadisticasJugadores>('getEstadisticasJugadores'))
+      );
+    }
+
+    getEstadisticasParejasJugador(jugadorId:number):Observable<EstadisticasParejasJugador>{
+      return this.http.get<EstadisticasParejasJugador>(this.jugadoresEstadisticasUrl+'/'+jugadorId,{headers:this.addToken()})
+      .pipe(
+        tap(_ => this.log('fetched heroes')),
+        catchError(this.handleError<EstadisticasParejasJugador>('getEstadisticasParejasJugador'))
+      );
+
     }
 
     private log(message: string) {
