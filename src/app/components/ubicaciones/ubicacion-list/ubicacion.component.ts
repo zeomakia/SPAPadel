@@ -41,14 +41,12 @@ export class UbicacionComponent {
   }
   goBorrar(id: number){
    this.ubicacionService.deleteUbicacion(id).subscribe(
-    (status)=> {this.modalService.openModalInfo("Ubicacion borrada correctamente.");},
+    (status)=> {
+      this.modalService.openModalInfo("Ubicacion borrada correctamente.")
+      this.actualizarLista()
+    },
     (err)=>  {this.modalService.openModalError("Ha habido un error borrando la ubicación.");}
    );
-    this.getUbicaciones()
-    .subscribe( 
-      (ubicaciones)=> { this.ubicaciones = ubicaciones},
-      (error)=> {this.modalService.openModalError("Error recuperando ubicaciones"+error)}
-    );
   }
   createUbicacion(){
     this.detalle=false;

@@ -1,5 +1,5 @@
 <!-- -------PAREJA EXISTENTE-------- -->
-<div *ngIf="!isParejaNueva" class="detalle-pareja content">
+<div style="padding-top: 10px;" *ngIf="!isParejaNueva" class="detalle-pareja content">
    <div>
     <!-- <canvas baseChart
     [labels]="doughnutChartLabels"
@@ -24,8 +24,6 @@
               <option *ngFor="let parejaOption of parejas" [ngValue]="parejaOption.id">{{parejaOption.nombre_jugador1}} - {{parejaOption.nombre_jugador2}}</option>
             </select>
           </div>
-        </div>
-        <div class="col-md-6">
           <div class="form-group">
             <label for="pareja2">Partidas ganadas:</label>
             <input type="text" class="form-control" id="pareja2"  formControlName="p_ganadasForm" >
@@ -34,32 +32,29 @@
             <label for="ubicacion">Partidas jugadas:</label>
             <input type="text" class="form-control" id="ubicacion" formControlName="p_jugadasForm">
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
           <div class="form-group">
             <label for="dia">Partidas perdidas:</label>
             <input type="text" class="form-control" id="dia" formControlName="p_perdidasForm">
           </div>
         </div>
-      </div>
-      <div class="col-md-6" *ngIf="pareja?.p_jugadas!==0">
-        <div class="container">
-          <h2>Teneis un porcentaje de victoria de un {{porcentaje}}% </h2>
-          <div class="chart-container">
-            <canvas
-              baseChart
-              [labels]="doughnutChartLabels"
-              [datasets]="doughnutChartDatasets"
-              [options]="doughnutChartOptions"
-              [legend]="true"
-              [type]="'doughnut'"
-            >
-            </canvas>
-          </div>
-        </div>
-      </div> 
+          
+          <div class="col-md-6" *ngIf="pareja?.p_jugadas!==0">
+            <div class="container">
+              <h2>Teneis un porcentaje de victoria de un {{porcentaje}}% </h2>
+              <div class="chart-container">
+                <canvas
+                  baseChart
+                  [labels]="doughnutChartLabels"
+                  [datasets]="doughnutChartDatasets"
+                  [options]="doughnutChartOptions"
+                  [legend]="true"
+                  [type]="'doughnut'"
+                >
+                </canvas>
+              </div>
+            </div>
+          </div>  
+      </div>  
       <div style="display: flex; justify-content: space-between;">
         <button id="btn" [hidden]="tipo==='D'"  [disabled]="parejaForm.invalid" (click)="save()" class="btn btn-primary">Guardar</button>
         <button id="btn" (click)="cerrarDetalle.emit()" class="btn btn-secondary">Cancelar</button>

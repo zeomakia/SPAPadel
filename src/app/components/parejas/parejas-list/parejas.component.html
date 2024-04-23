@@ -95,7 +95,7 @@
       [identificador]="identificador"
       [tipo]="tipo"
       (cerrarDetalle)="this.detalle = !this.detalle"
-      (actualizar)="(getParejas)"
+      (actualizar)="getParejas()"
       [pareja]="parejaDetalle"
       *ngIf="detalle"
     ></app-parejas-detail>

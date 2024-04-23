@@ -75,8 +75,10 @@ export class UbicacionesDetailComponent {
       this.modalService.openModalInfo('Ubicación modificada correctamente');
     else
       this.modalService.openModalInfo('Ubicación creada correctamente');
-
+    
+    this.actualizar.emit();
     this.cerrarDetalle.emit();
+
   }
   guardarubicacion(){
       if (this.ubicacionForm.valid) {
@@ -91,7 +93,6 @@ export class UbicacionesDetailComponent {
           // Llamar al servicio
           this.ubicacionService.modifyUbicacion(ubicacion).subscribe(
             (response) => {
-                this.actualizar.emit();
                 this.goBack(); 
             },
             (error) => {
@@ -102,12 +103,11 @@ export class UbicacionesDetailComponent {
         }  else{
           this.ubicacionService.addUbicacion(ubicacion).subscribe(
             (response) => {
-                this.actualizar.emit();
                 this.goBack(); 
             },
             (error) => {
                 console.error('Error al crear la partida: ', JSON.stringify(error));
-                this.modalService.openModalError('Error al crear la partida: ');
+                this.modalService.openModalError('Error al crear la ubicacio: ' +error.error.message);
             }
           );
         }

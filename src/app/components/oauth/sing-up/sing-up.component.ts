@@ -67,7 +67,7 @@ export class SingUpComponent {
           },
           (error)=>{
             console.log("Error.");
-            this.modalService.openModalError("Ha ocurrido un error al registrarse");
+            this.modalService.openModalError("Ha ocurrido un error al registrarse: "+ error.error.message);
           }
         
       );

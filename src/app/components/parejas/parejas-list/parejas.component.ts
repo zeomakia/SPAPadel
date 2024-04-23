@@ -54,23 +54,12 @@ export class ParejasComponent {
     this.getEstadisticasParejas().subscribe(
       (estadisticas) => {
         this.estadisticasParejas = estadisticas;
-        console.log('Estadisticas' + JSON.stringify(this.estadisticasParejas));
+        // console.log('Estadisticas' + JSON.stringify(this.estadisticasParejas));
         this.partidasGanadas=this.estadisticasParejas.partidasGanadas;
         this.partidasPerdidas=this.estadisticasParejas.partidasPerdidas;
         this.porcentajeVictorias=this.estadisticasParejas.porcentajeVictorias;
         this.nombresParejas=this.estadisticasParejas.names;
         this.nombresParejasPorcentajes=this.estadisticasParejas.namesPorcentaje;
-        // Imprimir los arrays
-        console.log("Array de partidas ganadas ordenadas descendentemente:");
-        console.log(this.partidasGanadas);
-        console.log("Array de partidas perdidas ordenadas descendentemente por partidaas ganadas:");
-        console.log(this.partidasPerdidas);
-        console.log("Array de nombres de jugadores en la misma posición:");
-        console.log(this.nombresParejas);
-        console.log("Array de porcentajes de victorias ordenadas descendentemente:");
-        console.log(this.porcentajeVictorias);
-        console.log("Array de nombres de jugadores en la misma posición:");
-        console.log(this.nombresParejasPorcentajes);   
         this.doughnutChartLabels =  this.nombresParejas.splice(0,3) ;
         this.doughnutChartDatasets= [
             { data:this.partidasGanadas.splice(0,3), label: 'Partidas Ganadas' },
@@ -88,12 +77,14 @@ export class ParejasComponent {
     this.getParejas();
   }
   getParejas() {
+    console.log("entramos a recuperar parejas")
     this.parejaService.getParejas().subscribe(
       (parejas) => {
         this.parejas = parejas;
         console.log('Parejas' + JSON.stringify(this.parejas));
       },
       (error) => {
+        this.modalService.openModalError('Error recuperando parejas' + error.error.message);
         console.log('error');
       }
     );

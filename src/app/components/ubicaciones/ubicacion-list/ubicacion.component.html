@@ -11,8 +11,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ubicacion of ubicaciones| paginate: { itemsPerPage: 5, currentPage: p };">
-        <td>{{ ubicacion?.id }}</td>
+      <tr *ngFor="let ubicacion of ubicaciones  | paginate: { itemsPerPage: 5, currentPage: p } let i = index; ">
+        <td>{{ i+1}}</td>
         <td>{{ ubicacion?.name }}</td>
         <td>{{ ubicacion?.direccion }}</td>
         <td>

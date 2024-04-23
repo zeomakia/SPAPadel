@@ -22,84 +22,38 @@ export class ParejaService {
     getParejas(): Observable<Pareja[]> {
       const token= sessionStorage.getItem("access_token");
       const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-      return this.http.get<Pareja[]>(this.parejasUrl+'findAll',{headers})
-      .pipe(
-        tap(_ => this.log('Get parejas')),
-        catchError(this.handleError<Pareja[]>('getPartida', []))
-      );
+      return this.http.get<Pareja[]>(this.parejasUrl+'findAll',{headers});
+     
     } 
 
     getPareja(id?: number): Observable<Pareja>{
       const token= sessionStorage.getItem("access_token");
       const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-      return this.http.get<Pareja>(this.parejasUrl+id,{headers})
-      .pipe(
-        tap(_ => this.log('get pareja with id ='+id)),
-        catchError(this.handleError<Pareja>('get pareja '))
-      );
+      return this.http.get<Pareja>(this.parejasUrl+id,{headers});
     }
 
   updatePareja(pareja:Pareja): Observable<any> {
     const token= sessionStorage.getItem("access_token");
     const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-    return this.http.put(this.parejasUrl, pareja, {headers}).pipe(
-      tap(_ => this.log(`delete pareja id=${pareja.id}`)),
-      catchError(this.handleError<any>('delete pareja'))
-      );
+    return this.http.put(this.parejasUrl, pareja, {headers});
   }
   /** Method to add new partida*/
   addPareja(pareja: Pareja): Observable<Pareja> {
     const token= sessionStorage.getItem("access_token");
     const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-    return this.http.post<Pareja>(this.parejasUrl+'insert', pareja, {headers}).pipe(
-      tap((newPareja: Pareja) => this.log(`added pareja w/ id=${pareja.id}`)),
-      catchError(this.handleError<Pareja>('addPareja'))
-    );
+    return this.http.post<Pareja>(this.parejasUrl+'insert', pareja, {headers});
   }
   
   /** DELETE: delete the pareja from the server */
   deletePareja(id: number): Observable<Boolean> {
     const url = `${this.parejasUrl}delete/${id}`;
-    return this.http.delete<Boolean>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted partida id=${id}`)),
-      catchError(this.handleError<Boolean>('deletePartida'))
-    );
+    return this.http.delete<Boolean>(url, this.httpOptions);
   }
 
   getEstadisticasParejas(): Observable<EstadisticasParejasJugador> {
     const token= sessionStorage.getItem("access_token");
     const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-    return this.http.get<EstadisticasParejasJugador>(this.parejasUrl+'estadisticas',{headers})
-    .pipe(
-      tap(_ => this.log('Get parejas')),
-      catchError(this.handleError<EstadisticasParejasJugador>('getEstadisticasParejas'))
-    );
+    return this.http.get<EstadisticasParejasJugador>(this.parejasUrl+'estadisticas',{headers});
   }
   
-  
-
-  private log(message: string) {
-  }
-
-
-  /**
- * Handle Http operation that failed.
- * Let the app continue.
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result
- */
-private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
-
-    // TODO: send the error to remote logging infrastructure
-    console.error(error); // log to console instead
-
-    // TODO: better job of transforming error for user consumption
-    this.log(`${operation} failed: ${error.message}`);
-
-    // Let the app keep running by returning an empty result.
-    return of(result as T);
-  };
-}
-
 }
