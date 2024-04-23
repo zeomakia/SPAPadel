@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, pipe, tap } from 'rxjs';
 import { Ubicacion } from '../models/ubicacion';
@@ -38,10 +38,10 @@ export class UbicacionService{
       return this.http.put(this.ubicacionUrl+'update/'+`${ubicacion.id}`,ubicacion, {headers});
     }
 
-    deleteUbicacion(id: number):Observable<any> {
+    deleteUbicacion(id: number):Observable<HttpResponse<any>> {
       const token= sessionStorage.getItem("access_token");
       const headers =new HttpHeaders().set('Authorization', `Bearer ${token}` );
-      return this.http.delete(this.ubicacionUrl+'delete/'+`${id}`, {headers});
+      return this.http.delete(this.ubicacionUrl+'delete/'+`${id}`, {headers, observe: 'response' });
     }
 
 

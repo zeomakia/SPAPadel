@@ -4,6 +4,7 @@ import { Ubicacion } from '../../../models/ubicacion';
 import { UbicacionService } from 'src/app/services/ubicacion-service.service';
 import { Observable } from 'rxjs';
 import { ModalService } from 'src/app/services/modal.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-ubicacion',
@@ -41,8 +42,10 @@ export class UbicacionComponent {
   }
   goBorrar(id: number){
    this.ubicacionService.deleteUbicacion(id).subscribe(
-    (status)=> {
-      this.modalService.openModalInfo("Ubicacion borrada correctamente.")
+    (response: HttpResponse<any>)=> {
+      console.log(response);
+      const mensaje = response.body && response.body.message ? response.body.message : "Ubicacion borrada correctamente.";
+      this.modalService.openModalInfo(mensaje)
       this.actualizarLista()
     },
     (err)=>  {this.modalService.openModalError("Ha habido un error borrando la ubicación.");}
