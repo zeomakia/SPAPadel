@@ -28,45 +28,16 @@ export class JugadorService {
     }    
     getJugadores(): Observable<Jugadores[]> {
       // TODO: send the message _after_ fetching the heroes
-      return this.http.get<Jugadores[]>(this.partidasUrl,{headers:this.addToken()})
-      .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<Jugadores[]>('getJugadores', []))
-      );
+      return this.http.get<Jugadores[]>(this.partidasUrl,{headers:this.addToken()});
     }
 
     getEstadisticasJugadores(): Observable<EstadisticasJugadores> {
       // TODO: send the message _after_ fetching the heroes
-      return this.http.get<EstadisticasJugadores>(this.jugadoresEstadisticasUrl,{headers:this.addToken()})
-      .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<EstadisticasJugadores>('getEstadisticasJugadores'))
-      );
+      return this.http.get<EstadisticasJugadores>(this.jugadoresEstadisticasUrl,{headers:this.addToken()});
     }
 
     getEstadisticasParejasJugador(jugadorId:number):Observable<EstadisticasParejasJugador>{
-      return this.http.get<EstadisticasParejasJugador>(this.jugadoresEstadisticasUrl+'/'+jugadorId,{headers:this.addToken()})
-      .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError<EstadisticasParejasJugador>('getEstadisticasParejasJugador'))
-      );
+      return this.http.get<EstadisticasParejasJugador>(this.jugadoresEstadisticasUrl+'/'+jugadorId,{headers:this.addToken()});
 
     }
-
-    private log(message: string) {
-    }
-    private handleError<T>(operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-    
-        // TODO: send the error to remote logging infrastructure
-        console.error(error); // log to console instead
-    
-        // TODO: better job of transforming error for user consumption
-        this.log(`${operation} failed: ${error.message}`);
-    
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-      };
-    }
-    
 }

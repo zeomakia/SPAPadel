@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.9% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/61</span>
+                <span class='fraction'>26/52</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.66% </span>
+                <span class="strong">50.98% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>28/60</span>
+                <span class='fraction'>26/51</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -186,16 +186,7 @@
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a>
-<a name='L124'></a><a href='#L124'>124</a>
-<a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a>
-<a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a>
-<a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a>
-<a name='L133'></a><a href='#L133'>133</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L124'></a><a href='#L124'>124</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -250,19 +241,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -279,18 +259,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -370,8 +352,8 @@ export class ParejasComponent {
     scales: {
         y: {
             suggestedMax: 100
-        }
-    }
+        },
+      }  
   };
   constructor(
     private parejaService: ParejaService,
@@ -381,25 +363,14 @@ export class ParejasComponent {
 &nbsp;
   ngOnInit() {
     this.getEstadisticasParejas().subscribe(
-      (estadisticas) =&gt; {
-        this.estadisticasParejas = estadisticas;
-        console.log('Estadisticas' + JSON.stringify(this.estadisticasParejas));
-        this.partidasGanadas=this.estadisticasParejas.partidasGanadas;
+<span class="fstat-no" title="function not covered" >      (e</span>stadisticas) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.estadisticasParejas = estadisticas;</span>
+        // console.log('Estadisticas' + JSON.stringify(this.estadisticasParejas));
+<span class="cstat-no" title="statement not covered" >        this.partidasGanadas=this.estadisticasParejas.partidasGanadas;</span>
 <span class="cstat-no" title="statement not covered" >        this.partidasPerdidas=this.estadisticasParejas.partidasPerdidas;</span>
 <span class="cstat-no" title="statement not covered" >        this.porcentajeVictorias=this.estadisticasParejas.porcentajeVictorias;</span>
 <span class="cstat-no" title="statement not covered" >        this.nombresParejas=this.estadisticasParejas.names;</span>
 <span class="cstat-no" title="statement not covered" >        this.nombresParejasPorcentajes=this.estadisticasParejas.namesPorcentaje;</span>
-        // Imprimir los arrays
-<span class="cstat-no" title="statement not covered" >        console.log("Array de partidas ganadas ordenadas descendentemente:");</span>
-<span class="cstat-no" title="statement not covered" >        console.log(this.partidasGanadas);</span>
-<span class="cstat-no" title="statement not covered" >        console.log("Array de partidas perdidas ordenadas descendentemente por partidaas ganadas:");</span>
-<span class="cstat-no" title="statement not covered" >        console.log(this.partidasPerdidas);</span>
-<span class="cstat-no" title="statement not covered" >        console.log("Array de nombres de jugadores en la misma posición:");</span>
-<span class="cstat-no" title="statement not covered" >        console.log(this.nombresParejas);</span>
-<span class="cstat-no" title="statement not covered" >        console.log("Array de porcentajes de victorias ordenadas descendentemente:");</span>
-<span class="cstat-no" title="statement not covered" >        console.log(this.porcentajeVictorias);</span>
-<span class="cstat-no" title="statement not covered" >        console.log("Array de nombres de jugadores en la misma posición:");</span>
-<span class="cstat-no" title="statement not covered" >        console.log(this.nombresParejasPorcentajes);   </span>
 <span class="cstat-no" title="statement not covered" >        this.doughnutChartLabels =  this.nombresParejas.splice(0,3) ;</span>
 <span class="cstat-no" title="statement not covered" >        this.doughnutChartDatasets= [</span>
             { data:this.partidasGanadas.splice(0,3), label: 'Partidas Ganadas' },
@@ -410,19 +381,21 @@ export class ParejasComponent {
             { data:this.porcentajeVictorias.splice(0,3), label: 'Porcentaje Victorias' }
           ];
       },
-<span class="fstat-no" title="function not covered" >      (e</span>rror) =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log('error en recuperar estadisticas jugadores');</span>
+      (error) =&gt; {
+        console.log('error en recuperar estadisticas jugadores');
       }
     );
     this.getParejas();
   }
   getParejas() {
+    console.log("entramos a recuperar parejas")
     this.parejaService.getParejas().subscribe(
-      (parejas) =&gt; {
-        this.parejas = parejas;
-        console.log('Parejas' + JSON.stringify(this.parejas));
+<span class="fstat-no" title="function not covered" >      (p</span>arejas) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.parejas = parejas;</span>
+<span class="cstat-no" title="statement not covered" >        console.log('Parejas' + JSON.stringify(this.parejas));</span>
       },
-<span class="fstat-no" title="function not covered" >      (e</span>rror) =&gt; {
+      (error) =&gt; {
+        this.modalService.openModalError('Error recuperando parejas' + error.error.message);
 <span class="cstat-no" title="statement not covered" >        console.log('error');</span>
       }
     );
@@ -466,7 +439,7 @@ export class ParejasComponent {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-22T19:35:56.199Z
+                at 2024-04-23T10:47:07.719Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

@@ -16,7 +16,25 @@ describe('PartidasComponent', () => {
   let fixture: ComponentFixture<PartidasComponent>;
   let partidaServiceSpy: jasmine.SpyObj<PartidaService>;
   let modalServiceSpy: jasmine.SpyObj<ModalService>;
-
+  const dummyPartidas: Partida[] = [{
+    id: 1,
+    pareja1: 'Pareja 1',
+    pareja2: 'Pareja 2',
+    ubicacion: 'Ubicación de la partida',
+    dia: new Date('2024-04-13'), // Puedes ajustar la fecha según sea necesario
+    resultado: 'Resultado de la partida',
+    parejaGanadora: 'Pareja ganadora',
+    parejaPerdedora: 'Pareja perdedora'
+  },{
+    id: 2,
+    pareja1: 'Pareja 1',
+    pareja2: 'Pareja 2',
+    ubicacion: 'Ubicación de la partida',
+    dia: new Date('2024-04-13'), // Puedes ajustar la fecha según sea necesario
+    resultado: 'Resultado de la partida',
+    parejaGanadora: 'Pareja ganadora',
+    parejaPerdedora: 'Pareja perdedora'
+  }]
   beforeEach(async () => {
     const partidaServiceSpyObj = jasmine.createSpyObj('PartidaService', ['getPartidas', 'deletePartida']);
     const modalServiceSpyObj = jasmine.createSpyObj('ModalService', ['openModalInfo']);
@@ -52,25 +70,7 @@ describe('PartidasComponent', () => {
   });
 
   it('should fetch partidas on ngOnInit', () => {
-    const dummyPartidas: Partida[] = [{
-        id: 1,
-        pareja1: 'Pareja 1',
-        pareja2: 'Pareja 2',
-        ubicacion: 'Ubicación de la partida',
-        dia: new Date('2024-04-13'), // Puedes ajustar la fecha según sea necesario
-        resultado: 'Resultado de la partida',
-        parejaGanadora: 'Pareja ganadora',
-        parejaPerdedora: 'Pareja perdedora'
-      },{
-        id: 2,
-        pareja1: 'Pareja 1',
-        pareja2: 'Pareja 2',
-        ubicacion: 'Ubicación de la partida',
-        dia: new Date('2024-04-13'), // Puedes ajustar la fecha según sea necesario
-        resultado: 'Resultado de la partida',
-        parejaGanadora: 'Pareja ganadora',
-        parejaPerdedora: 'Pareja perdedora'
-      }]
+
     partidaServiceSpy.getPartidas.and.returnValue(of(dummyPartidas));
 
     component.ngOnInit();
@@ -99,6 +99,7 @@ describe('PartidasComponent', () => {
   it('should call deletePartida and update partidas on eliminarPartida', () => {
     const id = 1;
     partidaServiceSpy.deletePartida.and.returnValue(of(true));
+    partidaServiceSpy.getPartidas.and.returnValue(of(dummyPartidas));
 
     component.eliminarPartida(id);
 

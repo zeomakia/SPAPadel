@@ -43,7 +43,7 @@ describe('UbicacionesDetailComponent', () => {
         MatInputModule,
         MatNativeDateModule,
         MatDatepickerModule,
-       ],
+       ], 
       providers: [
         { 
           provide: NgZone, 
@@ -54,7 +54,8 @@ describe('UbicacionesDetailComponent', () => {
             runOutsideAngular: (fn: Function) => fn(),
             onStable: { subscribe: () => {} },
             onUnstable: { subscribe: () => {} },
-            onError: { subscribe: () => {} }// Agregar una implementación mínima para onStable
+            onError: { subscribe: () => {} },
+            google: {subscribe: ()=>{} }// Agregar una implementación mínima para onStable
           }
         }
         ,// Proporciona una implementación mínima de onMicrotaskEmpty}, // mock NgZone

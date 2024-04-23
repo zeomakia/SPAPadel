@@ -41,8 +41,8 @@ export class ParejasComponent {
     scales: {
         y: {
             suggestedMax: 100
-        }
-    }
+        },
+      }  
   };
   constructor(
     private parejaService: ParejaService,

@@ -106,7 +106,11 @@ describe('SingUpComponent', () => {
     }; 
     component.registroForm.setValue(formValues);
 
-    const error = false;
+    const error = {
+      error:{
+        message:"error",
+      }
+    }
     oauthServiceSpy.singUpComponent.and.returnValue(throwError(error));
 
     component.onSubmit();
