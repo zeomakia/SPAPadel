@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -370,8 +361,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="58"
-                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:58</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -407,8 +398,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/components/oauth/login/login.component.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -552,15 +543,8 @@ export class LoginComponent {
     if(this.loginForm.valid){
       this.oauthService.login(
         this.loginForm.get(&#x27;usernameForm&#x27;)?.value,
-      this.loginForm.get(&#x27;passwordForm&#x27;)?.value).pipe(
-        catchError(error &#x3D;&gt; {
-          // Maneja el error aquí
-          console.log(error);
-          this.modalService.openModalError(&#x27;Ha ocurrido un error durante el inicio de sesión&#x27;);
-          // Puedes retornar un nuevo valor u Observable si lo necesitas
-          return of(null);
-        })
-      ).subscribe(response &#x3D;&gt; {
+      this.loginForm.get(&#x27;passwordForm&#x27;)?.value).subscribe(
+        (response) &#x3D;&gt; {
         if (response.token) {
           // Guarda el token en el almacenamiento local
           sessionStorage.setItem(&#x27;access_token&#x27;, response.token);
@@ -568,11 +552,10 @@ export class LoginComponent {
           sessionStorage.setItem(&#x27;userId&#x27;,response.id);
           this.router.navigate([&#x27;/partidas&#x27;]);
         }
-        else{
+        },(error)&#x3D;&gt;{
           console.log(&#x27;Usuario o contraseña incorrectos&#x27;);
           this.modalService.openModalError(&#x27;Usuario o contraseña incorrectos&#x27;);
-        }
-      });
+       });
     }
   }
 
@@ -581,6 +564,7 @@ export class LoginComponent {
     console.log(&#x27;Registering user&#x27;);
     this.router.navigate([&#x27;/singup&#x27;]);
   }
+  
   toggle() {
     this.hide &#x3D; !this.hide;
   }
@@ -701,6 +685,19 @@ export class LoginComponent {
             var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>

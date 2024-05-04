@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36% </span>
+                <span class="strong">3.7% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/25</span>
+                <span class='fraction'>1/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/15</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">34.78% </span>
+                <span class="strong">4% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/23</span>
+                <span class='fraction'>1/25</span>
             </div>
         
             
@@ -133,7 +133,10 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,25 +145,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,11 +156,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,6 +215,7 @@ import { Ubicacion } from '../../../models/ubicacion';
 import { UbicacionService } from 'src/app/services/ubicacion-service.service';
 import { Observable } from 'rxjs';
 import { ModalService } from 'src/app/services/modal.service';
+import { HttpResponse } from '@angular/common/http';
 &nbsp;
 @Component({
   selector: 'app-ubicacion',
@@ -220,22 +227,22 @@ export class UbicacionComponent {
   ubicaciones!: Ubicacion[];
   tipo: any;
   ubicacion: Ubicacion | undefined;
-  detalle: boolean = false;
-  p: number = 1;
+<span class="cstat-no" title="statement not covered" >  detalle: boolean = false;</span>
+<span class="cstat-no" title="statement not covered" >  p: number = 1;</span>
 &nbsp;
-  constructor(private ubicacionService: UbicacionService, private modalService: ModalService,
-    private readonly cd: ChangeDetectorRef)  { }
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" >u</span>bicacionService: UbicacionService,</span> private <span class="cstat-no" title="statement not covered" >modalService: ModalService,</span>
+    private readonly <span class="cstat-no" title="statement not covered" >cd: ChangeDetectorRef)</span>  { }
 &nbsp;
-  ngOnInit() {
-   this.getUbicaciones()
+<span class="fstat-no" title="function not covered" >  ngOnInit(</span>) {
+<span class="cstat-no" title="statement not covered" >   this.getUbicaciones()</span>
     .subscribe( 
 <span class="fstat-no" title="function not covered" >      (u</span>bicaciones)=&gt; { <span class="cstat-no" title="statement not covered" >this.ubicaciones = ubicaciones},</span>
-      (error)=&gt; {this.modalService.openModalError("Error recuperando ubicaciones"+error)}
+<span class="fstat-no" title="function not covered" >      (e</span>rror)=&gt; {<span class="cstat-no" title="statement not covered" >this.modalService.openModalError("Error recuperando ubicaciones"+error)}</span>
     );
   }
 &nbsp;
-  getUbicaciones(): Observable&lt;Ubicacion[]&gt; {
-    return this.ubicacionService.getUbicaciones();
+<span class="fstat-no" title="function not covered" >  getUbicaciones(</span>): Observable&lt;Ubicacion[]&gt; {
+<span class="cstat-no" title="statement not covered" >    return this.ubicacionService.getUbicaciones();</span>
      
   }
 &nbsp;
@@ -246,8 +253,10 @@ export class UbicacionComponent {
   }
 <span class="fstat-no" title="function not covered" >  goBorrar(</span>id: number){
 <span class="cstat-no" title="statement not covered" >   this.ubicacionService.deleteUbicacion(id).subscribe(</span>
-<span class="fstat-no" title="function not covered" >    (s</span>tatus)=&gt; {
-<span class="cstat-no" title="statement not covered" >      this.modalService.openModalInfo("Ubicacion borrada correctamente.")</span>
+<span class="fstat-no" title="function not covered" >    (r</span>esponse: HttpResponse&lt;any&gt;)=&gt; {
+<span class="cstat-no" title="statement not covered" >      console.log(response);</span>
+      const mensaje = <span class="cstat-no" title="statement not covered" >response.body &amp;&amp; response.body.message ? response.body.message : "Ubicacion borrada correctamente.";</span>
+<span class="cstat-no" title="statement not covered" >      this.modalService.openModalInfo(mensaje)</span>
 <span class="cstat-no" title="statement not covered" >      this.actualizarLista()</span>
     },
 <span class="fstat-no" title="function not covered" >    (e</span>rr)=&gt;  {<span class="cstat-no" title="statement not covered" >this.modalService.openModalError("Ha habido un error borrando la ubicación.");}</span>
@@ -280,7 +289,7 @@ export class UbicacionComponent {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-23T10:47:07.719Z
+                at 2024-05-03T15:05:24.152Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

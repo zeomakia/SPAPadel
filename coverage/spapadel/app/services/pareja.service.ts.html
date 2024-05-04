@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.61% </span>
+                <span class="strong">4.76% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/21</span>
+                <span class='fraction'>1/21</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">47.61% </span>
+                <span class="strong">4.76% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/21</span>
+                <span class='fraction'>1/21</span>
             </div>
         
             
@@ -132,20 +132,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,6 +146,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,15 +162,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -190,20 +190,20 @@ import { EstadisticasParejasJugador } from '../models/estadisticasParejasJugador
 })
 export class ParejaService {
 &nbsp;
-  httpOptions = {
+<span class="cstat-no" title="statement not covered" >  httpOptions = {</span>
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 &nbsp;
-  private parejasUrl = 'http://localhost:8080/api/pareja/';  // URL to web api
-  constructor(
-    private http: HttpClient) { }
+  private <span class="cstat-no" title="statement not covered" >parejasUrl = 'http://localhost:8080/api/pareja/'; </span> // URL to web api
+<span class="fstat-no" title="function not covered" >  constructor(</span>
+    private <span class="cstat-no" title="statement not covered" >http: HttpClient)</span> { }
 &nbsp;
 &nbsp;
   
-    getParejas(): Observable&lt;Pareja[]&gt; {
-      const token= sessionStorage.getItem("access_token");
-      const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-      return this.http.get&lt;Pareja[]&gt;(this.parejasUrl+'findAll',{headers});
+<span class="fstat-no" title="function not covered" >    getParejas(</span>): Observable&lt;Pareja[]&gt; {
+      const token= <span class="cstat-no" title="statement not covered" >sessionStorage.getItem("access_token");</span>
+      const headers=<span class="cstat-no" title="statement not covered" >new HttpHeaders().set('Authorization', `Bearer ${token}` );</span>
+<span class="cstat-no" title="statement not covered" >      return this.http.get&lt;Pareja[]&gt;(this.parejasUrl+'findAll',{headers});</span>
      
     } 
 &nbsp;
@@ -231,10 +231,10 @@ export class ParejaService {
 <span class="cstat-no" title="statement not covered" >    return this.http.delete&lt;Boolean&gt;(url, this.httpOptions);</span>
   }
 &nbsp;
-  getEstadisticasParejas(): Observable&lt;EstadisticasParejasJugador&gt; {
-    const token= sessionStorage.getItem("access_token");
-    const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
-    return this.http.get&lt;EstadisticasParejasJugador&gt;(this.parejasUrl+'estadisticas',{headers});
+<span class="fstat-no" title="function not covered" >  getEstadisticasParejas(</span>): Observable&lt;EstadisticasParejasJugador&gt; {
+    const token= <span class="cstat-no" title="statement not covered" >sessionStorage.getItem("access_token");</span>
+    const headers=<span class="cstat-no" title="statement not covered" >new HttpHeaders().set('Authorization', `Bearer ${token}` );</span>
+<span class="cstat-no" title="statement not covered" >    return this.http.get&lt;EstadisticasParejasJugador&gt;(this.parejasUrl+'estadisticas',{headers});</span>
   }
   
 }</pre></td></tr></table></pre>
@@ -244,7 +244,7 @@ export class ParejaService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-23T10:47:07.719Z
+                at 2024-05-03T15:05:24.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

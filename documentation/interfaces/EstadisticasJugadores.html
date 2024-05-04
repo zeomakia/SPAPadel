@@ -96,7 +96,7 @@
   <li class="breadcrumb-item">Interfaces</li>
   <li class="breadcrumb-item"
   >
-  LoginRequest</li>
+  EstadisticasJugadores</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -120,7 +120,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/models/loginRequest.ts</code>
+            <code>src/app/models/estadisticasJugadores.ts</code>
         </p>
 
 
@@ -139,15 +139,33 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#password" 
+                                        <a href="#names" 
 >
-                                            password
+                                            names
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#username" 
+                                        <a href="#namesPorcentaje" 
 >
-                                            username
+                                            namesPorcentaje
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#partidasGanadas" 
+>
+                                            partidasGanadas
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#partidasPerdidas" 
+>
+                                            partidasPerdidas
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#porcentajeVictorias" 
+>
+                                            porcentajeVictorias
                                         </a>
                                 </li>
                             </ul>
@@ -165,9 +183,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="password"></a>
-                                        <span class="name "><b>password</b>
-                                            <a href="#password">
+                                        <a name="names"></a>
+                                        <span class="name "><b>names</b>
+                                            <a href="#names">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -175,7 +193,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>password:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>names:     <code>string[]</code>
 </code>
                                     </td>
                                 </tr>
@@ -183,7 +201,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>string[]</code>
 
                                         </td>
                                     </tr>
@@ -198,9 +216,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="username"></a>
-                                        <span class="name "><b>username</b>
-                                            <a href="#username">
+                                        <a name="namesPorcentaje"></a>
+                                        <span class="name "><b>namesPorcentaje</b>
+                                            <a href="#namesPorcentaje">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -208,7 +226,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>username:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>namesPorcentaje:     <code>string[]</code>
 </code>
                                     </td>
                                 </tr>
@@ -216,7 +234,106 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="partidasGanadas"></a>
+                                        <span class="name "><b>partidasGanadas</b>
+                                            <a href="#partidasGanadas">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>partidasGanadas:     <code>number[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>number[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="partidasPerdidas"></a>
+                                        <span class="name "><b>partidasPerdidas</b>
+                                            <a href="#partidasPerdidas">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>partidasPerdidas:     <code>number[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>number[]</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="porcentajeVictorias"></a>
+                                        <span class="name "><b>porcentajeVictorias</b>
+                                            <a href="#porcentajeVictorias">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>porcentajeVictorias:     <code>number[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>number[]</code>
 
                                         </td>
                                     </tr>
@@ -232,10 +349,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface LoginRequest {
-    username: string;
-    password: string;
-  }</code></pre>
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface EstadisticasJugadores {
+  partidasGanadas:number []
+  partidasPerdidas:number []
+  porcentajeVictorias:number []
+  names:string []
+  namesPorcentaje:string []
+    
+  }
+  </code></pre>
     </div>
 </div>
 
@@ -272,7 +394,7 @@
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'LoginRequest.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'EstadisticasJugadores.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

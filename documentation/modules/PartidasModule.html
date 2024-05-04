@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -128,13 +119,13 @@
 <title>cluster_PartidasModule_imports</title>
 <polygon fill="none" stroke="black" points="353,-78 353,-130 467,-130 467,-78 353,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_PartidasModule_exports</title>
-<polygon fill="none" stroke="black" points="87,-208 87,-260 409,-260 409,-208 87,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_PartidasModule_declarations</title>
 <polygon fill="none" stroke="black" points="29,-78 29,-130 345,-130 345,-78 29,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_PartidasModule_exports</title>
+<polygon fill="none" stroke="black" points="87,-208 87,-260 409,-260 409,-208 87,-208"/>
 </g>
 <!-- PartidaDetailComponent -->
 <g id="node1" class="node">
@@ -371,6 +362,19 @@ export class PartidasModule { }</code></pre>
             var COMPODOC_CURRENT_PAGE_URL = 'PartidasModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>

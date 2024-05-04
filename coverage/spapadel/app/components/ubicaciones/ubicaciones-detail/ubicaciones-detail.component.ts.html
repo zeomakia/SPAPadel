@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26% </span>
+                <span class="strong">2% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/50</span>
+                <span class='fraction'>1/50</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">7.14% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/14</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/16</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26% </span>
+                <span class="strong">2% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/50</span>
+                <span class='fraction'>1/50</span>
             </div>
         
             
@@ -227,18 +227,18 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -248,7 +248,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,14 +260,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -377,18 +377,18 @@ import { UbicacionService } from 'src/app/services/ubicacion-service.service';
 export class UbicacionesDetailComponent {
   @Input() tipo?:string;
   @Input() ubicacion?: Ubicacion;
-  @Output() cerrarDetalle = new EventEmitter&lt;void&gt;();
-  @Output() actualizar = new EventEmitter&lt;void&gt;();
+  @Output() <span class="cstat-no" title="statement not covered" >cerrarDetalle = new EventEmitter&lt;void&gt;();</span>
+  @Output() <span class="cstat-no" title="statement not covered" >actualizar = new EventEmitter&lt;void&gt;();</span>
   @ViewChild('map', { static: true })
   mapElement!: ElementRef;
   ubicacionForm: FormGroup; 
 &nbsp;
 &nbsp;
-  constructor(private ngZone: NgZone, 
-    private ubicacionService: UbicacionService,
-    private modalService: ModalService,
-    private readonly cd: ChangeDetectorRef) { 
-    this.ubicacionForm = new FormGroup({
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" >n</span>gZone: NgZone, </span>
+    private <span class="cstat-no" title="statement not covered" >ubicacionService: UbicacionService,</span>
+    private <span class="cstat-no" title="statement not covered" >modalService: ModalService,</span>
+    private readonly <span class="cstat-no" title="statement not covered" >cd: ChangeDetectorRef)</span> { 
+<span class="cstat-no" title="statement not covered" >    this.ubicacionForm = new FormGroup({</span>
       id: new FormControl(''),
       name: new FormControl('', Validators.required),
       direccion: new FormControl('', Validators.required),
@@ -396,9 +396,9 @@ export class UbicacionesDetailComponent {
     });
   }
 &nbsp;
-  ngOnInit() {
+<span class="fstat-no" title="function not covered" >  ngOnInit(</span>) {
     // En caso de detalle recuperamos los datos y creamos el mapa
-    this.actualizarMapa();
+<span class="cstat-no" title="statement not covered" >    this.actualizarMapa();</span>
 <span class="cstat-no" title="statement not covered" >    this.actualizarForm();</span>
   }
 <span class="fstat-no" title="function not covered" >  ngOnChanges(</span>) {
@@ -409,15 +409,15 @@ export class UbicacionesDetailComponent {
     
 &nbsp;
   }
-  actualizarMapa() {
-    if(this.tipo!=='A'){
-      const ubicacionMaps = this.ubicacion?.direccion +', ' + this.ubicacion?.codigo_postal;
-      this.geocodeAddress(ubicacionMaps);
+<span class="fstat-no" title="function not covered" >  actualizarMapa(</span>) {
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(this.tipo!=='A'){</span>
+      const ubicacionMaps = <span class="cstat-no" title="statement not covered" >this.ubicacion?.direccion +', ' + this.ubicacion?.codigo_postal;</span>
+<span class="cstat-no" title="statement not covered" >      this.geocodeAddress(ubicacionMaps);</span>
     } 
     
   }
-  geocodeAddress(address: string) {
-    const geocoder = new google.maps.Geocoder();
+<span class="fstat-no" title="function not covered" >  geocodeAddress(</span>address: string) {
+    const geocoder = <span class="cstat-no" title="statement not covered" >new google.maps.Geocoder();</span>
 <span class="cstat-no" title="statement not covered" >    geocoder.geocode({ 'address': address }, <span class="fstat-no" title="function not covered" >(r</span>esults, status) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      if (status === 'OK') {</span>
 <span class="cstat-no" title="statement not covered" >        this.loadMap(results[0].geometry.location );</span>
@@ -520,7 +520,7 @@ export class UbicacionesDetailComponent {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-23T10:47:07.719Z
+                at 2024-05-03T15:05:24.152Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>

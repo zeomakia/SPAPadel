@@ -28,13 +28,13 @@
 <title>cluster_PartidasModule_imports</title>
 <polygon fill="none" stroke="black" points="353,-78 353,-130 467,-130 467,-78 353,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_PartidasModule_exports</title>
-<polygon fill="none" stroke="black" points="87,-208 87,-260 409,-260 409,-208 87,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_PartidasModule_declarations</title>
 <polygon fill="none" stroke="black" points="29,-78 29,-130 345,-130 345,-78 29,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_PartidasModule_exports</title>
+<polygon fill="none" stroke="black" points="87,-208 87,-260 409,-260 409,-208 87,-208"/>
 </g>
 <!-- PartidaDetailComponent -->
 <g id="node1" class="node">

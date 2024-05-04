@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -366,7 +357,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                            <b>Returns : </b>    <code>Observable&lt;HttpResponse&lt;any&gt;&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -668,7 +659,7 @@ Let the app continue.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpHeaders, HttpResponse } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { catchError, Observable, of, pipe, tap } from &#x27;rxjs&#x27;;
 import { Ubicacion } from &#x27;../models/ubicacion&#x27;;
@@ -708,10 +699,10 @@ export class UbicacionService{
       return this.http.put(this.ubicacionUrl+&#x27;update/&#x27;+&#x60;${ubicacion.id}&#x60;,ubicacion, {headers});
     }
 
-    deleteUbicacion(id: number):Observable&lt;any&gt; {
+    deleteUbicacion(id: number):Observable&lt;HttpResponse&lt;any&gt;&gt; {
       const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
       const headers &#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-      return this.http.delete(this.ubicacionUrl+&#x27;delete/&#x27;+&#x60;${id}&#x60;, {headers});
+      return this.http.delete(this.ubicacionUrl+&#x27;delete/&#x27;+&#x60;${id}&#x60;, {headers, observe: &#x27;response&#x27; });
     }
 
 
@@ -782,6 +773,19 @@ private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T)
             var COMPODOC_CURRENT_PAGE_URL = 'UbicacionService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>

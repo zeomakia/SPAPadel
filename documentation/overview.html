@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -648,7 +639,7 @@
             <div class="card text-center">
                 <div class="card-block">
                     <h4 class="card-title"><span class="icon ion-md-information-circle-outline"></span></h4>
-                    <p class="card-text">8 Interfaces</p>
+                    <p class="card-text">10 Interfaces</p>
                 </div>
             </div>
         </div>
@@ -713,6 +704,19 @@
             var COMPODOC_CURRENT_PAGE_URL = 'overview.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>

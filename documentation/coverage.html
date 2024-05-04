@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -158,7 +149,7 @@
             <td>JugadoresDetailComponent</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/11)</span>
+                <span class="coverage-count">(0/31)</span>
             </td>
         </tr>
         <tr class="low">
@@ -170,7 +161,7 @@
             <td>JugadoresComponent</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/12)</span>
+                <span class="coverage-count">(0/27)</span>
             </td>
         </tr>
         <tr class="low">
@@ -206,7 +197,7 @@
             <td>ParejasDetailComponent</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/26)</span>
+                <span class="coverage-count">(0/28)</span>
             </td>
         </tr>
         <tr class="low">
@@ -218,7 +209,7 @@
             <td>ParejasComponent</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/13)</span>
+                <span class="coverage-count">(0/28)</span>
             </td>
         </tr>
         <tr class="low">
@@ -240,9 +231,9 @@
             </td>
             <td>component</td>
             <td>PartidasComponent</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/14)</span>
+            <td align="right" data-sort="14">
+                <span class="coverage-percent">14 %</span>
+                <span class="coverage-count">(2/14)</span>
             </td>
         </tr>
         <tr class="low">
@@ -254,7 +245,7 @@
             <td>PerfilUserComponent</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/18)</span>
+                <span class="coverage-count">(0/19)</span>
             </td>
         </tr>
         <tr class="low">
@@ -296,13 +287,37 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
+                <a href="./interfaces/EstadisticasJugadores.html">src/app/models/estadisticasJugadores.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EstadisticasJugadores</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/EstadisticasParejasJugador.html">src/app/models/estadisticasParejasJugador.ts</a>
+            </td>
+            <td>interface</td>
+            <td>EstadisticasParejasJugador</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
                 <a href="./interfaces/Jugadores.html">src/app/models/jugadores.ts</a>
             </td>
             <td>interface</td>
             <td>Jugadores</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/6)</span>
+                <span class="coverage-count">(0/9)</span>
             </td>
         </tr>
         <tr class="low">
@@ -398,7 +413,7 @@
             <td>JugadorService</td>
             <td align="right" data-sort="0">
                 <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/8)</span>
+                <span class="coverage-count">(0/9)</span>
             </td>
         </tr>
         <tr class="low">
@@ -425,28 +440,28 @@
                 <span class="coverage-count">(0/9)</span>
             </td>
         </tr>
-        <tr class="medium">
+        <tr class="low">
             <td>
                 <!-- miscellaneous -->
                 <a href="./injectables/ParejaService.html">src/app/services/pareja.service.ts</a>
             </td>
             <td>injectable</td>
             <td>ParejaService</td>
-            <td align="right" data-sort="27">
-                <span class="coverage-percent">27 %</span>
-                <span class="coverage-count">(3/11)</span>
+            <td align="right" data-sort="20">
+                <span class="coverage-percent">20 %</span>
+                <span class="coverage-count">(2/10)</span>
             </td>
         </tr>
-        <tr class="medium">
+        <tr class="low">
             <td>
                 <!-- miscellaneous -->
                 <a href="./injectables/PartidaService.html">src/app/services/partida.service.ts</a>
             </td>
             <td>injectable</td>
             <td>PartidaService</td>
-            <td align="right" data-sort="27">
-                <span class="coverage-percent">27 %</span>
-                <span class="coverage-count">(3/11)</span>
+            <td align="right" data-sort="20">
+                <span class="coverage-percent">20 %</span>
+                <span class="coverage-count">(2/10)</span>
             </td>
         </tr>
         <tr class="low">
@@ -535,6 +550,19 @@
             var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>

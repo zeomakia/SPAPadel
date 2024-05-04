@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -701,8 +692,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="81"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:81</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:83</a></div>
                         </td>
                     </tr>
 
@@ -1047,8 +1038,10 @@ export class UbicacionesDetailComponent {
       this.modalService.openModalInfo(&#x27;Ubicación modificada correctamente&#x27;);
     else
       this.modalService.openModalInfo(&#x27;Ubicación creada correctamente&#x27;);
-
+    
+    this.actualizar.emit();
     this.cerrarDetalle.emit();
+
   }
   guardarubicacion(){
       if (this.ubicacionForm.valid) {
@@ -1063,7 +1056,6 @@ export class UbicacionesDetailComponent {
           // Llamar al servicio
           this.ubicacionService.modifyUbicacion(ubicacion).subscribe(
             (response) &#x3D;&gt; {
-                this.actualizar.emit();
                 this.goBack(); 
             },
             (error) &#x3D;&gt; {
@@ -1074,12 +1066,11 @@ export class UbicacionesDetailComponent {
         }  else{
           this.ubicacionService.addUbicacion(ubicacion).subscribe(
             (response) &#x3D;&gt; {
-                this.actualizar.emit();
                 this.goBack(); 
             },
             (error) &#x3D;&gt; {
                 console.error(&#x27;Error al crear la partida: &#x27;, JSON.stringify(error));
-                this.modalService.openModalError(&#x27;Error al crear la partida: &#x27;);
+                this.modalService.openModalError(&#x27;Error al crear la ubicacio: &#x27; +error.error.message);
             }
           );
         }
@@ -1249,6 +1240,19 @@ export class UbicacionesDetailComponent {
             var COMPODOC_CURRENT_PAGE_URL = 'UbicacionesDetailComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>

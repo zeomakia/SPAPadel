@@ -80,6 +80,13 @@ export class PerfilUserComponent {
     else 
       return null;
   }
+  logOut(){
+    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('userId');
+    window.location.reload();
+
+  }
 
   updateUserProfile():void{
       const user : userProfile={

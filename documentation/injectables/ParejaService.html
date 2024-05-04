@@ -60,15 +60,6 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
@@ -167,18 +158,13 @@
                                 <a href="#deletePareja" >deletePareja</a>
                             </li>
                             <li>
+                                <a href="#getEstadisticasParejas" >getEstadisticasParejas</a>
+                            </li>
+                            <li>
                                 <a href="#getPareja" >getPareja</a>
                             </li>
                             <li>
                                 <a href="#getParejas" >getParejas</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#handleError" >handleError</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#log" >log</a>
                             </li>
                             <li>
                                 <a href="#updatePareja" >updatePareja</a>
@@ -206,7 +192,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/pareja.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/pareja.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -269,8 +255,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/services/pareja.service.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -338,8 +324,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/services/pareja.service.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -391,6 +377,43 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getEstadisticasParejas"></a>
+                    <span class="name">
+                        <span ><b>getEstadisticasParejas</b></span>
+                        <a href="#getEstadisticasParejas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getEstadisticasParejas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/services/pareja.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;EstadisticasParejasJugador&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getPareja"></a>
                     <span class="name">
                         <span ><b>getPareja</b></span>
@@ -407,8 +430,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/services/pareja.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -474,8 +497,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/services/pareja.service.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -487,186 +510,6 @@
                             <b>Returns : </b>    <code>Observable&lt;Pareja[]&gt;</code>
 
                         </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="handleError"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>handleError</b></span>
-                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>handleError(operation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, result?: T)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="80"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:80</a></div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Type parameters :</b>
-                            <ul class="type-parameters">
-                                    <li>T</li>
-                            </ul>
-                        </td>
-                    </tr>
-
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Handle Http operation that failed.
-Let the app continue.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                                <td>Default value</td>
-                                                <td>Description</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>operation</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-                                            <td>
-                                                    <code>&#x27;operation&#x27;</code>
-                                            </td>
-
-                                            <td>
-                                                    <ul>
-<li>name of the operation that failed</li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                                <td>result</td>
-                                            <td>
-                                                        <code>T</code>
-                                            </td>
-
-                                            <td>
-                                                    Yes
-                                            </td>
-
-                                            <td>
-                                            </td>
-
-                                            <td>
-                                                    <ul>
-<li>optional value to return as the observable result</li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>(error: any) &#x3D;&gt; Observable&lt;T&gt;</code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="log"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>log</b></span>
-                        <a href="#log"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>log(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="70"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:70</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>message</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
                 </td>
             </tr>
         </tbody>
@@ -691,8 +534,8 @@ Let the app continue.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/services/pareja.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/services/pareja.service.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -770,7 +613,7 @@ Let the app continue.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/pareja.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/pareja.service.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -802,7 +645,7 @@ Let the app continue.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/pareja.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/pareja.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -819,6 +662,7 @@ Let the app continue.</p>
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { catchError, Observable, of, tap } from &#x27;rxjs&#x27;;
 import { Pareja } from &#x27;src/app/models/pareja&#x27;;
+import { EstadisticasParejasJugador } from &#x27;../models/estadisticasParejasJugador&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
@@ -838,78 +682,41 @@ export class ParejaService {
     getParejas(): Observable&lt;Pareja[]&gt; {
       const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
       const headers&#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-      return this.http.get&lt;Pareja[]&gt;(this.parejasUrl+&#x27;findAll&#x27;,{headers})
-      .pipe(
-        tap(_ &#x3D;&gt; this.log(&#x27;Get parejas&#x27;)),
-        catchError(this.handleError&lt;Pareja[]&gt;(&#x27;getPartida&#x27;, []))
-      );
+      return this.http.get&lt;Pareja[]&gt;(this.parejasUrl+&#x27;findAll&#x27;,{headers});
+     
     } 
 
     getPareja(id?: number): Observable&lt;Pareja&gt;{
       const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
       const headers&#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-      return this.http.get&lt;Pareja&gt;(this.parejasUrl+id,{headers})
-      .pipe(
-        tap(_ &#x3D;&gt; this.log(&#x27;get pareja with id &#x3D;&#x27;+id)),
-        catchError(this.handleError&lt;Pareja&gt;(&#x27;get pareja &#x27;))
-      );
+      return this.http.get&lt;Pareja&gt;(this.parejasUrl+id,{headers});
     }
 
   updatePareja(pareja:Pareja): Observable&lt;any&gt; {
     const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
     const headers&#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-    return this.http.put(this.parejasUrl, pareja, {headers}).pipe(
-      tap(_ &#x3D;&gt; this.log(&#x60;delete pareja id&#x3D;${pareja.id}&#x60;)),
-      catchError(this.handleError&lt;any&gt;(&#x27;delete pareja&#x27;))
-      );
+    return this.http.put(this.parejasUrl, pareja, {headers});
   }
   /** Method to add new partida*/
   addPareja(pareja: Pareja): Observable&lt;Pareja&gt; {
     const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
     const headers&#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-    return this.http.post&lt;Pareja&gt;(this.parejasUrl+&#x27;insert&#x27;, pareja, {headers}).pipe(
-      tap((newPareja: Pareja) &#x3D;&gt; this.log(&#x60;added pareja w/ id&#x3D;${pareja.id}&#x60;)),
-      catchError(this.handleError&lt;Pareja&gt;(&#x27;addPareja&#x27;))
-    );
+    return this.http.post&lt;Pareja&gt;(this.parejasUrl+&#x27;insert&#x27;, pareja, {headers});
   }
   
   /** DELETE: delete the pareja from the server */
   deletePareja(id: number): Observable&lt;Boolean&gt; {
     const url &#x3D; &#x60;${this.parejasUrl}delete/${id}&#x60;;
-    return this.http.delete&lt;Boolean&gt;(url, this.httpOptions).pipe(
-      tap(_ &#x3D;&gt; this.log(&#x60;deleted partida id&#x3D;${id}&#x60;)),
-      catchError(this.handleError&lt;Boolean&gt;(&#x27;deletePartida&#x27;))
-    );
-  }
-  
-  
-
-  private log(message: string) {
+    return this.http.delete&lt;Boolean&gt;(url, this.httpOptions);
   }
 
-
-  /**
- * Handle Http operation that failed.
- * Let the app continue.
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result
- */
-private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T) {
-  return (error: any): Observable&lt;T&gt; &#x3D;&gt; {
-
-    // TODO: send the error to remote logging infrastructure
-    console.error(error); // log to console instead
-
-    // TODO: better job of transforming error for user consumption
-    this.log(&#x60;${operation} failed: ${error.message}&#x60;);
-
-    // Let the app keep running by returning an empty result.
-    return of(result as T);
-  };
-}
-
-}
-</code></pre>
+  getEstadisticasParejas(): Observable&lt;EstadisticasParejasJugador&gt; {
+    const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
+    const headers&#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
+    return this.http.get&lt;EstadisticasParejasJugador&gt;(this.parejasUrl+&#x27;estadisticas&#x27;,{headers});
+  }
+  
+}</code></pre>
     </div>
 
 </div>
@@ -955,6 +762,19 @@ private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T)
             var COMPODOC_CURRENT_PAGE_URL = 'ParejaService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>

@@ -74,7 +74,7 @@ export class ParejasDetailComponent implements OnInit {
 
   ngOnInit(): void {
     (window as any)['ParejasDetailComponent'] = this;
-    console.log('Pareja init ' + JSON.stringify(this.pareja));
+    // console.log('Pareja init ' + JSON.stringify(this.pareja));
     if (this.identificador == 0) {
       this.isParejaNueva = true;
       this.getJugadores();
@@ -83,9 +83,10 @@ export class ParejasDetailComponent implements OnInit {
         this.parejas = parejas;
         this.rellenarForm();
       });
-      console.log('Pareja' + JSON.stringify(this.pareja));
+      // console.log('Pareja' + JSON.stringify(this.pareja));
     }
   }
+  
 
   ngOnChanges(changes: SimpleChanges): void {
     (window as any)['ParejasDetailComponent'] = this;

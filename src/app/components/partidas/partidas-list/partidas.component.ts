@@ -40,10 +40,23 @@ export class PartidasComponent {
       }
     );
   }
-
+  /**
+   * @method : Recoge las partidas mediante la invicacion del servicio "PartidaService"
+   * @returns {Observable<Partida[]>}
+   */
   getPartidas(): Observable<Partida[]> {
     return this.partidaService.getPartidas();
   }
+/**
+ * The `goDetail` function sets properties and scrolls to a specific element based on the provided id
+ * and action.
+ * @param {number} id - The `id` parameter in the `goDetail` function is a number that represents the
+ * identifier of an item or element. It is used to specify which item or element to show details for.
+ * @param {string} action - The `action` parameter in the `goDetail` function seems to represent the
+ * type of action being performed. It is a string parameter that likely specifies the type of detail or
+ * operation to be carried out based on the provided `id`. Examples of `action` values could be "view",
+ * "edit
+ */
   goDetail(id: number, action: string) {
     this.detalle = false;
     this.identificador = id;
@@ -54,9 +67,16 @@ export class PartidasComponent {
         this.hijo.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }, 300);
   }
+  /**
+   * Nos lleva al metodo qué crea un partido, al metodo goDetail(), con la 'A' como parámetro.
+   * @method : Nos lleva al metodo qué crea un partido, al metodo goDetail(), con la 'A' como parámetro.
+   */
   createMatch() {
     this.goDetail(0, 'A');
   }
+  /**
+   * The function `cerrarHijo()` closes a child element and scrolls the window to the top.
+   */
   cerrarHijo() {
     this.detalle = false;
     window.scrollTo(0, 0);

@@ -79,13 +79,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/JugadoresModule.html" data-type="entity-link" >JugadoresModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-JugadoresModule-8b4f1cc0617343867cf0aa9cd51de61e166226bc30b4aa559e983af0493ea1d04c876fcbf41e0b841d7d7314e3b1954e703d91454d0ead44d0201182a6a6b94c"' : 'data-bs-target="#xs-components-links-module-JugadoresModule-8b4f1cc0617343867cf0aa9cd51de61e166226bc30b4aa559e983af0493ea1d04c876fcbf41e0b841d7d7314e3b1954e703d91454d0ead44d0201182a6a6b94c"' }>
+                                            'data-bs-target="#components-links-module-JugadoresModule-50f2f645b44778857b548a5a7e8fc2594107f4f730d667ee45c83b80c519ac0a44fbb0c73918132115856aad3894e4ae145fce938b09f23dbde2c8204d1292af"' : 'data-bs-target="#xs-components-links-module-JugadoresModule-50f2f645b44778857b548a5a7e8fc2594107f4f730d667ee45c83b80c519ac0a44fbb0c73918132115856aad3894e4ae145fce938b09f23dbde2c8204d1292af"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-JugadoresModule-8b4f1cc0617343867cf0aa9cd51de61e166226bc30b4aa559e983af0493ea1d04c876fcbf41e0b841d7d7314e3b1954e703d91454d0ead44d0201182a6a6b94c"' :
-                                            'id="xs-components-links-module-JugadoresModule-8b4f1cc0617343867cf0aa9cd51de61e166226bc30b4aa559e983af0493ea1d04c876fcbf41e0b841d7d7314e3b1954e703d91454d0ead44d0201182a6a6b94c"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-JugadoresModule-50f2f645b44778857b548a5a7e8fc2594107f4f730d667ee45c83b80c519ac0a44fbb0c73918132115856aad3894e4ae145fce938b09f23dbde2c8204d1292af"' :
+                                            'id="xs-components-links-module-JugadoresModule-50f2f645b44778857b548a5a7e8fc2594107f4f730d667ee45c83b80c519ac0a44fbb0c73918132115856aad3894e4ae145fce938b09f23dbde2c8204d1292af"' }>
                                             <li class="link">
                                                 <a href="components/JugadoresComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JugadoresComponent</a>
                                             </li>
@@ -255,6 +255,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/EstadisticasJugadores.html" data-type="entity-link" >EstadisticasJugadores</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/EstadisticasParejasJugador.html" data-type="entity-link" >EstadisticasParejasJugador</a>
+                            </li>
                             <li class="link">
                                 <a href="interfaces/Jugadores.html" data-type="entity-link" >Jugadores</a>
                             </li>
