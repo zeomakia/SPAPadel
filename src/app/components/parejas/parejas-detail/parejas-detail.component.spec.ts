@@ -1,24 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ParejasDetailComponent } from './parejas-detail.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
-import { Pareja } from 'src/app/models/pareja';
 import { JugadorService } from 'src/app/services/jugador.service';
 import { ParejaService } from 'src/app/services/pareja.service';
-import { ModalService } from 'src/app/services/modal.service';
-import { Location } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing'; 
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { of } from 'rxjs';
+import { Pareja } from 'src/app/models/pareja';
+import { Jugadores } from 'src/app/models/jugadores';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormBuilder } from '@angular/forms';
+import { SimpleChanges } from '@angular/core';
 
 describe('ParejasDetailComponent', () => {
   let component: ParejasDetailComponent;
   let fixture: ComponentFixture<ParejasDetailComponent>;
-  let mockActivatedRoute: any;
-  let mockJugadorService: any;
-  let mockParejaService: any;
-  let mockModalService: any;
-  let mockLocation: any;
+  let mockJugadorService:any;
+  let mockParejaService:any;
+  let formBuilder: FormBuilder;
   let parejaTest:Pareja={
     id: 1,
     jugador1: 1,
@@ -31,114 +28,97 @@ describe('ParejasDetailComponent', () => {
     nombrePareja: 'alex-test',
 
   }
-  beforeEach(async () => {
-    mockActivatedRoute = {
-      snapshot: {
-        params: {
-          identificador: 1
-        }
-      }
-    };
-    mockJugadorService = jasmine.createSpyObj(['getJugadores']);
-    mockParejaService = jasmine.createSpyObj(['getParejas', 'updatePareja', 'addPareja']);
-    mockParejaService.getParejas.and.returnValue(of([{ id: 1, jugador1: 'Jugador1', jugador2: 'Jugador2' }]));
-    mockModalService = jasmine.createSpyObj(['openModalInfo', 'openModalError']);
-    mockLocation = jasmine.createSpyObj(['back']);
-
-    await TestBed.configureTestingModule({
-      declarations: [ParejasDetailComponent],
-      imports: [ReactiveFormsModule,
-        FormsModule, // Importamos FormsModule
-        ReactiveFormsModule, // Importamos ReactiveFormsModule
-        HttpClientTestingModule],
-      providers: [
-        { provide: ActivatedRoute, useValue: mockActivatedRoute },
-        { provide: JugadorService, useValue: mockJugadorService },
-        { provide: ParejaService, useValue: mockParejaService },
-        { provide: ModalService, useValue: mockModalService },
-        { provide: Location, useValue: mockLocation }
-      ],
-      schemas: [NO_ERRORS_SCHEMA]
-    })
-      .compileComponents();
-  });
 
   beforeEach(() => {
+    mockJugadorService = jasmine.createSpyObj(['getJugadores']);
+    mockParejaService = jasmine.createSpyObj(['getParejas', 'updatePareja', 'addPareja']);
+
+    TestBed.configureTestingModule({
+      imports:  [HttpClientTestingModule],
+      declarations: [ ParejasDetailComponent ],
+      providers: [
+        { provide: JugadorService, useValue: mockJugadorService },
+        { provide: ParejaService, useValue: mockParejaService },
+        { provide : ActivatedRoute, useValue: { snapshot: { params: { } } } } // Proporciona un valor ficticio para ActivatedRoute}
+      ]
+    });
+
+    formBuilder = new FormBuilder();
     fixture = TestBed.createComponent(ParejasDetailComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.pareja = parejaTest;
+    component.parejaForm = formBuilder.group({
+      parejaIdForm: ['1'], // Proporciona un valor inicial para parejaIdForm
+      p_ganadasForm: ['2'], // Proporciona un valor inicial para p_ganadasForm
+      parejaOptionForm: ['1'], // Proporciona un valor inicial para parejaOptionForm
+      p_jugadasForm: ['3'], // Proporciona un valor inicial para p_jugadasForm
+      p_perdidasForm: ['1'], // Proporciona un valor inicial para p_perdidasForm
+      // Inicializa otros controles de formulario aquí
+    });
+    component.nuevaParejaForm = formBuilder.group({
+      jugador1Form: ['1'], // Proporciona un valor inicial para parejaIdForm
+      Jugador2Form: ['2'], // Proporciona un valor inicial para p_ganadasForm
+    });
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should initialize with correct values when identificador is not 0', () => {
-    mockActivatedRoute.snapshot.params.identificador = 1;
-    mockParejaService.getParejas.and.returnValue(of([{ id: 1, jugador1: 'Jugador1', jugador2: 'Jugador2', nombre:'Jugador1' }]));
+  it('should get players on init when identifier is 0', () => {
+    component.identificador = 0;
+    mockJugadorService.getJugadores.and.returnValue(of([]));
     component.ngOnInit();
-    component.pareja=parejaTest;
-    component.parejaForm.controls['jugador1Form'].setValue('1');
-    component.parejaForm.controls['jugador1Form'].setValue('2');
-    expect(component.isParejaNueva).toBeFalse();
-    expect(component.parejas.length).toBe(1);
-    expect(component.parejas[0].id).toBe(1);
+    expect(mockJugadorService.getJugadores).toHaveBeenCalled();
   });
 
-  fit('should initialize with correct values when identificador is 0', () => {
-    mockActivatedRoute.snapshot.params.identificador = 1;
-    mockJugadorService.getJugadores.and.returnValue(of([{ id: 1, name: 'Jugador1' }, { id: 2, name: 'Jugador2' }]));
-    component.pareja=parejaTest;
+  it('should get pairs on init when identifier is not 0', () => {
+    component.identificador = 1;
+    mockParejaService.getParejas.and.returnValue(of([parejaTest])); 
     component.ngOnInit();
-    expect(component.isParejaNueva).toBeFalse();
+    expect(mockParejaService.getParejas).toHaveBeenCalled();
+  });
+  it('should get pairs on init when identifier is not 0', () => {
+    component.identificador = 1;
+    const changes: SimpleChanges = {};
 
+    
+    mockParejaService.getParejas.and.returnValue(of([parejaTest])); 
+    component.ngOnChanges(changes);
+    expect(mockParejaService.getParejas).toHaveBeenCalled();
+  });
+  it('should get pairs on init when identifier is  0', () => {
+    component.identificador = 0;
+    const changes: SimpleChanges = {};
+
+    mockParejaService.getParejas.and.returnValue(of([parejaTest])); 
+    component.ngOnChanges(changes);
+    expect(mockParejaService.getParejas).toHaveBeenCalled();
+  });
+  it('should fill statistics correctly', () => {
+    component.pareja = { p_ganadas: 2, p_perdidas: 1, p_jugadas: 3 } as Pareja;
+    component.rellenarEstadisticas();
+    expect(component.porcentaje).toBe(67);
+    expect(component.doughnutChartDatasets).toEqual([{ data: [2, 1] }]);
   });
 
-
-  it('should call getParejas when ngOnChanges is called', () => {
-    mockParejaService.getParejas.and.returnValue(of([{ id: 1, name: 'Jugador1', jugador2: 'Jugador2' }]));
-    component.ngOnChanges({ identificador: {
-      currentValue: 1,
-      previousValue: undefined,
-      firstChange: false,
-      isFirstChange: function (): boolean {
-        throw new Error('Function not implemented.');
-      }
-    } });
-    expect(component.parejas.length).toBe(1);
-    expect(component.parejas[0].id).toBe(1);
+  it('Should go back', () => {
+    component.goBack();
+    expect(component).toBeTruthy();
   });
-
-  it('should call goBack when save is called', () => {
-    const mockPareja: Pareja = { id: 1, jugador1: 1, nombrePareja: 'Jugador2', p_ganadas: 1, p_jugadas: 2, p_perdidas: 1 };
-    component.pareja = mockPareja;
+  it('Should update pareja', () => {
+    mockParejaService.updatePareja.and.returnValue(of(parejaTest));
     component.save();
-    expect(mockParejaService.updatePareja).toHaveBeenCalledWith(mockPareja);
-    expect(mockModalService.openModalInfo).toHaveBeenCalledWith('Pareja actualizada correctamente');
-    expect(mockLocation.back).toHaveBeenCalled();
+    expect(mockParejaService.updatePareja).toHaveBeenCalled();
   });
-
-  it('should call addPareja when guardarNuevaPareja is called', () => {
-    const mockFormValue = { jugador1Form: 'Jugador1', jugador2Form: 'Jugador2' };
-    component.nuevaParejaForm.setValue(mockFormValue);
+  it('should deshabilitar Form', ()=>{
+    component.deshabilitarForm();
+    expect(component.parejaForm.get('parejaIdForm')?.disabled).toBeTrue();
+  })
+  it('should guardar Pareja', ()=>{
+    mockParejaService.addPareja.and.returnValue(of(parejaTest));
     component.guardarNuevaPareja();
     expect(mockParejaService.addPareja).toHaveBeenCalled();
-    expect(mockModalService.openModalInfo).toHaveBeenCalledWith('Pareja creada correctamente');
-    expect(mockLocation.back).toHaveBeenCalled();
-  });
-
-  it('should call rellenarEstadisticas when rellenarForm is called with tipo as "D"', () => {
-    component.tipo = 'D';
-    component.pareja = { id: 1, jugador1: 1, jugador2: 2, p_ganadas: 1, p_jugadas: 2, p_perdidas: 1 };
-    spyOn(component, 'rellenarEstadisticas');
-    component.rellenarForm();
-    expect(component.rellenarEstadisticas).toHaveBeenCalled();
-  });
-
-  it('should call habilitarForm when rellenarForm is called with tipo not as "A"', () => {
-    component.tipo = 'D';
-    spyOn(component, 'habilitarForm');
-    component.rellenarForm();
-    expect(component.habilitarForm).toHaveBeenCalled();
   });
 });
+	

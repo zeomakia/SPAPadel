@@ -107,4 +107,9 @@ describe('PartidasComponent', () => {
     expect(modalServiceSpy.openModalInfo).toHaveBeenCalledWith("Registro eliminado correctamente");
     expect(partidaServiceSpy.getPartidas).toHaveBeenCalled();
   });
+  it('should godetail', () => {
+    component.goDetail(1,"");
+    expect(component.identificador).toEqual(1);
+  });
 });
+	

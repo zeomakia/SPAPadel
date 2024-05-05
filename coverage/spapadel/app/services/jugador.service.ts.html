@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -119,33 +119,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,33 +162,33 @@ import { EstadisticasParejasJugador } from '../models/estadisticasParejasJugador
   providedIn: 'root'
 })
 export class JugadorService {
-<span class="cstat-no" title="statement not covered" >    httpOptions = {</span>
+    httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
   
-    private <span class="cstat-no" title="statement not covered" >partidasUrl = 'http://localhost:8080/api/jugador/findAll';</span>
-    private <span class="cstat-no" title="statement not covered" >jugadoresEstadisticasUrl = 'http://localhost:8080/api/jugador/estadisticas'; </span> // URL to web api
-<span class="fstat-no" title="function not covered" >    constructor(</span>
-      private <span class="cstat-no" title="statement not covered" >http: HttpClient)</span> { }
+    private partidasUrl = 'http://localhost:8080/api/jugador/findAll';
+    private jugadoresEstadisticasUrl = 'http://localhost:8080/api/jugador/estadisticas';  // URL to web api
+    constructor(
+      private http: HttpClient) { }
 &nbsp;
 &nbsp;
-<span class="fstat-no" title="function not covered" >    addToken(</span>){
-      const token= <span class="cstat-no" title="statement not covered" >sessionStorage.getItem("access_token");</span>
-      const headers=<span class="cstat-no" title="statement not covered" >new HttpHeaders().set('Authorization', `Bearer ${token}` );</span>
-<span class="cstat-no" title="statement not covered" >      return headers;</span>
+    addToken(){
+      const token= sessionStorage.getItem("access_token");
+      const headers=new HttpHeaders().set('Authorization', `Bearer ${token}` );
+      return headers;
     }    
-<span class="fstat-no" title="function not covered" >    getJugadores(</span>): Observable&lt;Jugadores[]&gt; {
+    getJugadores(): Observable&lt;Jugadores[]&gt; {
       // TODO: send the message _after_ fetching the heroes
-<span class="cstat-no" title="statement not covered" >      return this.http.get&lt;Jugadores[]&gt;(this.partidasUrl,{headers:this.addToken()});</span>
+      return this.http.get&lt;Jugadores[]&gt;(this.partidasUrl,{headers:this.addToken()});
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    getEstadisticasJugadores(</span>): Observable&lt;EstadisticasJugadores&gt; {
+    getEstadisticasJugadores(): Observable&lt;EstadisticasJugadores&gt; {
       // TODO: send the message _after_ fetching the heroes
-<span class="cstat-no" title="statement not covered" >      return this.http.get&lt;EstadisticasJugadores&gt;(this.jugadoresEstadisticasUrl,{headers:this.addToken()});</span>
+      return this.http.get&lt;EstadisticasJugadores&gt;(this.jugadoresEstadisticasUrl,{headers:this.addToken()});
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    getEstadisticasParejasJugador(</span>jugadorId:number):Observable&lt;EstadisticasParejasJugador&gt;{
-<span class="cstat-no" title="statement not covered" >      return this.http.get&lt;EstadisticasParejasJugador&gt;(this.jugadoresEstadisticasUrl+'/'+jugadorId,{headers:this.addToken()});</span>
+    getEstadisticasParejasJugador(jugadorId:number):Observable&lt;EstadisticasParejasJugador&gt;{
+      return this.http.get&lt;EstadisticasParejasJugador&gt;(this.jugadoresEstadisticasUrl+'/'+jugadorId,{headers:this.addToken()});
 &nbsp;
     }
 }
@@ -199,7 +199,7 @@ export class JugadorService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-05-03T15:05:24.152Z
+                at 2024-05-05T17:25:29.544Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

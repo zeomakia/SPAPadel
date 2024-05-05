@@ -7,7 +7,6 @@ import { EstadisticasJugadores } from 'src/app/models/estadisticasJugadores';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BaseChartDirective } from 'ng2-charts/lib/base-chart.directive';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-
 describe('JugadoresComponent', () => {
   let component: JugadoresComponent;
   let fixture: ComponentFixture<JugadoresComponent>;
@@ -22,6 +21,7 @@ describe('JugadoresComponent', () => {
     partidasPerdidas: 5,
     partidasJugadas: 15
 };
+
 const estadisticasJugador:EstadisticasJugadores = {
   partidasGanadas:[],
   partidasPerdidas:[],
