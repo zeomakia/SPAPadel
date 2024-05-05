@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente Angular para la barra de navegación.</p>
+
+    </p>
 
 
 
@@ -245,19 +252,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">src/app/shared/navbar/navbar.component.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/shared/navbar/navbar.component.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta al inicializar el componente.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -288,10 +300,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/shared/navbar/navbar.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/navbar/navbar.component.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Nombre del usuario.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -303,18 +321,31 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 
+/**
+ * Componente Angular para la barra de navegación.
+ * @class
+ */
 @Component({
   selector: &#x27;app-navbar&#x27;,
   templateUrl: &#x27;./navbar.component.html&#x27;,
   styleUrls: [&#x27;./navbar.component.scss&#x27;]
 })
 export class NavbarComponent {
-   user?:string;
-  ngOnInit(){
-    if(sessionStorage.getItem(&#x27;user&#x27;) !&#x3D;&#x3D; null){
-      this.user&#x3D;sessionStorage.getItem(&#x27;user&#x27;)!;
-    };
+  /**
+   * Nombre del usuario.
+   * @type {string | undefined}
+   */
+  user?: string;
 
+  /**
+   * Método que se ejecuta al inicializar el componente.
+   * @method
+   * @returns {void}
+   */
+  ngOnInit() {
+    if (sessionStorage.getItem(&#x27;user&#x27;) !&#x3D;&#x3D; null) {
+      this.user &#x3D; sessionStorage.getItem(&#x27;user&#x27;)!;
+    }
   }
 }
 </code></pre>

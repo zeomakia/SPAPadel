@@ -117,6 +117,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio para gestionar ubicaciones.</p>
+
+            </p>
 
 
 
@@ -190,12 +197,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/ubicacion-service.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/services/ubicacion-service.service.ts:27</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del servicio de ubicaciones.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -204,6 +213,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -218,6 +228,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Cliente HTTP para realizar las solicitudes.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -253,14 +269,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:53</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para agregar una nueva ubicación.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -271,6 +289,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -285,6 +304,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>La ubicación a agregar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -294,7 +319,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite la respuesta de la solicitud.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -320,14 +348,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:77</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para eliminar una ubicación.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -338,6 +368,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -352,6 +383,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>El ID de la ubicación a eliminar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -361,7 +398,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite la respuesta de la solicitud.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -387,19 +427,27 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:41</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para obtener todas las ubicaciones.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
 
                         </div>
+                            <div class="io-description">
+                                <ul>
+<li>Observable que emite la lista de ubicaciones.</li>
+</ul>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -426,8 +474,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:91</a></div>
                         </td>
                     </tr>
 
@@ -442,8 +490,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Handle Http operation that failed.
-Let the app continue.</p>
+                        <div class="io-description"><p>Maneja la operación HTTP que falló.
+Permite que la aplicación continúe.</p>
 </div>
 
                             <div class="io-description">
@@ -476,7 +524,7 @@ Let the app continue.</p>
 
                                             <td>
                                                     <ul>
-<li>name of the operation that failed</li>
+<li>Nombre de la operación que falló.</li>
 </ul>
 
                                             </td>
@@ -496,7 +544,7 @@ Let the app continue.</p>
 
                                             <td>
                                                     <ul>
-<li>optional value to return as the observable result</li>
+<li>Valor opcional para devolver como resultado observable.</li>
 </ul>
 
                                             </td>
@@ -509,7 +557,10 @@ Let the app continue.</p>
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite el resultado.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -535,14 +586,16 @@ Let the app continue.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="35"
-                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:35</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/services/ubicacion-service.service.ts:65</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para modificar una ubicación existente.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -553,6 +606,7 @@ Let the app continue.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -567,6 +621,12 @@ Let the app continue.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>La ubicación a modificar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -576,7 +636,10 @@ Let the app continue.</p>
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite la respuesta de la solicitud.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -614,10 +677,16 @@ Let the app continue.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/ubicacion-service.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/ubicacion-service.service.ts:19</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opciones para las solicitudes HTTP.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -646,10 +715,16 @@ Let the app continue.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/ubicacion-service.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/services/ubicacion-service.service.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL para acceder a la API de ubicaciones.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -661,71 +736,100 @@ Let the app continue.</p>
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpHeaders, HttpResponse } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-import { catchError, Observable, of, pipe, tap } from &#x27;rxjs&#x27;;
+import { catchError, Observable, of } from &#x27;rxjs&#x27;;
 import { Ubicacion } from &#x27;../models/ubicacion&#x27;;
 
+/**
+ * Servicio para gestionar ubicaciones.
+ * @class
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class UbicacionService{
- 
+export class UbicacionService {
 
+  /**
+   * Opciones para las solicitudes HTTP.
+   * @type {any}
+   */
   httpOptions &#x3D; {
     headers: new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27; })
   };
 
-  private ubicacionUrl &#x3D; &#x27;http://localhost:8080/api/ubicacion/&#x27;;  // URL to web api
-  constructor(
-    private http: HttpClient) { }
-
-
-  
-    getUbicaciones(): Observable&lt;any&gt; {
-      const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
-    const headers &#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-     return this.http.get(this.ubicacionUrl+&#x27;findAll&#x27;, {headers});
-    }
-
-    addUbicacion(ubicacion: Ubicacion): Observable&lt;any&gt; {
-      const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
-      const headers &#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-       return this.http.post(this.ubicacionUrl+&#x27;insert&#x27;,ubicacion, {headers});
-    }
-
-
-    modifyUbicacion(ubicacion: Ubicacion): Observable&lt;any&gt; {
-      const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
-      const headers &#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-      return this.http.put(this.ubicacionUrl+&#x27;update/&#x27;+&#x60;${ubicacion.id}&#x60;,ubicacion, {headers});
-    }
-
-    deleteUbicacion(id: number):Observable&lt;HttpResponse&lt;any&gt;&gt; {
-      const token&#x3D; sessionStorage.getItem(&quot;access_token&quot;);
-      const headers &#x3D;new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60; );
-      return this.http.delete(this.ubicacionUrl+&#x27;delete/&#x27;+&#x60;${id}&#x60;, {headers, observe: &#x27;response&#x27; });
-    }
-
-
+  /**
+   * URL para acceder a la API de ubicaciones.
+   * @type {string}
+   */
+  private ubicacionUrl &#x3D; &#x27;http://localhost:8080/api/ubicacion/&#x27;;
 
   /**
- * Handle Http operation that failed.
- * Let the app continue.
- * @param operation - name of the operation that failed
- * @param result - optional value to return as the observable result
- */
-private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T) {
-  return (error: any): Observable&lt;T&gt; &#x3D;&gt; {
+   * Constructor del servicio de ubicaciones.
+   * @constructor
+   * @param {HttpClient} http - Cliente HTTP para realizar las solicitudes.
+   */
+  constructor(private http: HttpClient) { }
 
-    // TODO: send the error to remote logging infrastructure
-    console.error(error); // log to console instead
+  /**
+   * Método para obtener todas las ubicaciones.
+   * @method
+   * @returns {Observable&lt;any&gt;} - Observable que emite la lista de ubicaciones.
+   */
+  getUbicaciones(): Observable&lt;any&gt; {
+    const token &#x3D; sessionStorage.getItem(&quot;access_token&quot;);
+    const headers &#x3D; new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60;);
+    return this.http.get(this.ubicacionUrl + &#x27;findAll&#x27;, { headers });
+  }
 
-    // TODO: better job of transforming error for user consumption
+  /**
+   * Método para agregar una nueva ubicación.
+   * @method
+   * @param {Ubicacion} ubicacion - La ubicación a agregar.
+   * @returns {Observable&lt;any&gt;} - Observable que emite la respuesta de la solicitud.
+   */
+  addUbicacion(ubicacion: Ubicacion): Observable&lt;any&gt; {
+    const token &#x3D; sessionStorage.getItem(&quot;access_token&quot;);
+    const headers &#x3D; new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60;);
+    return this.http.post(this.ubicacionUrl + &#x27;insert&#x27;, ubicacion, { headers });
+  }
 
-    // Let the app keep running by returning an empty result.
-    return of(result as T);
-  };
-}
+  /**
+   * Método para modificar una ubicación existente.
+   * @method
+   * @param {Ubicacion} ubicacion - La ubicación a modificar.
+   * @returns {Observable&lt;any&gt;} - Observable que emite la respuesta de la solicitud.
+   */
+  modifyUbicacion(ubicacion: Ubicacion): Observable&lt;any&gt; {
+    const token &#x3D; sessionStorage.getItem(&quot;access_token&quot;);
+    const headers &#x3D; new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60;);
+    return this.http.put(this.ubicacionUrl + &#x27;update/&#x27; + &#x60;${ubicacion.id}&#x60;, ubicacion, { headers });
+  }
 
+  /**
+   * Método para eliminar una ubicación.
+   * @method
+   * @param {number} id - El ID de la ubicación a eliminar.
+   * @returns {Observable&lt;HttpResponse&lt;any&gt;&gt;} - Observable que emite la respuesta de la solicitud.
+   */
+  deleteUbicacion(id: number): Observable&lt;HttpResponse&lt;any&gt;&gt; {
+    const token &#x3D; sessionStorage.getItem(&quot;access_token&quot;);
+    const headers &#x3D; new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60;);
+    return this.http.delete(this.ubicacionUrl + &#x27;delete/&#x27; + &#x60;${id}&#x60;, { headers, observe: &#x27;response&#x27; });
+  }
+
+  /**
+   * Maneja la operación HTTP que falló.
+   * Permite que la aplicación continúe.
+   * @method
+   * @param {string} operation - Nombre de la operación que falló.
+   * @param {T} result - Valor opcional para devolver como resultado observable.
+   * @returns {Observable&lt;T&gt;} - Observable que emite el resultado.
+   */
+  private handleError&lt;T&gt;(operation &#x3D; &#x27;operation&#x27;, result?: T) {
+    return (error: any): Observable&lt;T&gt; &#x3D;&gt; {
+      console.error(error); // log to console instead
+      return of(result as T);
+    };
+  }
 }
 </code></pre>
     </div>

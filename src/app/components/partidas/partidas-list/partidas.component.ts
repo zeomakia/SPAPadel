@@ -9,25 +9,70 @@ import { PartidaService } from '../../../services/partida.service';
 import { ModalService } from 'src/app/services/modal.service';
 import { Observable } from 'rxjs';
 
+/**
+ * Componente Angular para mostrar y gestionar partidas.
+ * @class
+ */
 @Component({
   selector: 'app-partidas',
   templateUrl: './partidas.component.html',
   styleUrls: ['./partidas.component.scss'],
 })
 export class PartidasComponent {
+  /**
+   * Número de página para la paginación.
+   * @type {number}
+   */
   p: number = 1;
+
+  /**
+   * Lista de partidas.
+   * @type {Partida[]}
+   */
   partidas: Partida[] = [];
+
+  /**
+   * Identificador de la partida.
+   * @type {any}
+   */
   identificador: any;
+
+  /**
+   * Tipo de la partida.
+   * @type {any}
+   */
   tipo: any;
+
+  /**
+   * Indicador para mostrar o ocultar detalles.
+   * @type {boolean}
+   */
   detalle: boolean = false;
+
+  /**
+   * Referencia al elemento hijo.
+   * @type {ElementRef | undefined}
+   */
   @ViewChild('hijoRef', { read: ElementRef }) hijo!: ElementRef;
 
+  /**
+   * Constructor del componente.
+   * @constructor
+   * @param {PartidaService} partidaService - Servicio para gestionar partidas.
+   * @param {ModalService} modalService - Servicio para mostrar modales.
+   * @param {ChangeDetectorRef} cd - Detector de cambios.
+   */
   constructor(
     private partidaService: PartidaService,
     private modalService: ModalService,
     private readonly cd: ChangeDetectorRef
   ) {}
 
+  /**
+   * Método que se ejecuta al inicializar el componente.
+   * @method
+   * @returns {void}
+   */
   ngOnInit() {
     this.getPartidas().subscribe(
       (partidas) => {
@@ -36,27 +81,31 @@ export class PartidasComponent {
       },
       (error) => {
         this.modalService.openModalError(
-          'Ha habido un error recuperando las partidas' + error.error.message);
+          'Ha habido un error recuperando las partidas' + error.error.message
+        );
       }
     );
   }
+
   /**
-   * @method : Recoge las partidas mediante la invicacion del servicio "PartidaService"
-   * @returns {Observable<Partida[]>}
+   * Método para recoger las partidas mediante la invocación del servicio "PartidaService".
+   * @method
+   * @returns {Observable<Partida[]>} - Observable que emite la lista de partidas.
    */
   getPartidas(): Observable<Partida[]> {
     return this.partidaService.getPartidas();
   }
-/**
- * The `goDetail` function sets properties and scrolls to a specific element based on the provided id
- * and action.
- * @param {number} id - The `id` parameter in the `goDetail` function is a number that represents the
- * identifier of an item or element. It is used to specify which item or element to show details for.
- * @param {string} action - The `action` parameter in the `goDetail` function seems to represent the
- * type of action being performed. It is a string parameter that likely specifies the type of detail or
- * operation to be carried out based on the provided `id`. Examples of `action` values could be "view",
- * "edit
- */
+
+  /**
+   * El método `goDetail` establece propiedades y desplaza la ventana a un elemento específico
+   * según el id proporcionado y la acción.
+   * @method
+   * @param {number} id - El parámetro `id` en la función `goDetail` es un número que representa
+   * el identificador de un elemento. Se utiliza para especificar qué elemento mostrar.
+   * @param {string} action - El parámetro `action` en la función `goDetail` parece representar el
+   * tipo de acción que se está realizando. Es un parámetro de tipo string que probablemente especifica
+   * el tipo de detalle u operación a realizar según el `id` proporcionado.
+   */
   goDetail(id: number, action: string) {
     this.detalle = false;
     this.identificador = id;
@@ -67,20 +116,32 @@ export class PartidasComponent {
         this.hijo.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }, 300);
   }
+
   /**
-   * Nos lleva al metodo qué crea un partido, al metodo goDetail(), con la 'A' como parámetro.
-   * @method : Nos lleva al metodo qué crea un partido, al metodo goDetail(), con la 'A' como parámetro.
+   * Método para crear un partido.
+   * @method
+   * @returns {void}
    */
   createMatch() {
     this.goDetail(0, 'A');
   }
+
   /**
-   * The function `cerrarHijo()` closes a child element and scrolls the window to the top.
+   * La función `cerrarHijo()` cierra un elemento hijo y desplaza la ventana al principio.
+   * @method
+   * @returns {void}
    */
   cerrarHijo() {
     this.detalle = false;
     window.scrollTo(0, 0);
   }
+
+  /**
+   * Método para eliminar una partida.
+   * @method
+   * @param {number} id - Identificador de la partida a eliminar.
+   * @returns {void}
+   */
   eliminarPartida(id: number) {
     this.partidaService.deletePartida(id).subscribe(
       (resultado) => {

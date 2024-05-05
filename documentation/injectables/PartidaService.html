@@ -117,6 +117,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio para gestionar partidas.</p>
+
+            </p>
 
 
 
@@ -192,12 +199,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/partida.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/partida.service.ts:28</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del servicio de partidas.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -206,6 +215,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -220,6 +230,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Cliente HTTP para realizar las solicitudes.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -255,15 +271,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/app/services/partida.service.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/services/partida.service.ts:88</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>POST: add a new Partida to the server</p>
+                        <div class="io-description"><p>Método para agregar una nueva partida.</p>
 </div>
 
                             <div class="io-description">
@@ -275,6 +291,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -289,6 +306,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Nueva partida a agregar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -298,7 +321,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite la partida agregada.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -324,19 +350,27 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="19"
-                                    class="link-to-prism">src/app/services/partida.service.ts:19</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/services/partida.service.ts:42</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Función para añadir el token a las cabeceras HTTP.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <ul>
+<li>Cabeceras HTTP con el token añadido.</li>
+</ul>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -361,15 +395,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">src/app/services/partida.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/services/partida.service.ts:100</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>DELETE: delete the Partida from the server</p>
+                        <div class="io-description"><p>Método para eliminar una partida.</p>
 </div>
 
                             <div class="io-description">
@@ -381,6 +415,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -395,6 +430,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID de la partida a eliminar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -404,7 +445,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite un valor booleano.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -430,14 +474,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/app/services/partida.service.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/services/partida.service.ts:65</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para obtener una partida por su ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -448,6 +494,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -462,6 +509,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>ID de la partida.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -471,7 +524,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite la partida.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -497,19 +553,27 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/services/partida.service.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="53"
+                                    class="link-to-prism">src/app/services/partida.service.ts:53</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para obtener todas las partidas.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../interfaces/Partida.html" target="_self" >Observable&lt;Partida[]&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <ul>
+<li>Observable que emite la lista de partidas.</li>
+</ul>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -534,14 +598,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">src/app/services/partida.service.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/services/partida.service.ts:76</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para actualizar una partida existente.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -552,6 +618,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -566,6 +633,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Partida a actualizar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -575,7 +648,10 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <ul>
+<li>Observable que emite la respuesta de la solicitud.</li>
+</ul>
+
                             </div>
                 </td>
             </tr>
@@ -613,10 +689,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/services/partida.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/partida.service.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opciones para las solicitudes HTTP.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -645,10 +727,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/partida.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/partida.service.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>URL para acceder a la API de partidas.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -664,52 +752,101 @@ import { Observable, of } from &#x27;rxjs&#x27;;
 import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
 import { PartidaOutDTO } from &#x27;../models/partidaOutDTO&#x27;;
+
+/**
+ * Servicio para gestionar partidas.
+ * @class
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class PartidaService {
+  /**
+   * Opciones para las solicitudes HTTP.
+   * @type {any}
+   */
   httpOptions &#x3D; {
     headers: new HttpHeaders({ &#x27;Content-Type&#x27;: &#x27;application/json&#x27; }),
   };
 
-  private partidasUrl &#x3D; &#x27;http://localhost:8080/api/partida/&#x27;; // URL to web api
+  /**
+   * URL para acceder a la API de partidas.
+   * @type {string}
+   */
+  private partidasUrl &#x3D; &#x27;http://localhost:8080/api/partida/&#x27;;
+
+  /**
+   * Constructor del servicio de partidas.
+   * @constructor
+   * @param {HttpClient} http - Cliente HTTP para realizar las solicitudes.
+   */
   constructor(private http: HttpClient) {}
 
-  //funcion especifica para añador el token
+  /**
+   * Función para añadir el token a las cabeceras HTTP.
+   * @method
+   * @returns {HttpHeaders} - Cabeceras HTTP con el token añadido.
+   */
   addToken() {
     const token &#x3D; sessionStorage.getItem(&#x27;access_token&#x27;);
     const headers &#x3D; new HttpHeaders().set(&#x27;Authorization&#x27;, &#x60;Bearer ${token}&#x60;);
     return headers;
   }
+
+  /**
+   * Método para obtener todas las partidas.
+   * @method
+   * @returns {Observable&lt;Partida[]&gt;} - Observable que emite la lista de partidas.
+   */
   getPartidas(): Observable&lt;Partida[]&gt; {
-    // TODO: send the message _after_ fetching the heroes
     return this.http.get&lt;Partida[]&gt;(this.partidasUrl + &#x27;findAll&#x27;, {
       headers: this.addToken(),
     });
   }
 
+  /**
+   * Método para obtener una partida por su ID.
+   * @method
+   * @param {number} id - ID de la partida.
+   * @returns {Observable&lt;any&gt;} - Observable que emite la partida.
+   */
   getPartida(id: number): Observable&lt;any&gt; {
     const url &#x3D; &#x60;${this.partidasUrl}${id}&#x60;;
     return this.http.get&lt;Partida&gt;(url, { headers: this.addToken() });
   }
 
+  /**
+   * Método para actualizar una partida existente.
+   * @method
+   * @param {Partida} partida - Partida a actualizar.
+   * @returns {Observable&lt;any&gt;} - Observable que emite la respuesta de la solicitud.
+   */
   updatePartida(partida: Partida): Observable&lt;any&gt; {
     return this.http.post(this.partidasUrl + &#x60;update/${partida.id}&#x60;, partida, {
       headers: this.addToken(),
     });
   }
 
-  /** POST: add a new Partida to the server */
+  /**
+   * Método para agregar una nueva partida.
+   * @method
+   * @param {Partida} partida - Nueva partida a agregar.
+   * @returns {Observable&lt;Partida&gt;} - Observable que emite la partida agregada.
+   */
   addPartida(partida: Partida): Observable&lt;Partida&gt; {
     return this.http.post&lt;Partida&gt;(this.partidasUrl + &#x27;insert&#x27;, partida, {
       headers: this.addToken(),
     });
   }
 
-  /** DELETE: delete the Partida from the server */
+  /**
+   * Método para eliminar una partida.
+   * @method
+   * @param {number} partida - ID de la partida a eliminar.
+   * @returns {Observable&lt;Boolean&gt;} - Observable que emite un valor booleano.
+   */
   deletePartida(partida: number): Observable&lt;Boolean&gt; {
     const url &#x3D; &#x60;${this.partidasUrl}delete/${partida}&#x60;;
-
     return this.http.delete&lt;Boolean&gt;(url, { headers: this.addToken() });
   }
 }

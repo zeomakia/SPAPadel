@@ -118,6 +118,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente para mostrar los detalles de una ubicación y permitir su modificación.</p>
+
+    </p>
 
 
 
@@ -286,12 +293,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:52</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente de detalle de ubicaciones.</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -300,6 +309,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -314,6 +324,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Zona de Angular.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>ubicacionService</td>
@@ -326,6 +342,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Servicio de ubicaciones.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>modalService</td>
@@ -338,6 +360,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Servicio de modales.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>cd</td>
@@ -350,6 +378,12 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <ul>
+<li>Referencia para el cambio de detección.</li>
+</ul>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -378,9 +412,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:21</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Tipo de acción a realizar (&#39;A&#39; para agregar, &#39;M&#39; para modificar, &#39;D&#39; para detalle).</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -399,9 +439,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:27</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Ubicación a mostrar o modificar.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -423,9 +469,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:39</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido al actualizar la información de la ubicación.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -444,9 +496,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:33</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Evento emitido al cerrar el detalle de la ubicación.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -477,19 +535,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="118"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:118</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:197</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para actualizar el formulario.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -514,19 +577,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:101</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para actualizar el mapa.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -551,19 +619,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="144"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:144</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:235</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para deshabilitar el formulario.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -588,14 +661,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:114</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para geocodificar una dirección y cargar el mapa.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -606,6 +681,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -620,6 +696,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Dirección a geocodificar.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -655,19 +737,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="73"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:73</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:145</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para regresar al componente anterior.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -692,19 +779,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="83"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:83</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:160</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para guardar la ubicación.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -729,19 +821,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="139"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:139</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="224"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:224</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para habilitar el formulario.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -766,14 +863,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:131</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método para cargar el mapa.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -784,6 +883,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -798,6 +898,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>Ubicación para centrar el mapa.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -833,19 +939,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="39"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:39</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:91</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta al detectar cambios en las entradas del componente.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -870,19 +981,24 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="34"
-                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:34</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:81</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Método que se ejecuta al inicializar el componente.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -922,10 +1038,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:46</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referencia al elemento del mapa.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -948,10 +1070,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/ubicaciones/ubicaciones-detail/ubicaciones-detail.component.ts:52</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Formulario para la ubicación.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -967,25 +1095,67 @@ import { Ubicacion } from &#x27;src/app/models/ubicacion&#x27;;
 import { ModalService } from &#x27;src/app/services/modal.service&#x27;;
 import { UbicacionService } from &#x27;src/app/services/ubicacion-service.service&#x27;;
 
+/**
+ * Componente para mostrar los detalles de una ubicación y permitir su modificación.
+ * @class
+ */
 @Component({
   selector: &#x27;app-ubicaciones-detail&#x27;,
   templateUrl: &#x27;./ubicaciones-detail.component.html&#x27;,
-  styleUrl: &#x27;./ubicaciones-detail.component.scss&#x27;
+  styleUrl: &#x27;./ubicaciones-detail.component.scss&#x27; // Aquí debería ser styleUrls
 })
 export class UbicacionesDetailComponent {
-  @Input() tipo?:string;
+  /**
+   * Tipo de acción a realizar (&#x27;A&#x27; para agregar, &#x27;M&#x27; para modificar, &#x27;D&#x27; para detalle).
+   * @type {string | undefined}
+   */
+  @Input() tipo?: string;
+
+  /**
+   * Ubicación a mostrar o modificar.
+   * @type {Ubicacion | undefined}
+   */
   @Input() ubicacion?: Ubicacion;
+
+  /**
+   * Evento emitido al cerrar el detalle de la ubicación.
+   * @type {EventEmitter&lt;void&gt;}
+   */
   @Output() cerrarDetalle &#x3D; new EventEmitter&lt;void&gt;();
+
+  /**
+   * Evento emitido al actualizar la información de la ubicación.
+   * @type {EventEmitter&lt;void&gt;}
+   */
   @Output() actualizar &#x3D; new EventEmitter&lt;void&gt;();
+
+  /**
+   * Referencia al elemento del mapa.
+   * @type {ElementRef}
+   */
   @ViewChild(&#x27;map&#x27;, { static: true })
   mapElement!: ElementRef;
-  ubicacionForm: FormGroup; 
 
+  /**
+   * Formulario para la ubicación.
+   * @type {FormGroup}
+   */
+  ubicacionForm: FormGroup;
 
-  constructor(private ngZone: NgZone, 
+  /**
+   * Constructor del componente de detalle de ubicaciones.
+   * @constructor
+   * @param {NgZone} ngZone - Zona de Angular.
+   * @param {UbicacionService} ubicacionService - Servicio de ubicaciones.
+   * @param {ModalService} modalService - Servicio de modales.
+   * @param {ChangeDetectorRef} cd - Referencia para el cambio de detección.
+   */
+  constructor(
+    private ngZone: NgZone,
     private ubicacionService: UbicacionService,
     private modalService: ModalService,
-    private readonly cd: ChangeDetectorRef) { 
+    private readonly cd: ChangeDetectorRef
+  ) {
     this.ubicacionForm &#x3D; new FormGroup({
       id: new FormControl(&#x27;&#x27;),
       name: new FormControl(&#x27;&#x27;, Validators.required),
@@ -994,36 +1164,61 @@ export class UbicacionesDetailComponent {
     });
   }
 
+  /**
+   * Método que se ejecuta al inicializar el componente.
+   * @method
+   * @returns {void}
+   */
   ngOnInit() {
-    // En caso de detalle recuperamos los datos y creamos el mapa
     this.actualizarMapa();
     this.actualizarForm();
   }
-  ngOnChanges() {
-    // En caso de detalle recuperamos los datos y creamos el mapa
-    this.actualizarMapa();
-   
-    this.actualizarForm();
-    
 
+  /**
+   * Método que se ejecuta al detectar cambios en las entradas del componente.
+   * @method
+   * @returns {void}
+   */
+  ngOnChanges() {
+    this.actualizarMapa();
+    this.actualizarForm();
   }
+
+  /**
+   * Método para actualizar el mapa.
+   * @method
+   * @returns {void}
+   */
   actualizarMapa() {
-    if(this.tipo!&#x3D;&#x3D;&#x27;A&#x27;){
-      const ubicacionMaps &#x3D; this.ubicacion?.direccion +&#x27;, &#x27; + this.ubicacion?.codigo_postal;
+    if (this.tipo !&#x3D;&#x3D; &#x27;A&#x27;) {
+      const ubicacionMaps &#x3D; this.ubicacion?.direccion + &#x27;, &#x27; + this.ubicacion?.codigo_postal;
       this.geocodeAddress(ubicacionMaps);
-    } 
-    
+    }
   }
+
+  /**
+   * Método para geocodificar una dirección y cargar el mapa.
+   * @method
+   * @param {string} address - Dirección a geocodificar.
+   * @returns {void}
+   */
   geocodeAddress(address: string) {
     const geocoder &#x3D; new google.maps.Geocoder();
     geocoder.geocode({ &#x27;address&#x27;: address }, (results, status) &#x3D;&gt; {
       if (status &#x3D;&#x3D;&#x3D; &#x27;OK&#x27;) {
-        this.loadMap(results[0].geometry.location );
+        this.loadMap(results[0].geometry.location);
       } else {
         alert(&#x27;Geocode was not successful for the following reason: &#x27; + status);
-      } 
-    });    
-  }  
+      }
+    });
+  }
+
+  /**
+   * Método para cargar el mapa.
+   * @method
+   * @param {any} location - Ubicación para centrar el mapa.
+   * @returns {void}
+   */
   loadMap(location: any) {
     const mapProperties &#x3D; {
       center: location,
@@ -1033,64 +1228,76 @@ export class UbicacionesDetailComponent {
     const map &#x3D; new google.maps.Map(this.mapElement.nativeElement, mapProperties);
   }
 
+  /**
+   * Método para regresar al componente anterior.
+   * @method
+   * @returns {void}
+   */
   goBack(): void {
-    if(this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;)
+    if (this.tipo &#x3D;&#x3D;&#x3D; &#x27;M&#x27;)
       this.modalService.openModalInfo(&#x27;Ubicación modificada correctamente&#x27;);
     else
       this.modalService.openModalInfo(&#x27;Ubicación creada correctamente&#x27;);
-    
+
     this.actualizar.emit();
     this.cerrarDetalle.emit();
-
   }
-  guardarubicacion(){
-      if (this.ubicacionForm.valid) {
-        // Crear una nueva instancia de Partida
-        const ubicacion: Ubicacion &#x3D; {
-          id: this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;?this.ubicacionForm.get(&#x27;id&#x27;)?.value:0,
-          name: this.ubicacionForm.get(&#x27;name&#x27;)?.value,
-          direccion: this.ubicacionForm.get(&#x27;direccion&#x27;)?.value,
-          codigo_postal: this.ubicacionForm.get(&#x27;codigo_postal&#x27;)?.value,
-        };
-        if(this.tipo&#x3D;&#x3D;&#x3D;&#x27;M&#x27;){
-          // Llamar al servicio
-          this.ubicacionService.modifyUbicacion(ubicacion).subscribe(
-            (response) &#x3D;&gt; {
-                this.goBack(); 
-            },
-            (error) &#x3D;&gt; {
-                console.error(&#x27;Error al modificar la partida: &#x27;, JSON.stringify(error));
-                this.modalService.openModalError(&#x27;Error al modificar la partida: &#x27;);
-            }
-          );
-        }  else{
-          this.ubicacionService.addUbicacion(ubicacion).subscribe(
-            (response) &#x3D;&gt; {
-                this.goBack(); 
-            },
-            (error) &#x3D;&gt; {
-                console.error(&#x27;Error al crear la partida: &#x27;, JSON.stringify(error));
-                this.modalService.openModalError(&#x27;Error al crear la ubicacio: &#x27; +error.error.message);
-            }
-          );
-        }
+
+  /**
+   * Método para guardar la ubicación.
+   * @method
+   * @returns {void}
+   */
+  guardarubicacion() {
+    if (this.ubicacionForm.valid) {
+      const ubicacion: Ubicacion &#x3D; {
+        id: this.tipo &#x3D;&#x3D;&#x3D; &#x27;M&#x27; ? this.ubicacionForm.get(&#x27;id&#x27;)?.value : 0,
+        name: this.ubicacionForm.get(&#x27;name&#x27;)?.value,
+        direccion: this.ubicacionForm.get(&#x27;direccion&#x27;)?.value,
+        codigo_postal: this.ubicacionForm.get(&#x27;codigo_postal&#x27;)?.value,
+      };
+      if (this.tipo &#x3D;&#x3D;&#x3D; &#x27;M&#x27;) {
+        this.ubicacionService.modifyUbicacion(ubicacion).subscribe(
+          (response) &#x3D;&gt; {
+            this.goBack();
+          },
+          (error) &#x3D;&gt; {
+            console.error(&#x27;Error al modificar la partida: &#x27;, JSON.stringify(error));
+            this.modalService.openModalError(&#x27;Error al modificar la partida: &#x27;);
+          }
+        );
+      } else {
+        this.ubicacionService.addUbicacion(ubicacion).subscribe(
+          (response) &#x3D;&gt; {
+            this.goBack();
+          },
+          (error) &#x3D;&gt; {
+            console.error(&#x27;Error al crear la partida: &#x27;, JSON.stringify(error));
+            this.modalService.openModalError(&#x27;Error al crear la ubicacio: &#x27; + error.error.message);
+          }
+        );
       }
-     
     }
-  
-   actualizarForm(): void  {
-    if(this.tipo!&#x3D;&#x3D;&#x27;A&#x27;){
+  }
+
+  /**
+   * Método para actualizar el formulario.
+   * @method
+   * @returns {void}
+   */
+  actualizarForm(): void {
+    if (this.tipo !&#x3D;&#x3D; &#x27;A&#x27;) {
       this.ubicacionForm.setValue({
         id: this.ubicacion?.id,
-        name:this.ubicacion?.name,
+        name: this.ubicacion?.name,
         direccion: this.ubicacion?.direccion,
         codigo_postal: this.ubicacion?.codigo_postal
       });
-      if(this.tipo&#x3D;&#x3D;&#x3D;&#x27;D&#x27;)
+      if (this.tipo &#x3D;&#x3D;&#x3D; &#x27;D&#x27;)
         this.deshabilitarForm();
       else
         this.habilitarForm();
-    }else{
+    } else {
       this.ubicacionForm &#x3D; new FormGroup({
         id: new FormControl(&#x27;&#x27;),
         name: new FormControl(&#x27;&#x27;, Validators.required),
@@ -1099,18 +1306,29 @@ export class UbicacionesDetailComponent {
       });
     }
   }
+
+  /**
+   * Método para habilitar el formulario.
+   * @method
+   * @returns {void}
+   */
   habilitarForm() {
     this.ubicacionForm.get(&#x27;name&#x27;)?.enable();
     this.ubicacionForm.get(&#x27;direccion&#x27;)?.enable();
     this.ubicacionForm.get(&#x27;codigo_postal&#x27;)?.enable();
   }
+
+  /**
+   * Método para deshabilitar el formulario.
+   * @method
+   * @returns {void}
+   */
   deshabilitarForm() {
     this.ubicacionForm.get(&#x27;name&#x27;)?.disable();
     this.ubicacionForm.get(&#x27;direccion&#x27;)?.disable();
     this.ubicacionForm.get(&#x27;codigo_postal&#x27;)?.disable();
   }
 }
-
 </code></pre>
     </div>
 
