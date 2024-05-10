@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OauthService } from '../../../services/oauth.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -15,7 +15,7 @@ import { of } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   /**
    * Formulario de inicio de sesión.
    * @type {FormGroup}
@@ -45,6 +45,19 @@ export class LoginComponent {
       passwordForm: new FormControl('', Validators.required),
     });
   } 
+  ngOnInit(): void {
+   let singup= sessionStorage.getItem('singUp');
+
+   if(singup ){
+    sessionStorage.removeItem('singUp');
+    window.location.reload();
+   }else{
+    if(sessionStorage.getItem('newUser')){
+      this.modalService.openModalInfo("Bienvenid@! " + sessionStorage.getItem('newUser'));
+      sessionStorage.removeItem('newUser');
+    }
+  }
+  }
 
   /**
    * Método para iniciar sesión.

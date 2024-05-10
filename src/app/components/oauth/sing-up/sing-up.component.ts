@@ -111,7 +111,9 @@ export class SingUpComponent {
           (response) =>
           {
             console.log("Usuari: " + this.registroForm.get("user")?.value + " creat correctament!");
-            this.modalService.openModalInfo("Benvingut/da! " + this.registroForm.get("user")?.value);
+           
+            sessionStorage.setItem('singUp','S');
+            sessionStorage.setItem('newUser',this.registroForm.get("user")?.value);
             this.router.navigate(['/login']);
           },
           (error)=>{
